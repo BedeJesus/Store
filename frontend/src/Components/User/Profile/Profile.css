@@ -1,0 +1,73 @@
+.dois {
+    background-color: #2b2d42;
+    color: whitesmoke;
+    text-align: left;
+    padding: 10%;
+    align-content: center;
+    margin: 2.5vh 7vh 7vh 7vh;
+    border-radius: 40px;
+    padding: 0.1vh 5vh 2vh 5vh;
+
+}
+
+.dois .cabecalho .login h4 {
+    font-size: 2.4rem;
+}
+
+.dois .cabecalho h5 {
+
+    font-size: 1.4rem;
+
+}
+
+.dois form .dados {
+    display: grid;
+
+}
+
+.dois form label {
+
+    font-size: 1.4rem;
+}
+
+.dois form .dados_cliente {
+    background-color: transparent;
+    border-radius: 5px;
+    border-color: whitesmoke;
+    color: white;
+    padding: 0.7%;
+}
+
+.dois form input:focus {
+    outline-color: yellow;
+}
+
+.dois form .resto {
+    display: flex;
+
+}
+
+.dois form .resto button {
+    flex: 1;
+    height: 4rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    background-color: red;
+    color: white;
+    transition: .3s;
+    font-weight: bold;
+
+}
+
+.dois form .resto .btn1 {
+    margin-right: 2%;
+
+}
+
+.dois form .resto button:hover {
+
+    background-color: white;
+    color: red;
+    cursor: pointer;
+
+}

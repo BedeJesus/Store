@@ -1,0 +1,104 @@
+.Card {
+
+    border-radius: 10px;
+    overflow: hidden;
+    border: 3px solid;
+    display: flex;
+    flex-direction: column;
+    margin: 1.5%;
+    width: 22%;
+    height: 27em;
+    background-color:#ef233c;
+    border-color: #ef233c;
+
+}
+
+.Card .Title {
+    padding: 5px 0px;
+    display: flex;
+    justify-content: center;
+    color: rgb(244, 211, 211);
+    font-size: 1.4rem;
+    font-weight: bold;
+}
+
+.Card .Content {
+    flex:1;
+    display: grid;
+    grid-template-rows: 48% 36% 6% 10%;
+    background-color: white;
+    color: black;
+    padding: 0.5%;
+    
+
+}
+
+.Card img {
+    
+    grid-row-start:1 ;
+    grid-row-end:2 ;
+    height:11em;
+    width: 100%;
+
+}
+
+
+.Card .description {
+    display: flex;
+    overflow:hidden;
+    flex-direction: column;
+    justify-content: center;
+    font-size: 1em;
+    
+}
+
+.Card .price {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    font-weight: bold;
+    padding-top: 1%;
+    margin-bottom: 5%;
+}
+
+
+.Card .button a{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   
+    text-decoration: none;
+    font-weight: bold;
+    color:white;
+    background-color: #d90429;
+    padding: 2% 4% 2% 4% ;
+    border: black 2px solid;
+    border-radius:10px ;
+    transition: .4s;
+}
+
+.Card .button a:hover{
+    background-color: #2b2d42;
+}
+
+@media(max-width: 900px) {
+
+    .Card {
+        margin: 1.5%;
+        width: 30%;
+        height: 26em;
+
+    }
+}
+
+@media(max-width : 650px) {
+
+    .Card {
+
+        margin: 1.5%;
+        width: 47%;
+        height: 25em;
+
+    }
+
+}
+

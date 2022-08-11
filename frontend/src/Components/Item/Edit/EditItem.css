@@ -1,0 +1,72 @@
+.cad_produto {
+    background-color: rgb(20, 20, 93);
+    color: whitesmoke;
+    text-align: left;
+    padding: 10%;
+    align-content: center;
+    margin: 2.5vh 7vh 7vh 7vh;
+    border-radius: 40px;
+    padding: 0.1vh 5vh 2vh 5vh;
+
+}
+
+.cad_produto .cabecalho .login h4 {
+    font-size: 2.4rem;
+}
+
+.cad_produto .cabecalho h5 {
+
+    font-size: 1.4rem;
+
+}
+
+.cad_produto form .dados {
+    display: grid;
+
+}
+
+.cad_produto form label {
+
+    font-size: 1.4rem;
+}
+
+.cad_produto form .dados_produto {
+    background-color: transparent;
+    border-radius: 5px;
+    border-color: whitesmoke;
+    color: white;
+    padding: 0.7%;
+}
+
+.cad_produto form input:focus {
+    outline-color: yellow;
+}
+
+.cad_produto form .resto {
+    display: flex;
+
+}
+
+.cad_produto form .resto button {
+    flex: 1;
+    height: 4rem;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    background-color: red;
+    color: white;
+    font-weight: bold;
+
+}
+
+.cad_produto form .resto .btn1 {
+    margin-right: 2%;
+
+}
+
+.cad_produto form .resto button:hover {
+
+    background-color:white;
+    color: red;
+    cursor: pointer;
+
+}

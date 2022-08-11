@@ -1,0 +1,92 @@
+.myrents .rents {
+    display: flex;
+    justify-content:space-around;
+    
+    flex-wrap: wrap;
+    margin-bottom: 1%;
+}
+
+.rents .pet_data{
+    display: flex;
+    flex-direction:column;
+    border-bottom: solid 4px black;
+}
+
+
+.myrents h2{
+    font-weight:bold;
+}
+
+.pet_data img {
+    display: flex;
+    justify-content: center;
+    width: 23em;
+    height: 23em;
+    border-radius: 10px;
+}
+
+.myrents .desc{
+    display: flex;
+    height: 19em;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+
+.myrents .desc .item_title {
+    font-size: 1.8em;
+    font-weight: bold;
+    text-decoration: none;
+    color: black;
+    transition: .3s;
+}
+
+.myrents .desc .item_title:hover {
+    color:red;
+}
+
+.myrents .desc span {
+
+    font-size: 1.3em;
+    font-weight:400;
+    justify-content: center;
+}
+
+
+/* Media query */
+
+@media(max-width : 1515px) {
+
+    .rents .pet_data{
+        margin-left:2% ;
+        margin-right:2% ;
+    }
+
+    .myrents img {
+        width: 23em;
+        height: 23em;
+    }
+
+    .myrents .desc{
+        height: 17em;
+    }
+    
+    
+
+    
+
+}
+
+@media(max-width : 679px) {
+
+    .myrents .desc{
+        height: 17em;
+    }  
+
+}
+
+
+
+
+
