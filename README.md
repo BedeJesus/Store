@@ -1,7 +1,8 @@
 <h1>Store</h1>
-👨‍💻 Site para os usuários poderem disponibilizar um item para locação,e também alugar itens de outros usuários<br>
-🧑🏽‍🦰 Uma pessoa não pode alugar o proprio item e pode colocar varios itens para locação<br>
-🤏🏽 Site totalmente responsivo
+👨‍💻 Site para os usuários poderem disponibilizar um item para locação,e também alugar itens de outros usuários.<br>
+🧑🏽‍🦰 Uma pessoa não pode alugar o proprio item e pode colocar varios itens para locação.<br>
+🪄 Site com cadastro e login, utilizando JWT para a autenticação.<br>
+🤏🏽 Site totalmente responsivo.
 
 <h2>Linguagens utilizadas:</h2>
     <h3>Front-end:</h3>
