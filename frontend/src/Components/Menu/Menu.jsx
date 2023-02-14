@@ -20,25 +20,17 @@ export default function Menu(props) {
                         <Link to='/myitems'>Meus Itens</Link>
                         <Link to='/myrents'>Minhas locações</Link>
                         <Link to='/user/profile'>Perfil</Link>
-
                     </>
 
                 ) : (
                     <>
                         <Link to='/login'>Login</Link>
                         <Link to='/register'>Cadastro</Link>
-
-
                     </>
 
                 )
 
                 }
-
-
-
-
-
 
             </div>
 

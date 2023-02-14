@@ -14,7 +14,7 @@ export default function Register() {
     //get user data
     function handleOnChange(e) {
         setUser({ ...user, [e.target.name]: e.target.value })
-        console.log(user)
+       
     }
 
     function handleSubmit(e) {
@@ -28,7 +28,6 @@ export default function Register() {
 
             <div className="cabecalho">
                 <div className="login">
-
                     <h4>{<SignIn size={30} />}  Faça seu Cadastro</h4>
                 </div>
                 <h5>Entre com suas informações de cadastro</h5>

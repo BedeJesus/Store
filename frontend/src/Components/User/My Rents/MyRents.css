@@ -1,7 +1,6 @@
 .myrents .rents {
     display: flex;
     justify-content:space-around;
-    
     flex-wrap: wrap;
     margin-bottom: 1%;
 }
@@ -71,10 +70,6 @@
     .myrents .desc{
         height: 17em;
     }
-    
-    
-
-    
 
 }
 

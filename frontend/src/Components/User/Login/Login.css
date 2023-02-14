@@ -57,13 +57,19 @@
 
 .um form .resto button {
     grid-column: span 3;
-    margin: 15px;
+    margin: 15px 0;
     border-radius: 10px;
     font-size: 1.4rem;
     background-color: red;
     color: white;
     font-weight: bold;
     transition: .3s;
+    padding: 1em 0 ;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+    
 
 }
 
