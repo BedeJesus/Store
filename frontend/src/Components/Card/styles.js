@@ -77,7 +77,7 @@ export const Price = styled.div`
     margin-bottom: 5%;
 `
 
-export const Button = styled.button`
+export const CardButton = styled.div`
 
     
    a{

@@ -1,11 +1,11 @@
 import React from "react";
-import './Login.css'
 import { SignIn } from 'phosphor-react'
 import { Link } from 'react-router-dom'
 import { useState, useContext } from 'react'
 
 import { Context } from '../../../context/UserContext'
 
+import { Container, Data, Header, Input, Label, Footer } from './styles'
 
 export default function Login() {
 
@@ -14,7 +14,7 @@ export default function Login() {
 
     function handleChange(e) {
         setUser({ ...user, [e.target.name]: e.target.value })
-        
+
 
     }
 
@@ -26,39 +26,39 @@ export default function Login() {
 
 
     return (
-        <div class='um'>
+        <Container>
 
-            <div className="cabecalho">
-                <div className="login">
+            <Header>
 
-                    <h4>{<SignIn size={30} />}  Faça seu Login</h4>
-                </div>
-                <h5>Entre com suas informações de login</h5>
+                <h1>{<SignIn size={30} />}  Faça seu Login</h1>
+                <h2>Entre com suas informações de login</h2>
 
-            </div>
+            </Header>
 
             <form onSubmit={handleSubmit}>
-                <div className="dados">
-                    <label for="email">E-mail</label>
-                    <input type="email" name="email" placeholder="Digite seu e-mail" className="dados_cliente" onChange={handleChange} />
+
+                <Data>
+                    <Label for="email">E-mail</Label>
+                    <Input type="email" name="email" placeholder="Digite seu e-mail"  onChange={handleChange} />
 
                     <br />
 
-                    <label for="senha" >Senha</label>
-                    <input type="password" name="password" placeholder="Digite sua senha" className="dados_cliente" onChange={handleChange} />
+                    <Label for="senha" >Senha</Label>
+                    <Input type="password" name="password" placeholder="Digite sua senha" onChange={handleChange} />
                     <br />
-                </div>
 
-                <div className="resto">
+                </Data>
+
+                <Footer>
 
                     <button type="submit">Entrar</button>
                     <h6>Não tem uma conta? <Link to='/register'>Registre-se</Link></h6>
 
-                </div>
+                </Footer>
 
             </form>
 
-        </div>
+        </Container>
 
 
     )

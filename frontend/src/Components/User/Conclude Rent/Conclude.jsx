@@ -5,6 +5,8 @@ import { useParams } from 'react-router'
 import { ArrowLeft, ArrowRight } from 'phosphor-react';
 import './Conclude.css'
 
+import {Container,Button,Data,LongDescription,Price} from './styles'
+
 export default function Conclude() {
 
     const [item, setItem] = useState({})
@@ -62,7 +64,8 @@ export default function Conclude() {
         <>
 
             {item.title && (
-                <section className='details'>
+
+                <Container>
 
                     <div className='slider'>
 
@@ -97,26 +100,27 @@ export default function Conclude() {
                     </div>
 
 
-                    <div className='desc'>
+                    <Data>
 
                         <h1>Nome do alugador:</h1><p></p>
-                        <span className='long_desc'>{item.renter.name}</span>
+                        <LongDescription>{item.renter.name}</LongDescription>
 
                         <p></p>
 
                         <h1>Valor da locação:</h1>
-                        <span className='price'>{`R$${item.price}`}</span>
+                        <Price>{`R$${item.price}`}</Price>
 
                         <p></p>
 
                         {token ? (
-                            <button onClick={() => concludeRent(item._id)}>Concluir Locação</button>
+                            <Button onClick={() => concludeRent(item._id)}>Concluir Locação</Button>
                         ) : (
                             <></>
                         )}
 
-                    </div>
-                </section>
+                    </Data>
+
+                </Container>
             )}
 
         </>

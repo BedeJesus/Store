@@ -1,8 +1,7 @@
-import './Sale.css'
 import { useEffect, useState } from "react";
 import Card from '../Card/Card'
 import api from "../../utils/api";
-
+import {Container} from './styles'
 
 export default function Sale(props) {
 
@@ -26,9 +25,9 @@ export default function Sale(props) {
     return (
 
         <>
-        <h1>Todos os Itens</h1>
+            <h1>Todos os Itens</h1>
 
-            < div className='Sale' >
+            <Container >
 
                 {items.length > 0 &&
                     items.map((item) => (
@@ -48,7 +47,7 @@ export default function Sale(props) {
                 )}
 
 
-            </div >
+            </Container>
 
 
 

@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Bag } from 'phosphor-react'
 import api from '../../../utils/api'
-import './ItemForm.css'
+
 import { useNavigate } from "react-router";
 import useFlashMessage from '../../../hooks/useFlashMessage'
+
+import { Container, Button, Data, Header, Input, Label } from './styles'
 
 
 export default function ItemForm(props) {
@@ -71,51 +73,51 @@ export default function ItemForm(props) {
 
 
     return (
-        <div className="cad_produto">
+        <Container>
 
-            <div className="cabecalho">
-                <div className="login">
+            <Header>
 
-                    <h4>{<Bag size={30} />}  Faça o Cadastro do Produto</h4>
-                </div>
-                <h5>Entre com suas informações de cadastro do produto</h5>
+                <h1>{<Bag size={30} />}  Faça o Cadastro do Produto</h1>
+                <h2>Entre com suas informações de cadastro do produto</h2>
 
-            </div>
+            </Header>
 
             <form onSubmit={submit}>
-                <div className="dados">
-                    <label for="title">Nome:</label>
-                    <input type="text" name="title" maxlength="25" placeholder="Digite o nome do produto"  className="dados_produto" onChange={handleChange} />
+
+                <Data>
+
+                    <Label for="title">Nome:</Label>
+                    <Input type="text" name="title" maxlength="25" placeholder="Digite o nome do produto" onChange={handleChange} />
                     <br />
 
-                    <label for="short_desc" >Breve descrição:</label>
-                    <input type="text" name="short_desc" maxlength="115" placeholder="Digite uma Breve Descrição" className="dados_produto" onChange={handleChange} />
+                    <Label for="short_desc" >Breve descrição:</Label>
+                    <Input type="text" name="short_desc" maxlength="115" placeholder="Digite uma Breve Descrição" onChange={handleChange} />
                     <br />
 
-                    <label for="long_desc" >Descrição completa:</label>
-                    <input type="text" name="long_desc" maxLength='970' placeholder="Digite a Descrição Completa" className="dados_produto" onChange={handleChange} />
+                    <Label for="long_desc" >Descrição completa:</Label>
+                    <Input type="text" name="long_desc" maxLength='970' placeholder="Digite a Descrição Completa" onChange={handleChange} />
                     <br />
 
-                    <label for="price" >Preço:</label>
-                    <input type="number" name="price" step='any' placeholder="Digite o valor em R$:" className="dados_produto" onChange={handleChange} />
+                    <Label for="price" >Preço:</Label>
+                    <Input type="number" name="price" step='any' placeholder="Digite o valor em R$:" onChange={handleChange} />
                     <br />
 
-                    <label for="images" >Imagens:</label>
-                    <input type="file" name="images" placeholder="Digite o valor em R$:" className="dados_produto" multiple='true' onChange={onFileChange} />
+                    <Label for="images" >Imagens:</Label>
+                    <Input type="file" name="images" placeholder="Digite o valor em R$:" multiple='true' onChange={onFileChange} />
                     <br />
 
 
-                </div>
+                </Data>
 
-                <div className="resto">
+                
 
-                    <button type="submit">Cadastre o produto</button>
-                </div>
+                    <Button type="submit">Cadastre o produto</Button>
+                
 
             </form>
 
 
-        </div>
+        </Container>
     )
 
 }

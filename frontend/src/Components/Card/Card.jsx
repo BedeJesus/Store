@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import './Card.css';
+
+import { CardButton, Container, Content, Description, Price, Title } from './styles'
 
 export default function Produto(props) {
 
@@ -27,28 +28,29 @@ export default function Produto(props) {
 
     return (
 
-        <div class="Card"> {/*Colocando o estilo que foi passado através da variavel cardStyle */}
-            <div class="Title">{props.name}</div>
+        <Container> 
+            <Title>{props.name}</Title>
 
-            <div class="Content">
+            <Content>
 
                 <img src={props.image} alt={props.name} />
 
-                <div className="description">
+                <Description>
                     {props.description}
-                </div>
+                </Description>
 
-                <div className="price">
+                <Price>
                     R${props.price}
-                </div>
+                </Price>
 
-                <div className="button">
+                <CardButton>
                     {Button(props.button)}
+                    {console.log(props.button)}
+                </CardButton>
 
-                </div>
-            </div>
+            </Content>
 
-        </div>
+        </Container>
 
 
 

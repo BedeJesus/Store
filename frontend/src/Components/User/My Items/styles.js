@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Container = styled.div`
+export const ItemCards = styled.div`
 
     display: flex;
   flex-wrap: wrap;
@@ -18,7 +18,7 @@ a {
   transition: .3s;
 
   :hover{
-    color:#2b2d42;
+    color:yellow;
   }
   
 }

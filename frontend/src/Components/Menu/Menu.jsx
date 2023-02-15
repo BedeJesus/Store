@@ -1,17 +1,16 @@
 import React, { useContext } from "react";
-import './Menu.css'
 import { Link } from 'react-router-dom'
-
 import { Context } from '../../context/UserContext'
+import { Buttons, Container } from './styles'
 
 export default function Menu(props) {
 
     const { authenticated } = useContext(Context)
 
     return (
-        <div className="menu">
+        <Container>
             <h1>Store</h1>
-            <div className="buttons">
+            <Buttons>
 
                 <Link to='/'>Ofertas</Link>
 
@@ -32,9 +31,9 @@ export default function Menu(props) {
 
                 }
 
-            </div>
+            </Buttons>
 
-        </div>
+        </Container>
 
     )
 }

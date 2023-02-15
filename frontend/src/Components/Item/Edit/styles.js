@@ -13,17 +13,13 @@ export const Container = styled.div`
 
 `
 
-export const Header = styled.div`
+export const Title = styled.h1`
 
-    h1{
+   
         display: flex;
         font-size: 2.4rem;
         align-items: center;
-    }
-
-    h2{
-        font-size: 1.4rem;
-    }
+    
 `
 
 export const Input = styled.input` 
@@ -51,6 +47,15 @@ export const Label = styled.label`
    font-size: 1.4rem;
 `
 
+
+export const Footer = styled.div` 
+
+   display: flex;
+   justify-content: space-evenly;
+
+`
+
+
 export const Button = styled.div`
 
     display: flex;
@@ -59,6 +64,7 @@ export const Button = styled.div`
     font-size: 2rem;
     justify-content: center;
     align-items: center;
+    padding: 0 2em;
 
 
  :hover {

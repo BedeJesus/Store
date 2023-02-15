@@ -25,6 +25,8 @@ export const LongDescription = styled.span`
   text-align: center;
   font-size: 1.3em;
 
+
+
 `
 
 export const Price = styled.span`
@@ -33,23 +35,6 @@ export const Price = styled.span`
     font-size: 1.3em;
     justify-content: center;
 
-`
-
-export const CreateCount = styled.span`
-
-    display: flex;
-    font-size: 1.6em;
-    justify-content: center;
-
-    a{
-        text-decoration: none;
-        
-        :hover{
-            color: red;
-        }
-    }
-
-    
 `
 
 export const Button = styled.button`

@@ -2,8 +2,8 @@ import { useEffect, useState } from 'react'
 import api from '../../../utils/api'
 import useFlashMessage from '../../../hooks/useFlashMessage'
 import { useNavigate, useParams } from 'react-router'
-import './EditItem.css'
 
+import { Button, Container, Data, Input, Label, Footer, Title } from './styles'
 
 
 export default function EditItem(props) {
@@ -57,7 +57,6 @@ export default function EditItem(props) {
     }
 
 
-
     const [items, setItems] = useState([])
     const navigate = useNavigate()
 
@@ -87,14 +86,11 @@ export default function EditItem(props) {
     function onFileChange(e) {
         setItem({ ...item, images: [...e.target.files] })
         setPreview(Array.from(e.target.files))
-
     }
 
     function handleChange(e) {
         setItem({ ...item, [e.target.name]: e.target.value })
-
     }
-
 
     function submit(e) {
         e.preventDefault()
@@ -103,47 +99,45 @@ export default function EditItem(props) {
 
 
 
-
-
-
-
     return (
-        <div className='cad_produto'>
-            <h1>Editando o Item: {item.title}</h1>
+        <Container>
+            <Title>Editando o Item: {item.title}</Title>
 
             <form onSubmit={submit}>
-                <div className="dados">
-                    <label for="title">Nome:</label>
-                    <input type="text" name="title" maxlength="25" placeholder="Digite o nome do produto" className="dados_produto" onChange={handleChange} value={item.title} />
+
+                <Data>
+                    <Label for="title">Nome:</Label>
+                    <Input type="text" name="title" maxlength="25" placeholder="Digite o nome do produto" onChange={handleChange} value={item.title} />
                     <br />
 
-                    <label for="short_desc" >Breve descrição:</label>
-                    <input type="text" name="short_desc" maxlength="115" placeholder="Digite uma Breve Descrição" className="dados_produto" onChange={handleChange} value={item.short_desc} />
+                    <Label for="short_desc" >Breve descrição:</Label>
+                    <Input type="text" name="short_desc" maxlength="115" placeholder="Digite uma Breve Descrição" onChange={handleChange} value={item.short_desc} />
                     <br />
 
-                    <label for="long_desc" >Descrição completa:</label>
-                    <input type="text" name="long_desc" maxLength='970' placeholder="Digite a Descrição Completa" className="dados_produto" onChange={handleChange} value={item.long_desc} />
+                    <Label for="long_desc" >Descrição completa:</Label>
+                    <Input type="text" name="long_desc" maxLength='970' placeholder="Digite a Descrição Completa" onChange={handleChange} value={item.long_desc} />
                     <br />
 
-                    <label for="price" >Preço:</label>
-                    <input type="number" name="price" step='any' placeholder="Digite o valor em R$:" className="dados_produto" onChange={handleChange} value={item.price} />
+                    <Label for="price" >Preço:</Label>
+                    <Input type="number" name="price" step='any' placeholder="Digite o valor em R$:" onChange={handleChange} value={item.price} />
                     <br />
 
-                    <label for="images" >Imagens:</label>
-                    <input type="file" name="images" placeholder="Digite o valor em R$:" className="dados_produto" multiple='true' onChange={onFileChange} />
+                    <Label for="images" >Imagens:</Label>
+                    <Input type="file" name="images" placeholder="Digite o valor em R$:" multiple='true' onChange={onFileChange} />
                     <br />
 
 
-                </div>
+                </Data>
 
-                <div className="resto">
+                <Footer>
 
-                    <button className='btn1' type="submit">Atualize o produto</button>
-                    <button onClick={() => { removeItem(item._id) }}>Excluir o produto</button>
-                </div>
+                    <Button type="submit">Atualize o produto</Button>
+                    <Button onClick={() => { removeItem(item._id) }}>Excluir o produto</Button>
+                </Footer>
 
             </form>
-        </div>
+
+        </Container>
     )
 
 }

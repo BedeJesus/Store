@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 import useFlashMessage from '../../../hooks/useFlashMessage'
 import api from '../../../utils/api'
 import Card from '../../Card/Card'
-import './MyItems.css'
+
+import { ItemCards, Content } from './styles'
 
 
 export default function MyItems() {
@@ -48,8 +49,8 @@ export default function MyItems() {
     function Button(item) {
         if (!item.available) {
             return 'done'
-        }else if(item.renter){
-            return'conclude'
+        } else if (item.renter) {
+            return 'conclude'
         } else {
             return 'edit'
         }
@@ -58,12 +59,14 @@ export default function MyItems() {
     return (
 
         <>
-            <div className='content'>
+            <Content>
+
                 <h1>Meus Itens</h1>
                 <Link to='/newitem'>Clique aqui para cadastrar um novo Item</Link>
-            </div>
 
-            <div className='items'>
+            </Content>
+
+            <ItemCards>
 
 
                 {items.length > 0 &&
@@ -81,7 +84,7 @@ export default function MyItems() {
                     ))
                 }
 
-            </div>
+            </ItemCards>
 
         </>
 

@@ -1,8 +1,7 @@
 import api from '../../../utils/api'
 import { useEffect, useState } from 'react'
 
-import './MyRents.css'
-import { Link } from 'react-router-dom'
+import { Container, Description, ItemLink, PetData, Rents } from './styles'
 
 export default function MyRents() {
 
@@ -25,25 +24,27 @@ export default function MyRents() {
 
 
     return (
-        <div className='myrents'>
-            <div>
-                <h1>Minhas Locações</h1>
-            </div>
+        <Container>
 
-            <div className='rents'>
+            <h1>Minhas Locações</h1>
+
+
+            <Rents>
 
                 {items.length > 0 &&
                     items.map((item) => (
-                        <div className='pet_data'>
-                            <div className='image'>
-                                <img
-                                    src={`${process.env.REACT_APP_API}/images/items/${item.images[0]}`}
-                                    alt={item.name}
 
-                                />
-                            </div>
-                            <div className='desc'>
-                                <Link to={`item/${item._id}`} className='item_title'>{item.title}</Link>
+                        <PetData>
+
+                            <img
+                                src={`${process.env.REACT_APP_API}/images/items/${item.images[0]}`}
+                                alt={item.name}
+                            />
+
+                            <Description>
+
+                                <ItemLink to={`item/${item._id}`}> {item.title} </ItemLink>
+
                                 <div>
 
                                     <h2>Ligue para:</h2>
@@ -53,6 +54,7 @@ export default function MyRents() {
                                     <span>{item.user.name}</span>
 
                                 </div>
+
                                 <div>
                                     {item.available ? (
                                         <p>Locação em processo</p>
@@ -60,12 +62,16 @@ export default function MyRents() {
                                         <p>Locação foi realizada</p>
                                     )}
                                 </div>
-                            </div>
-                        </div>
-                    ))}
-                {items.length === 0 && <h2>Ainda não há items solicitados para locação</h2>}
-            </div>
 
-        </div>
+                            </Description>
+
+                        </PetData>
+                    ))}
+
+                {items.length === 0 && <h2>Ainda não há items solicitados para locação</h2>}
+
+            </Rents>
+
+        </Container>
     )
 }

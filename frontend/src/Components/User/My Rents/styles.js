@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
 
@@ -67,7 +68,7 @@ span {
 
 `
 
-export const ItemTitle = styled.div`
+export const ItemLink = styled(Link)`
 
     font-size: 1.8em;
     font-weight: bold;

@@ -1,14 +1,15 @@
-import React, { useEffect,useState,useContext } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import { SignIn } from 'phosphor-react'
 import api from '../../../utils/api'
 import useFlashMessage from '../../../hooks/useFlashMessage'
 import { Context } from "../../../context/UserContext";
-import './Profile.css'
 
- export default function Profile() {
+import { Button, Container, Data, Header, Input, Label, Buttons } from './styles'
+
+export default function Profile() {
 
 
-    const {logout } = useContext(Context)
+    const { logout } = useContext(Context)
 
     const [user, setUser] = useState({})
     const [preview, setPreview] = useState('')
@@ -67,55 +68,52 @@ import './Profile.css'
     }
 
     return (
-        <div class='dois'>
+        <Container>
 
-            <div className="cabecalho">
-                <div className="login">
-
-                    <h4>{<SignIn size={30} />}   Atualize seus dados</h4>
-                </div>
-                
-
-            </div>
+            <Header>
+                {<SignIn size={30} />} Atualize seus dados
+            </Header>
 
             <form onSubmit={handleSubmit}>
-                <div className="dados">
 
-                    <label htmlFor="name">Nome</label>
-                    <input type="text" name="name" id='name' placeholder="Digite seu nome completo" className="dados_cliente" onChange={handleChange} value={user.name ||''} />
+                <Data>
+
+                    <Label htmlFor="name">Nome</Label>
+                    <Input type="text" name="name" id='name' placeholder="Digite seu nome completo" onChange={handleChange} value={user.name || ''} />
                     <br />
 
-                    <label htmlFor="email">E-mail</label>
-                    <input type="email" name="email" id='email' placeholder="Digite seu e-mail" className="dados_cliente" onChange={handleChange} value={user.email ||''}/>
+                    <Label htmlFor="email">E-mail</Label>
+                    <Input type="email" name="email" id='email' placeholder="Digite seu e-mail" onChange={handleChange} value={user.email || ''} />
                     <br />
 
-                    <label htmlFor="phone" >Telefone</label>
-                    <input type="number" name="phone" id='phone' placeholder="Digite seu telefone" className="dados_cliente" onChange={handleChange}  value={user.phone ||''}/>
+                    <Label htmlFor="phone" >Telefone</Label>
+                    <Input type="number" name="phone" id='phone' placeholder="Digite seu telefone" onChange={handleChange} value={user.phone || ''} />
                     <br />
 
-                    <label htmlFor="address" >Endereço</label>
-                    <input type="text" name="address" id='address' placeholder="Digite seu endereço" className="dados_cliente" onChange={handleChange} value={user.address ||''}/>
+                    <Label htmlFor="address" >Endereço</Label>
+                    <Input type="text" name="address" id='address' placeholder="Digite seu endereço" onChange={handleChange} value={user.address || ''} />
                     <br />
 
-                    <label htmlFor="password" >Senha</label>
-                    <input type="password" name="password" id='password' placeholder="Digite sua senha" className="dados_cliente" onChange={handleChange}/>
+                    <Label htmlFor="password" >Senha</Label>
+                    <Input type="password" name="password" id='password' placeholder="Digite sua senha" onChange={handleChange} />
                     <br />
 
-                    <label htmlFor="confirmpassword" >Confirme sua senha</label>
-                    <input type="password" name="confirmpassword" id='confirmpassword' placeholder="Digite sua senha" className="dados_cliente" onChange={handleChange} />
+                    <Label htmlFor="confirmpassword" >Confirme sua senha</Label>
+                    <Input type="password" name="confirmpassword" id='confirmpassword' placeholder="Digite sua senha" onChange={handleChange} />
                     <br />
 
-                </div>
+                </Data>
 
-                <div className="resto">
+                <Buttons>
 
-                    <button className="btn1" type="submit">Atualizar</button>
-                    <button onClick={logout}>Sair</button>
-                </div>
+                    <Button className="btn1" type="submit">Atualizar</Button>
+                    <Button onClick={logout}>Sair</Button>
+                    
+                </Buttons>
 
             </form>
 
-        </div>
+        </Container>
 
 
     )
