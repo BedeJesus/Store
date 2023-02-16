@@ -10,7 +10,8 @@ export default createGlobalStyle`
 
 body{
 
-    background-color: #BBBBBB;
+    /* background-color: #BBBBBB; */
+    background-color: #202020;
 }
 
 `

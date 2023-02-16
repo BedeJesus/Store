@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { Context } from '../../../context/UserContext'
 
-import { Container, Header, Input, Label, Button, Data } from './styles'
+import { Container, Header, Input, Label, Button, Data, NewButton } from './styles'
 
 export default function Register() {
 
@@ -64,7 +64,7 @@ export default function Register() {
 
                 </Data>
 
-                <Button type="submit">Cadastre-se</Button>
+                <NewButton type="submit">Cadastre-se</NewButton>
 
             </form>
 

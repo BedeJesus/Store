@@ -1,8 +1,9 @@
-import styles from './Message.module.css'
 import { useState, useEffect } from 'react'
 import bus from '../../utils/bus'
 
-function Message() {
+import {Container} from './styles'
+
+export default function Message() {
 
     const [visibility, setVisibility] = useState(false)
     const [message, setMessage] = useState('')
@@ -16,22 +17,23 @@ function Message() {
 
             setTimeout(() => {
                 setVisibility(false)
-            }, 3000)
+            }, 3000) 
         })
 
     })
 
     return (
         visibility && (
-            <div className={`${styles.message} ${styles[type]}`}>
-                {message}
-            </div>
+
+            
+            <Container color={type==='sucess'? 'green': 'red'}>
+                {message} 
+            </Container>
 
         )
     )
 }
 
-export default Message
 
 
 

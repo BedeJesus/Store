@@ -45,7 +45,6 @@ export default function Produto(props) {
 
                 <CardButton>
                     {Button(props.button)}
-                    {console.log(props.button)}
                 </CardButton>
 
             </Content>
