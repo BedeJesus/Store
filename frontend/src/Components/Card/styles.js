@@ -1,5 +1,15 @@
 import styled from "styled-components";
 
+
+
+// https://uiverse.io/adamgiebl/new-crab-79
+// 
+//  https://uiverse.io/SteveBloX/dangerous-warthog-85
+//  Use this one for card
+
+
+
+
 export const Container = styled.div`
 
     border-radius: 10px;

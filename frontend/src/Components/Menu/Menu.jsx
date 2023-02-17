@@ -9,7 +9,6 @@ export default function Menu(props) {
 
     return (
         <Container>
-            <h1>Store</h1>
             <Buttons>
 
                 <Link to='/'>Ofertas</Link>

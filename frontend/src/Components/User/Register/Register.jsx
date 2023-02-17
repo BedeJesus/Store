@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { Context } from '../../../context/UserContext'
 
-import { Container, Header, Input, Label, Button, Data, NewButton } from './styles'
+import { Container, Header, Input, Label,Teste, DivButton, Data, Button } from './styles'
 
 export default function Register() {
 
@@ -25,51 +25,57 @@ export default function Register() {
     }
 
     return (
-        <Container>
 
-            <Header>
+        <Teste>
 
-                <h1> {<SignIn size={35} />} Faça seu Cadastro</h1>
-                <h2>Entre com suas informações de cadastro</h2>
+            <Container>
 
-            </Header>
+                <Header>
 
-            <form onSubmit={handleSubmit}>
+                    <h1> {<SignIn size={35} />} Faça seu Cadastro</h1>
+                    <h2>Entre com suas informações de cadastro</h2>
 
-                <Data>
+                </Header>
 
-                    <Label htmlFor="name">Nome</Label>
-                    <Input type="text" name="name" id='name' placeholder="Digite seu nome completo" onChange={handleOnChange} />
-                    <br />
+                <form onSubmit={handleSubmit}>
 
-                    <Label htmlFor="email">E-mail</Label>
-                    <Input type="email" name="email" id='email' placeholder="Digite seu e-mail" onChange={handleOnChange} />
-                    <br />
+                    <Data>
 
-                    <Label htmlFor="phone" >Telefone</Label>
-                    <Input type="number" name="phone" id='phone' placeholder="Digite seu telefone" onChange={handleOnChange} />
-                    <br />
+                        <Label htmlFor="name">Nome</Label>
+                        <Input type="text" name="name" id='name' placeholder="Digite seu nome completo" onChange={handleOnChange} />
+                        <br />
 
-                    <Label htmlFor="address" >Endereço</Label>
-                    <Input type="text" name="address" id='address' placeholder="Digite seu endereço" onChange={handleOnChange} />
-                    <br />
+                        <Label htmlFor="email">E-mail</Label>
+                        <Input type="email" name="email" id='email' placeholder="Digite seu e-mail" onChange={handleOnChange} />
+                        <br />
 
-                    <Label htmlFor="password" >Senha</Label>
-                    <Input type="password" name="password" id='password' placeholder="Digite sua senha" onChange={handleOnChange} />
-                    <br />
+                        <Label htmlFor="phone" >Telefone</Label>
+                        <Input type="number" name="phone" id='phone' placeholder="Digite seu telefone" onChange={handleOnChange} />
+                        <br />
 
-                    <Label htmlFor="confirmpassword" >Confirme sua senha</Label>
-                    <Input type="password" name="confirmpassword" id='confirmpassword' placeholder="Digite sua senha" onChange={handleOnChange} />
-                    <br />
+                        <Label htmlFor="address" >Endereço</Label>
+                        <Input type="text" name="address" id='address' placeholder="Digite seu endereço" onChange={handleOnChange} />
+                        <br />
 
-                </Data>
+                        <Label htmlFor="password" >Senha</Label>
+                        <Input type="password" name="password" id='password' placeholder="Digite sua senha" onChange={handleOnChange} />
+                        <br />
 
-                <NewButton type="submit">Cadastre-se</NewButton>
+                        <Label htmlFor="confirmpassword" >Confirme sua senha</Label>
+                        <Input type="password" name="confirmpassword" id='confirmpassword' placeholder="Digite sua senha" onChange={handleOnChange} />
+                        <br />
 
-            </form>
+                    </Data>
 
-        </Container>
+                    <DivButton>
+                        <Button type="submit">Cadastre-se</Button>
+                    </DivButton>
 
+                </form>
+
+            </Container>
+
+        </Teste>
 
     )
 

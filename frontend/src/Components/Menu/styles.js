@@ -2,12 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
-h1 {
-    display: flex;
-    justify-content: center;
-    color: black;
-    font-size: 2.5em;
-}
+
 
 a,li{
     background-color:transparent;
@@ -40,14 +35,14 @@ input{
 
 export const Buttons = styled.div`
 
-    height: 3em;
+    height: 3.5em;
     display: flex;
     background-color: #2b2d42;
     align-items: center;
     justify-content: space-between;
     padding-left: 5%;
     padding-right: 5%;
-    border: solid 2px black;
+    border-bottom: solid 2px black;
     border-radius: 3px;
 
 `
