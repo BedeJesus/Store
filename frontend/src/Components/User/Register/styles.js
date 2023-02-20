@@ -14,7 +14,6 @@ box-shadow:  15px 15px 30px #171717,
     margin:2em 0 ;
     padding: 1em 2.5em;
 
-
 `
 
 export const Header = styled.div`

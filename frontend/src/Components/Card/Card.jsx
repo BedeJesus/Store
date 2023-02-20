@@ -1,21 +1,25 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-import { CardButton, Container, Content, Description, Price, Title } from './styles'
+import { Status, Container, Content, Description, Price, Title } from './styles'
 
 export default function Produto(props) {
+
+    const navigate = useNavigate()
 
 
 
     function Button(type) {
         if (type === 'rent') {
-            return <Link to={`item/${props.item._id}`}>Mais detalhes</Link>
+            return 'R$' + props.price.toLocaleString('pt-br', { minimumFractionDigits: 2 })
+
 
         } else if (type === 'edit') {
-            return <Link to={`edititem/${props.item._id}`}>Editar</Link>
+            return <span>Editar</span>
 
         } else if (type === 'conclude') {
-            return <Link to={`concluderent/${props.item._id}`}>Concluir Locação</Link>
+            return <span>Concluir Locação</span>
+
         } else if (type === 'done') {
             return <span>Locação completa</span>
 
@@ -24,11 +28,25 @@ export default function Produto(props) {
         }
     }
 
+    function handleClick(type) {
+
+        if (type === 'rent') {
+            navigate(`item/${props.item._id}`)
+
+        } else if (type === 'edit') {
+            navigate(`edititem/${props.item._id}`)
+
+        } else if (type === 'conclude') {
+            navigate(`concluderent/${props.item._id}`)
+
+        }
+    }
+
 
 
     return (
 
-        <Container> 
+        <Container onClick={() => handleClick(props.button)}>
             <Title>{props.name}</Title>
 
             <Content>
@@ -39,13 +57,9 @@ export default function Produto(props) {
                     {props.description}
                 </Description>
 
-                <Price>
-                    R${props.price}
-                </Price>
-
-                <CardButton>
+                <Status>
                     {Button(props.button)}
-                </CardButton>
+                </Status>
 
             </Content>
 

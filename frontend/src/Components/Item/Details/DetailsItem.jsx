@@ -104,7 +104,7 @@ export default function DetailsItem() {
                             <p></p>
 
                             <h2>Valor da locação:</h2>
-                            <Price>{`R$${item.price}`}</Price>
+                            <Price>{`R$${item.price.toLocaleString('pt-br', {minimumFractionDigits: 2})}`}</Price>
 
                             <p></p>
 
