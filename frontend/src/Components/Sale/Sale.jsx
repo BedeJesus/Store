@@ -27,7 +27,7 @@ export default function Sale(props) {
         <>
             <h1>Todos os Itens</h1>
 
-            <Container >
+            <Container>
 
                 {items.length > 0 &&
                     items.map((item) => (

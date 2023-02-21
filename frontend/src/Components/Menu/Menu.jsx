@@ -1,36 +1,39 @@
 import React, { useContext } from "react";
 import { Link } from 'react-router-dom'
 import { Context } from '../../context/UserContext'
-import { Buttons, Container } from './styles'
+import { Top, Container,Button, Store } from './styles'
 
-export default function Menu(props) {
+export default function Menu() {
 
     const { authenticated } = useContext(Context)
 
     return (
         <Container>
-            <Buttons>
 
-                <Link to='/'>Ofertas</Link>
+            <Top>
+
+                <Store to='/'>Store (logo)</Store>
 
                 {authenticated ? (
-                    <>
-                        <Link to='/myitems'>Meus Itens</Link>
-                        <Link to='/myrents'>Minhas locações</Link>
-                        <Link to='/user/profile'>Perfil</Link>
-                    </>
+                    <div>
+                        <Button to='/myitems'>Meus Itens</Button>
+                        <Button to='/myrents'>Minhas locações</Button>
+                        <Button to='/user/profile'>Perfil</Button>
+                    </div>
 
                 ) : (
-                    <>
-                        <Link to='/login'>Login</Link>
-                        <Link to='/register'>Cadastro</Link>
-                    </>
+                    <div>
+                        <Button to='/login'>Login</Button>
+                        <Button to='/register'>Cadastro</Button>
+                    </div>
 
-                )
+                )}
 
-                }
+                {/* CRIAR UM BOTAO DE SUB MENU PARA MEDIA QUERY */}
 
-            </Buttons>
+                <Link to='/'>Switch</Link>
+
+            </Top>
 
         </Container>
 

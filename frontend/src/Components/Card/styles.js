@@ -3,12 +3,12 @@ import styled from "styled-components";
 export const Container = styled.div`
 
     border-radius: 10px;
-    
     display: flex;
     flex-direction: column;
     margin: 1.5%;
     width: 22%;
     height: 27em;
+    padding: 5px 0;
 
 
     transition: all 0.5s;
@@ -40,25 +40,18 @@ export const Container = styled.div`
         transform: scale(0.95) rotateZ(2deg);
     }
 
-
-    overflow: hidden;
-    position: relative;
-
     img{
         grid-row-start:1 ;
         grid-row-end:2 ;
-        height:12.2em;
+        height:14.6em;
         width: 100%;
         object-fit: cover;
-        
-        
     }
 
 `
 
 export const Title = styled.div`
 
-    padding: 5px 0px;
     display: flex;
     justify-content: center;
     color: rgb(244, 211, 211);
@@ -71,7 +64,7 @@ export const Content = styled.div`
 
     flex:1;
     display: grid;
-    grid-template-rows: 50% 38% 12%;
+    grid-template-rows: 60% 33% 7%;
     color: white;
     padding: 0.5%;
 
@@ -84,6 +77,7 @@ export const Description = styled.div`
     flex-direction: column;
     justify-content: center;
     font-size: 1em;
+    
    
 `
 export const Status = styled.div`
@@ -92,7 +86,6 @@ export const Status = styled.div`
     flex-direction: column;
     justify-content: center;
     font-weight: bold;
-    padding-top: 1%;
     margin-bottom: 5%;
     font-size: 1.5em;
 `

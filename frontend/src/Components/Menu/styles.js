@@ -1,48 +1,71 @@
 import styled from "styled-components";
+import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
 
+    background-color:#3d3d3d;
 
+    /* background-color: white; */
 
-a,li{
-    background-color:transparent;
+a{
     color: #B4A5A5;
-    border: none;
     font-size: 30px ;
     text-decoration: none;
-    list-style: none;
-    transition: .3s;
-
-    :hover{
-        cursor: pointer;
-        color: white;
-    }
 
     @media(max-width : 650px) {
         font-size: 23px ;
     }
     
 }
+`
+export const Store = styled(Link)`
 
-input{
-    border: black;
-    border-radius: 10px;
-    height: 3.3vh;
+    border: none;
+    font-size: 30px ;
+    text-decoration: none;
+    list-style: none;
+    transition: .3s;
 
-}
 
 `
 
-export const Buttons = styled.div`
 
-    height: 3.5em;
+export const Top = styled.div`
+
+    height: 4.5em;
     display: flex;
-    background-color: #2b2d42;
     align-items: center;
     justify-content: space-between;
-    padding-left: 5%;
-    padding-right: 5%;
-    border-bottom: solid 2px black;
-    border-radius: 3px;
+    margin-left: 5%;
+    margin-right: 5%;
 
 `
+
+export const Button = styled(Link)`
+
+    margin: .5em;
+
+
+    padding: .2em 1em;
+    border-radius: 15px;
+
+    transition: all .2s;
+    display: inline-block;
+    position: relative;
+
+
+    :hover {
+        transform: translateY(-5px);
+        box-shadow: 0 15px 15px rgba(27, 27, 27, .5);
+        color: white;
+    }
+
+    :active {
+        transform: translateY(-1px);
+    }
+
+
+
+
+`
+
