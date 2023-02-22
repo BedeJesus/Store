@@ -1,18 +1,15 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
 
-import { Status, Container, Content, Description, Price, Title } from './styles'
+import { Status, Container, Content, Description, Title } from './styles'
 
 export default function Produto(props) {
 
     const navigate = useNavigate()
 
-
-
     function Button(type) {
         if (type === 'rent') {
             return 'R$' + props.price.toLocaleString('pt-br', { minimumFractionDigits: 2 })
-
 
         } else if (type === 'edit') {
             return <span>Editar</span>
@@ -41,7 +38,6 @@ export default function Produto(props) {
 
         }
     }
-
 
 
     return (

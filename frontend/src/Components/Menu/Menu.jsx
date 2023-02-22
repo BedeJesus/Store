@@ -17,7 +17,7 @@ export default function Menu() {
                 {authenticated ? (
                     <div>
                         <Button to='/myitems'>Meus Itens</Button>
-                        <Button to='/myrents'>Minhas locações</Button>
+                        <Button to='/myrents'>Minhas Locações</Button>
                         <Button to='/user/profile'>Perfil</Button>
                     </div>
 

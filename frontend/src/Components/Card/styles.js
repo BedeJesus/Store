@@ -9,7 +9,8 @@ export const Container = styled.div`
     width: 22%;
     height: 27em;
     padding: 5px 0;
-
+    overflow: hidden;
+    
 
     transition: all 0.5s;
     background: linear-gradient(145deg, #2e2e2e, #272727);
@@ -54,9 +55,9 @@ export const Title = styled.div`
 
     display: flex;
     justify-content: center;
-    color: rgb(244, 211, 211);
     font-size: 1.4rem;
     font-weight: bold;
+    color: whitesmoke;
 
 `
 
@@ -65,8 +66,8 @@ export const Content = styled.div`
     flex:1;
     display: grid;
     grid-template-rows: 60% 33% 7%;
-    color: white;
     padding: 0.5%;
+    color: whitesmoke;
 
 `
 

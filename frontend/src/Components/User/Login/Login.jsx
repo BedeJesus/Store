@@ -5,7 +5,7 @@ import { useState, useContext } from 'react'
 
 import { Context } from '../../../context/UserContext'
 
-import { Container, Data, Header, Input, Label, Footer } from './styles'
+import { Container, Data, Header, Input, Label, Footer, Button, Box } from './../../../styles/form'
 
 export default function Login() {
 
@@ -26,40 +26,40 @@ export default function Login() {
 
 
     return (
+
         <Container>
 
-            <Header>
+            <Box>
 
-                <h1>{<SignIn size={30} />}  Faça seu Login</h1>
-                <h2>Entre com suas informações de login</h2>
+                <Header>
+                    <h1>{<SignIn size={30} />}  Faça seu Login</h1>
+                    <h2>Entre com suas informações de login</h2>
+                </Header>
 
-            </Header>
+                <form onSubmit={handleSubmit}>
 
-            <form onSubmit={handleSubmit}>
+                    <Data>
+                        <Label for="email">E-mail</Label>
+                        <Input type="email" name="email" placeholder="Digite seu e-mail" onChange={handleChange} />
+                        <br />
 
-                <Data>
-                    <Label for="email">E-mail</Label>
-                    <Input type="email" name="email" placeholder="Digite seu e-mail"  onChange={handleChange} />
+                        <Label for="senha" >Senha</Label>
+                        <Input type="password" name="password" placeholder="Digite sua senha" onChange={handleChange} />
+                        <br />
+                    </Data>
 
-                    <br />
+                    <Footer>
 
-                    <Label for="senha" >Senha</Label>
-                    <Input type="password" name="password" placeholder="Digite sua senha" onChange={handleChange} />
-                    <br />
+                        <Button type="submit">Entrar</Button>
+                        <h6>Não tem uma conta? <Link to='/register'>Registre-se</Link></h6>
 
-                </Data>
+                    </Footer>
 
-                <Footer>
+                </form>
 
-                    <button type="submit">Entrar</button>
-                    <h6>Não tem uma conta? <Link to='/register'>Registre-se</Link></h6>
-
-                </Footer>
-
-            </form>
+            </Box>
 
         </Container>
-
 
     )
 

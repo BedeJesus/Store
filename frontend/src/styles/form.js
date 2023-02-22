@@ -33,24 +33,13 @@ export const Header = styled.div`
         font-size: 2.4rem;
         display: flex;
         align-items: center;
+        
     }
 
     h2{
         font-size: 1.4rem;
         margin: .4em 0;
     }
-`
-
-export const Data = styled.div` 
-
-   display: grid;
-`
-
-export const Teste = styled.div`
-
-    display: flex;
-    justify-content: center;
-
 `
 
 export const Input = styled.input` 
@@ -68,9 +57,20 @@ export const Input = styled.input`
     }
 `
 
+export const Data = styled.div` 
+
+   display: grid;
+`
+
 export const Label = styled.label` 
 
    font-size: 1.4rem;
+`
+
+export const DivButton = styled.div`
+
+    display: flex;
+    justify-content: center;
 `
 
 export const Footer = styled.div` 
@@ -93,6 +93,13 @@ a{
     }
 }
 `
+export const TwoButtons = styled.div` 
+
+display: flex;
+justify-content: space-evenly;
+
+`
+
 
 export const Button = styled.button`
 
@@ -100,7 +107,6 @@ export const Button = styled.button`
  border-radius: 10px;
  margin: .3em 0;
  
-
  background-color: rgb(255, 56, 86);
  font-size: 2rem;
  transition: all .3s ease;
@@ -120,4 +126,5 @@ export const Button = styled.button`
 }
 
 `
+
 

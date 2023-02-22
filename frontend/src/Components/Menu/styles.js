@@ -5,8 +5,6 @@ export const Container = styled.div`
 
     background-color:#3d3d3d;
 
-    /* background-color: white; */
-
 a{
     color: #B4A5A5;
     font-size: 30px ;
@@ -25,10 +23,7 @@ export const Store = styled(Link)`
     text-decoration: none;
     list-style: none;
     transition: .3s;
-
-
 `
-
 
 export const Top = styled.div`
 
@@ -44,15 +39,12 @@ export const Top = styled.div`
 export const Button = styled(Link)`
 
     margin: .5em;
-
-
     padding: .2em 1em;
     border-radius: 15px;
 
     transition: all .2s;
     display: inline-block;
     position: relative;
-
 
     :hover {
         transform: translateY(-5px);
@@ -63,9 +55,6 @@ export const Button = styled(Link)`
     :active {
         transform: translateY(-1px);
     }
-
-
-
 
 `
 

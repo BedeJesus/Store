@@ -4,7 +4,7 @@ import api from '../../../utils/api'
 import useFlashMessage from '../../../hooks/useFlashMessage'
 import { Context } from "../../../context/UserContext";
 
-import { Button, Container, Data, Header, Input, Label, Buttons } from './styles'
+import { Button, Container, Data, Header, Input, Label, TwoButtons, Box } from './../../../styles/form'
 
 export default function Profile() {
 
@@ -70,48 +70,52 @@ export default function Profile() {
     return (
         <Container>
 
-            <Header>
-                {<SignIn size={30} />} Atualize seus dados
-            </Header>
+            <Box>
 
-            <form onSubmit={handleSubmit}>
+                <Header>
+                   <h1> {<SignIn />} Atualize seus dados </h1> 
+                </Header>
 
-                <Data>
+                <form onSubmit={handleSubmit}>
 
-                    <Label htmlFor="name">Nome</Label>
-                    <Input type="text" name="name" id='name' placeholder="Digite seu nome completo" onChange={handleChange} value={user.name || ''} />
-                    <br />
+                    <Data>
 
-                    <Label htmlFor="email">E-mail</Label>
-                    <Input type="email" name="email" id='email' placeholder="Digite seu e-mail" onChange={handleChange} value={user.email || ''} />
-                    <br />
+                        <Label htmlFor="name">Nome</Label>
+                        <Input type="text" name="name" id='name' placeholder="Digite seu nome completo" onChange={handleChange} value={user.name || ''} />
+                        <br />
 
-                    <Label htmlFor="phone" >Telefone</Label>
-                    <Input type="number" name="phone" id='phone' placeholder="Digite seu telefone" onChange={handleChange} value={user.phone || ''} />
-                    <br />
+                        <Label htmlFor="email">E-mail</Label>
+                        <Input type="email" name="email" id='email' placeholder="Digite seu e-mail" onChange={handleChange} value={user.email || ''} />
+                        <br />
 
-                    <Label htmlFor="address" >Endereço</Label>
-                    <Input type="text" name="address" id='address' placeholder="Digite seu endereço" onChange={handleChange} value={user.address || ''} />
-                    <br />
+                        <Label htmlFor="phone" >Telefone</Label>
+                        <Input type="number" name="phone" id='phone' placeholder="Digite seu telefone" onChange={handleChange} value={user.phone || ''} />
+                        <br />
 
-                    <Label htmlFor="password" >Senha</Label>
-                    <Input type="password" name="password" id='password' placeholder="Digite sua senha" onChange={handleChange} />
-                    <br />
+                        <Label htmlFor="address" >Endereço</Label>
+                        <Input type="text" name="address" id='address' placeholder="Digite seu endereço" onChange={handleChange} value={user.address || ''} />
+                        <br />
 
-                    <Label htmlFor="confirmpassword" >Confirme sua senha</Label>
-                    <Input type="password" name="confirmpassword" id='confirmpassword' placeholder="Digite sua senha" onChange={handleChange} />
-                    <br />
+                        <Label htmlFor="password" >Senha</Label>
+                        <Input type="password" name="password" id='password' placeholder="Digite sua senha" onChange={handleChange} />
+                        <br />
 
-                </Data>
+                        <Label htmlFor="confirmpassword" >Confirme sua senha</Label>
+                        <Input type="password" name="confirmpassword" id='confirmpassword' placeholder="Digite sua senha" onChange={handleChange} />
+                        <br />
 
-                <Buttons>
+                    </Data>
 
-                    <Button className="btn1" type="submit">Atualizar</Button>
-                    <Button onClick={logout}>Sair</Button>
-                    
-                </Buttons>
+                    <TwoButtons>
 
-            </form>
+                        <Button className="btn1" type="submit">Atualizar</Button>
+                        <Button onClick={logout}>Sair</Button>
+
+                    </TwoButtons>
+
+                </form>
+
+            </Box>
 
         </Container>
 

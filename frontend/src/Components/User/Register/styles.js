@@ -2,8 +2,15 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
+    display: flex;
+    justify-content: center;
+
+`
+export const Box = styled.div`
+
 border-radius: 15px;
 background: #202020;
+
 box-shadow:  15px 15px 30px #171717,
              -15px -15px 30px #292929;
 
@@ -19,12 +26,14 @@ box-shadow:  15px 15px 30px #171717,
 export const Header = styled.div`
 
     display: flex;
-    justify-content: center;
     flex-direction: column;
     align-items: center;
 
     h1{
         font-size: 2.4rem;
+        display: flex;
+        align-items: center;
+        
     }
 
     h2{
@@ -40,7 +49,7 @@ export const Input = styled.input`
     border-bottom:whitesmoke solid 2px ;
     color: white;
     font-size: 1em;
-    padding: 0.7%;
+    padding: 0.7% 0;
 
     :focus,:hover{
         outline:none;
@@ -64,20 +73,12 @@ export const DivButton = styled.div`
     justify-content: center;
 `
 
-export const Teste = styled.div`
-
-    display: flex;
-    justify-content: center;
-
-`
-
 export const Button = styled.button`
 
  padding: .5em 2em;
  border-radius: 10px;
  margin: .3em 0;
  
-
  background-color: rgb(255, 56, 86);
  font-size: 2rem;
  transition: all .3s ease;
@@ -96,8 +97,6 @@ export const Button = styled.button`
  transition: 50ms;
 }
 
-
-   
 `
 
 

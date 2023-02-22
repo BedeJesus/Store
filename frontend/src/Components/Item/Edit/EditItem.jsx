@@ -3,8 +3,7 @@ import api from '../../../utils/api'
 import useFlashMessage from '../../../hooks/useFlashMessage'
 import { useNavigate, useParams } from 'react-router'
 
-import { Button, Container, Data, Input, Label, Footer, Title } from './styles'
-
+import { Button, Container, Data, Input, Label, Header, Box ,TwoButtons} from './../../../styles/form'
 
 export default function EditItem(props) {
 
@@ -101,41 +100,47 @@ export default function EditItem(props) {
 
     return (
         <Container>
-            <Title>Editando o Item: {item.title}</Title>
 
-            <form onSubmit={submit}>
+            <Box>
 
-                <Data>
-                    <Label for="title">Nome:</Label>
-                    <Input type="text" name="title" maxlength="25" placeholder="Digite o nome do produto" onChange={handleChange} value={item.title} />
-                    <br />
+                <Header>
+                    <h1>Editando o Item: {item.title} </h1>
+                </Header>
 
-                    <Label for="short_desc" >Breve descrição:</Label>
-                    <Input type="text" name="short_desc" maxlength="115" placeholder="Digite uma Breve Descrição" onChange={handleChange} value={item.short_desc} />
-                    <br />
+                <form onSubmit={submit}>
 
-                    <Label for="long_desc" >Descrição completa:</Label>
-                    <Input type="text" name="long_desc" maxLength='970' placeholder="Digite a Descrição Completa" onChange={handleChange} value={item.long_desc} />
-                    <br />
+                    <Data>
+                        <Label for="title">Nome:</Label>
+                        <Input type="text" name="title" maxLength="20" placeholder="Digite o nome do produto" onChange={handleChange} value={item.title} />
+                        <br />
 
-                    <Label for="price" >Preço:</Label>
-                    <Input type="number" name="price" step='any' placeholder="Digite o valor em R$:" onChange={handleChange} value={item.price} />
-                    <br />
+                        <Label for="short_desc" >Breve descrição:</Label>
+                        <Input type="text" name="short_desc" maxLength="120" placeholder="Digite uma Breve Descrição" onChange={handleChange} value={item.short_desc} />
+                        <br />
 
-                    <Label for="images" >Imagens:</Label>
-                    <Input type="file" name="images" placeholder="Digite o valor em R$:" multiple='true' onChange={onFileChange} />
-                    <br />
+                        <Label for="long_desc" >Descrição completa:</Label>
+                        <Input type="text" name="long_desc" maxLength='970' placeholder="Digite a Descrição Completa" onChange={handleChange} value={item.long_desc} />
+                        <br />
+
+                        <Label for="price" >Preço:</Label>
+                        <Input type="number" name="price" step='any' placeholder="Digite o valor em R$:" onChange={handleChange} value={item.price} />
+                        <br />
+
+                        <Label for="images" >Imagens:</Label>
+                        <Input type="file" name="images" placeholder="Digite o valor em R$:" multiple='true' onChange={onFileChange} />
+                        <br />
 
 
-                </Data>
+                    </Data>
 
-                <Footer>
+                    <TwoButtons>
+                        <Button type="submit">Atualize o produto</Button>
+                        <Button onClick={() => { removeItem(item._id) }}>Excluir o produto</Button>
+                    </TwoButtons>
 
-                    <Button type="submit">Atualize o produto</Button>
-                    <Button onClick={() => { removeItem(item._id) }}>Excluir o produto</Button>
-                </Footer>
+                </form>
 
-            </form>
+            </Box>
 
         </Container>
     )

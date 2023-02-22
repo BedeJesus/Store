@@ -4,10 +4,9 @@ import { useState } from "react";
 import { useContext } from "react";
 import { Context } from '../../../context/UserContext'
 
-import { Container, Header, Input, Label,Teste, DivButton, Data, Button } from './styles'
+import { Container, Header, Input, Label,Box, DivButton, Data, Button } from './../../../styles/form'
 
 export default function Register() {
-
 
     const [user, setUser] = useState({})
     const { register } = useContext(Context)
@@ -26,13 +25,13 @@ export default function Register() {
 
     return (
 
-        <Teste>
+        <Container>
 
-            <Container>
+            <Box>
 
                 <Header>
 
-                    <h1> {<SignIn size={35} />} Faça seu Cadastro</h1>
+                    <h1> <SignIn size={35} /> Faça seu Cadastro</h1>
                     <h2>Entre com suas informações de cadastro</h2>
 
                 </Header>
@@ -73,9 +72,9 @@ export default function Register() {
 
                 </form>
 
-            </Container>
+            </Box>
 
-        </Teste>
+        </Container>
 
     )
 

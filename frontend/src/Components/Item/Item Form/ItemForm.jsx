@@ -5,7 +5,7 @@ import api from '../../../utils/api'
 import { useNavigate } from "react-router";
 import useFlashMessage from '../../../hooks/useFlashMessage'
 
-import { Container, Button, Data, Header, Input, Label } from './styles'
+import { Container, Button, Data, Header, Input, Label, Box, DivButton } from './../../../styles/form'
 
 
 export default function ItemForm(props) {
@@ -74,47 +74,56 @@ export default function ItemForm(props) {
 
     return (
         <Container>
-
-            <Header>
-
-                <h1>{<Bag size={30} />}  Faça o Cadastro do Produto</h1>
-                <h2>Entre com suas informações de cadastro do produto</h2>
-
-            </Header>
-
-            <form onSubmit={submit}>
-
-                <Data>
-
-                    <Label for="title">Nome:</Label>
-                    <Input type="text" name="title" maxlength="25" placeholder="Digite o nome do produto" onChange={handleChange} />
-                    <br />
-
-                    <Label for="short_desc" >Breve descrição:</Label>
-                    <Input type="text" name="short_desc" maxlength="115" placeholder="Digite uma Breve Descrição" onChange={handleChange} />
-                    <br />
-
-                    <Label for="long_desc" >Descrição completa:</Label>
-                    <Input type="text" name="long_desc" maxLength='970' placeholder="Digite a Descrição Completa" onChange={handleChange} />
-                    <br />
-
-                    <Label for="price" >Preço:</Label>
-                    <Input type="number" name="price" step='any' placeholder="Digite o valor em R$:" onChange={handleChange} />
-                    <br />
-
-                    <Label for="images" >Imagens:</Label>
-                    <Input type="file" name="images" placeholder="Digite o valor em R$:" multiple='true' onChange={onFileChange} />
-                    <br />
+            <Box>
 
 
-                </Data>
 
-                
 
-                    <Button type="submit">Cadastre o produto</Button>
-                
+                <Header>
 
-            </form>
+                    <h1>{<Bag size={30} />}  Faça o Cadastro do Produto</h1>
+                    <h2>Entre com suas informações de cadastro do produto</h2>
+
+                </Header>
+
+                <form onSubmit={submit}>
+
+                    <Data>
+
+                        <Label for="title">Nome:</Label>
+                        <Input type="text" name="title" maxLength="20" placeholder="Digite o nome do produto" onChange={handleChange} />
+                        <br />
+
+                        <Label for="short_desc" >Breve descrição:</Label>
+                        <Input type="text" name="short_desc" maxLength="120" placeholder="Digite uma Breve Descrição" onChange={handleChange} />
+                        <br />
+
+                        <Label for="long_desc" >Descrição completa:</Label>
+                        <Input type="text" name="long_desc" maxLength='970' placeholder="Digite a Descrição Completa" onChange={handleChange} />
+                        <br />
+
+                        <Label for="price" >Preço:</Label>
+                        <Input type="number" name="price" step='any' placeholder="Digite o valor em R$:" onChange={handleChange} />
+                        <br />
+
+                        <Label for="images" >Imagens:</Label>
+                        <Input type="file" name="images" placeholder="Digite o valor em R$:" multiple='true' onChange={onFileChange} />
+                        <br />
+
+
+                    </Data>
+
+
+                    <DivButton>
+                        <Button type="submit">Cadastre o produto</Button>
+                    </DivButton>
+
+
+
+
+                </form>
+
+            </Box>
 
 
         </Container>

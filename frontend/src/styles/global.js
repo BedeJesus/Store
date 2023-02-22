@@ -9,12 +9,22 @@ export default createGlobalStyle`
 }
 
 body{
-
-    /* background-color: #BBBBBB; */
-    background-color: #202020;
-
-    
+    background-color: #202020; 
 }
+
+::-webkit-scrollbar {
+  width: .8em;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3d3d3d;
+  border-radius: 10px;
+}
+
 
 `
 
