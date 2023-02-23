@@ -36,6 +36,17 @@ export const Top = styled.div`
 
 `
 
+export const MiddleButtons = styled.div`
+
+    @media(max-width : 1080px) {
+        display: none;
+    }
+
+
+`
+
+
+
 export const Button = styled(Link)`
 
     margin: .5em;
@@ -44,7 +55,6 @@ export const Button = styled(Link)`
 
     transition: all .2s;
     display: inline-block;
-    position: relative;
 
     :hover {
         transform: translateY(-5px);

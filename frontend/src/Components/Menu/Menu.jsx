@@ -1,7 +1,9 @@
 import React, { useContext } from "react";
 import { Link } from 'react-router-dom'
 import { Context } from '../../context/UserContext'
-import { Top, Container,Button, Store } from './styles'
+import { Top, Container, Button, Store, MiddleButtons } from './styles'
+
+import SubMenu from "./SubMenu/SubMenu";
 
 export default function Menu() {
 
@@ -12,24 +14,32 @@ export default function Menu() {
 
             <Top>
 
+                <SubMenu />
+
                 <Store to='/'>Store (logo)</Store>
 
                 {authenticated ? (
-                    <div>
-                        <Button to='/myitems'>Meus Itens</Button>
-                        <Button to='/myrents'>Minhas Locações</Button>
-                        <Button to='/user/profile'>Perfil</Button>
-                    </div>
+                    <>
+                        <MiddleButtons>
+                            <Button to='/myitems'>Meus Itens</Button>
+                            <Button to='/myrents'>Minhas Locações</Button>
+                            <Button to='/user/profile'>Perfil</Button>
+                        </MiddleButtons>
+
+                    </>
 
                 ) : (
-                    <div>
-                        <Button to='/login'>Login</Button>
-                        <Button to='/register'>Cadastro</Button>
-                    </div>
+                    
+                    <>
+
+                        <MiddleButtons>
+                            <Button to='/login'>Login</Button>
+                            <Button to='/register'>Cadastro</Button>
+                        </MiddleButtons>
+
+                    </>
 
                 )}
-
-                {/* CRIAR UM BOTAO DE SUB MENU PARA MEDIA QUERY */}
 
                 <Link to='/'>Switch</Link>
 
