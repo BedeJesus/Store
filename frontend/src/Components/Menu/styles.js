@@ -9,10 +9,6 @@ a{
     color: #B4A5A5;
     font-size: 30px ;
     text-decoration: none;
-
-    @media(max-width : 650px) {
-        font-size: 23px ;
-    }
     
 }
 `
@@ -31,21 +27,17 @@ export const Top = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin-left: 5%;
-    margin-right: 5%;
+    margin: 0 5%;
 
 `
 
 export const MiddleButtons = styled.div`
 
-    @media(max-width : 1080px) {
+    @media(max-width : 1100px) {
         display: none;
     }
 
-
 `
-
-
 
 export const Button = styled(Link)`
 

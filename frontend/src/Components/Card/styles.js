@@ -2,34 +2,29 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
-    border-radius: 10px;
     display: flex;
     flex-direction: column;
-    margin: 1.5%;
-    width: 22%;
+    margin: 1.5% 0;
+    width: 18%;
     height: 27em;
     padding: 5px 0;
     overflow: hidden;
-    
-
+    border-radius: 10px;
     transition: all 0.5s;
+
     background: linear-gradient(145deg, #2e2e2e, #272727);
-    
     box-shadow:  19px 19px 38px #151515,
              -19px -19px 38px #2b2b2b;
 
-    @media(max-width : 900px) {
-        margin: 1.5%;
+     @media(max-width : 1200px) {
         width: 30%;
         height: 26em;
-    }
+    } 
 
-    @media(max-width : 650px) {
-        
-        margin: 1.5%;
+    @media(max-width : 850px) {
         width: 47%;
         height: 25em;
-    }
+    } 
 
     :hover {
         border: 1px solid #F5EA5A;
@@ -79,7 +74,6 @@ export const Description = styled.div`
     justify-content: center;
     font-size: 1em;
     
-   
 `
 export const Status = styled.div`
 

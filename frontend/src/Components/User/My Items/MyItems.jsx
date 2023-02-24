@@ -68,7 +68,6 @@ export default function MyItems() {
 
             <ItemCards>
 
-
                 {items.length > 0 &&
                     items.map((item) => (
 
@@ -87,7 +86,6 @@ export default function MyItems() {
             </ItemCards>
 
         </>
-
 
     )
 

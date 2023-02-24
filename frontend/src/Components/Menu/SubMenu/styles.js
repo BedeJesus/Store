@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 export const Container = styled.div`
 
   display: none;
-  @media(max-width : 1080px) {
+  @media(max-width : 1100px) {
       display: flex;
   }
 
@@ -96,6 +96,10 @@ export const Box = styled.div`
   transition: .3s;
   border-bottom-right-radius: 20px;
   border-top-right-radius: 20px;
+
+  @media(max-width : 850px) {
+    width: 15em;
+  } 
     
 `
 
@@ -114,7 +118,6 @@ export const Button = styled(Link)`
   border-radius: 15px;
   transition: all .2s;
   display: inline-block;
-
 
 
   :hover {

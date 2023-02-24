@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Card from '../Card/Card'
 import api from "../../utils/api";
-import {Container} from './styles'
+import {Container,Items} from './styles'
 
 export default function Sale(props) {
 
@@ -24,10 +24,10 @@ export default function Sale(props) {
 
     return (
 
-        <>
+        <Container>
             <h1>Todos os Itens</h1>
 
-            <Container>
+            <Items>
 
                 {items.length > 0 &&
                     items.map((item) => (
@@ -46,12 +46,11 @@ export default function Sale(props) {
                     <h3>Não há itens cadastrados ou disponiveis para locação</h3>
                 )}
 
-
-            </Container>
-
+            </Items>
 
 
-        </>
+
+        </Container>
 
 
 

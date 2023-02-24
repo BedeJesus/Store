@@ -10,6 +10,7 @@ export default createGlobalStyle`
 
 body{
     background-color: #202020; 
+    
 }
 
 ::-webkit-scrollbar {

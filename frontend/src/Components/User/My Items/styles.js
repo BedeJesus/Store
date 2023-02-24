@@ -2,11 +2,10 @@ import styled from "styled-components";
 
 export const ItemCards = styled.div`
 
-    display: flex;
+  display: flex;
   flex-wrap: wrap;
-  justify-content: flex-start;
-  flex-direction: row;
-
+  justify-content:space-between;
+  margin: 0 5%;
 `
 
 export const Content = styled.div`

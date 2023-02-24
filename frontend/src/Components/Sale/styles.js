@@ -2,13 +2,20 @@ import styled from "styled-components";
 
 export const Container = styled.div`
 
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: flex-start;
+  margin: 0 5%;
 
     h3{
         margin-left: auto;
         margin-right: auto;
     }
+
+`
+
+export const Items = styled.div`
+
+  display: flex;
+  flex-wrap: wrap;
+  justify-content:space-between;
+
 
 `

@@ -41,7 +41,7 @@ export default function Menu() {
 
                 )}
 
-                <Link to='/'>Switch</Link>
+                <Store to='/'>Switch</Store>
 
             </Top>
 
