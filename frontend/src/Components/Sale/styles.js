@@ -9,6 +9,11 @@ export const Container = styled.div`
         margin-right: auto;
     }
 
+    h1{
+      color: white;
+      margin-bottom: .5em;
+    }
+
 `
 
 export const Items = styled.div`

@@ -11,6 +11,8 @@ a{
     text-decoration: none;
     
 }
+
+margin-bottom: 1em;
 `
 export const Store = styled(Link)`
 

@@ -10,9 +10,11 @@ export const ItemCards = styled.div`
 
 export const Content = styled.div`
 
+color: white;
+
 a {
-  color: black;
   text-decoration: none;
+  color: red;
   font-size: 25px;
   transition: .3s;
 

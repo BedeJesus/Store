@@ -3,9 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
 
-h2{
-    font-weight:bold;
-}
+    color: white;
 
 `
 
@@ -73,7 +71,7 @@ export const ItemLink = styled(Link)`
     font-size: 1.8em;
     font-weight: bold;
     text-decoration: none;
-    color: black;
+    color: white;
     transition: .3s;
 
 :hover {
