@@ -97,7 +97,6 @@ export default function DetailsItem() {
 
                         <Data>
 
-
                             <h2>Descrição completa</h2><p></p>
                             <LongDescription>{item.long_desc}</LongDescription>
 
@@ -111,7 +110,7 @@ export default function DetailsItem() {
                             {token ? (
                                 <Button onClick={rent}>Solicitar uma visita</Button>
                             ) : (
-                                <CreateCount> Você precisa &nbsp;<Link to='/cadastro'> criar com uma conta </Link>&nbsp; para solicitar o aluguel</CreateCount>
+                                <CreateCount> Você precisa &nbsp;<Link to='/register'> criar com uma conta </Link>&nbsp; para solicitar o aluguel</CreateCount>
                             )}
 
                         </Data>

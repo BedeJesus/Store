@@ -62,7 +62,7 @@ export default function MyItems() {
             <Content>
 
                 <h1>Meus Itens</h1>
-                <Link to='/newitem'>Clique aqui para cadastrar um novo Item</Link>
+                <h2><Link to='/newitem'>Clique aqui para cadastrar um novo Item</Link></h2>
 
             </Content>
 

@@ -76,12 +76,9 @@ export default function ItemForm(props) {
         <Container>
             <Box>
 
-
-
-
                 <Header>
 
-                    <h1>{<Bag size={30} />}  Faça o Cadastro do Produto</h1>
+                    <h1>{<Bag/>} Faça o Cadastro do Produto</h1>
                     <h2>Entre com suas informações de cadastro do produto</h2>
 
                 </Header>
@@ -110,21 +107,15 @@ export default function ItemForm(props) {
                         <Input type="file" name="images" placeholder="Digite o valor em R$:" multiple='true' onChange={onFileChange} />
                         <br />
 
-
                     </Data>
-
 
                     <DivButton>
                         <Button type="submit">Cadastre o produto</Button>
                     </DivButton>
 
-
-
-
                 </form>
 
             </Box>
-
 
         </Container>
     )

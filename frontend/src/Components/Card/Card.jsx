@@ -20,8 +20,6 @@ export default function Produto(props) {
         } else if (type === 'done') {
             return <span>Locação completa</span>
 
-        } else {
-            return <button>Como vc caiu aqui</button>
         }
     }
 
@@ -60,9 +58,6 @@ export default function Produto(props) {
             </Content>
 
         </Container>
-
-
-
 
     )
 

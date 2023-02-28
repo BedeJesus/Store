@@ -12,15 +12,22 @@ export const Content = styled.div`
 
 color: white;
 
-a {
-  text-decoration: none;
-  color: red;
-  font-size: 25px;
-  transition: .3s;
+h2{
 
+  margin-bottom:1em;
+
+}
+
+
+a {
+  margin: 1em 0 2em 0;
+  color: rgb(255, 56, 86) ;
+  text-decoration: none;
+  transition: .3s;
   :hover{
-    color:yellow;
+      color: whitesmoke;
   }
+  
   
 }
 

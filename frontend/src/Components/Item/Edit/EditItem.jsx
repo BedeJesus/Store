@@ -3,7 +3,7 @@ import api from '../../../utils/api'
 import useFlashMessage from '../../../hooks/useFlashMessage'
 import { useNavigate, useParams } from 'react-router'
 
-import { Button, Container, Data, Input, Label, Header, Box ,TwoButtons} from './../../../styles/form'
+import { Button, Container, Data, Input, Label, Header, Box, TwoButtons } from './../../../styles/form'
 
 export default function EditItem(props) {
 
@@ -60,6 +60,7 @@ export default function EditItem(props) {
     const navigate = useNavigate()
 
     async function removeItem(id) {
+
         let msgType = "success"
         const data = await api.delete(`/items/${id}`, {
             headers: {
