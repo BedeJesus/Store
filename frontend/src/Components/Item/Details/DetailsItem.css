@@ -43,40 +43,9 @@
   background-color: white;
   color: red;
 
-
 }
 
 /* SLIDER */
-
-.image {
-  width: 25em;
-  height: 25em;
-  border-radius: 10px;
-  margin-left: 2em;
-  margin-right: 2em;
-  margin-top: 3em;
-
-}
-
-.right-arrow,
-.left-arrow {
-
-
-  font-size: 3rem;
-  color: #000;
-  cursor: pointer;
-  margin-top: 4%;
-  transition: .3s;
-
-}
-
-.right-arrow:hover,
-.left-arrow:hover {
-
-  font-size: 3.5rem;
-  color: red;
-
-}
 
 .slide {
   transition:.1s;

@@ -3,10 +3,10 @@ import useFlashMessage from '../../../hooks/useFlashMessage'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
-import './DetailsItem.css'
+// import './DetailsItem.css'
 import { ArrowLeft, ArrowRight } from 'phosphor-react';
 
-import { Button, Container, Data, LongDescription, Price, CreateCount } from './styles'
+import { Button, Container, Data, LongDescription, Price, CreateCount, Info, Arrow, Arrows, Slider } from './styles'
 
 export default function DetailsItem() {
 
@@ -53,19 +53,18 @@ export default function DetailsItem() {
 
 
     return (
-        <>
-
+        <Container>
             {item.title && (
                 <>
                     <h1>{item.title}</h1>
 
-                    <Container>
+                    <Info>
 
-
-                        <div className='slider'>
+                        <Slider>
 
                             {item.images.map((image, index) => {
                                 return (
+
                                     <div className={index === current ? 'slide active' : 'slide'}
                                         key={index}>
 
@@ -82,30 +81,27 @@ export default function DetailsItem() {
                                 )
                             })}
 
-                            {item.images.length > 1 ? (
-                                <>
-                                    <ArrowLeft className='left-arrow' onClick={prevSlide} />
-                                    <ArrowRight className='right-arrow' onClick={nextSlide} />
-                                </>
-                            ) : (
-                                <></>
+                            {item.images.length > 1 && (
+
+                                <Arrows>
+                                    <Arrow><ArrowLeft onClick={prevSlide} /></Arrow>
+                                    <Arrow><ArrowRight onClick={nextSlide} /></Arrow>
+                                </Arrows>
                             )}
 
-
-                        </div>
-
+                        </Slider>
 
                         <Data>
 
-                            <h2>Descrição completa</h2><p></p>
+                            <h1>Descrição completa</h1>
                             <LongDescription>{item.long_desc}</LongDescription>
 
-                            <p></p>
+                            <h2>Localização do item:</h2>
+                            <Price>Itaquera, São Paulo</Price>
 
                             <h2>Valor da locação:</h2>
-                            <Price>{`R$${item.price.toLocaleString('pt-br', {minimumFractionDigits: 2})}`}</Price>
+                            <Price>{`R$${item.price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}</Price>
 
-                            <p></p>
 
                             {token ? (
                                 <Button onClick={rent}>Solicitar uma visita</Button>
@@ -115,11 +111,10 @@ export default function DetailsItem() {
 
                         </Data>
 
-                    </Container>
-                    
-                </>)}
+                    </Info>
 
-        </>
+                </>)}
+        </Container>
 
     )
 }
