@@ -6,7 +6,10 @@ import { Link } from 'react-router-dom'
 // import './DetailsItem.css'
 import { ArrowLeft, ArrowRight } from 'phosphor-react';
 
-import { Button, Container, Data, LongDescription, Price, CreateCount, Info, Arrow, Arrows, Slider } from './styles'
+import {
+    Button, Container, Data, LongDescription,
+    Price, CreateCount, Box, Arrow, Arrows, Slider, Info, InfoItem, Input
+} from './styles'
 
 export default function DetailsItem() {
 
@@ -54,66 +57,76 @@ export default function DetailsItem() {
 
     return (
         <Container>
-            {item.title && (
-                <>
-                    <h1>{item.title}</h1>
+            <h1>{item.title}</h1>
+
+            <Box>
+
+                <Slider>
+
+                    {item.images.map((image, index) => {
+                        return (
+
+                            <div className={index === current ? 'slide active' : 'slide'}
+                                key={index}>
+
+                                {index === current && (
+
+                                    <img
+                                        src={`${process.env.REACT_APP_API}/images/items/${image}`}
+                                        alt={item.title}
+                                        key={index}
+                                        className='image'
+                                    />
+                                )}
+                            </div>
+                        )
+                    })}
+
+                    {item.images.length > 1 && (
+
+                        <Arrows>
+                            <Arrow><ArrowLeft onClick={prevSlide} /></Arrow>
+                            <Arrow><ArrowRight onClick={nextSlide} /></Arrow>
+                        </Arrows>
+                    )}
+
+                </Slider>
+
+                <Data>
+
+                    <h1>Descrição Completa</h1>
+                    <LongDescription>{item.long_desc}</LongDescription>
 
                     <Info>
 
-                        <Slider>
-
-                            {item.images.map((image, index) => {
-                                return (
-
-                                    <div className={index === current ? 'slide active' : 'slide'}
-                                        key={index}>
-
-                                        {index === current && (
-
-                                            <img
-                                                src={`${process.env.REACT_APP_API}/images/items/${image}`}
-                                                alt={item.title}
-                                                key={index}
-                                                className='image'
-                                            />
-                                        )}
-                                    </div>
-                                )
-                            })}
-
-                            {item.images.length > 1 && (
-
-                                <Arrows>
-                                    <Arrow><ArrowLeft onClick={prevSlide} /></Arrow>
-                                    <Arrow><ArrowRight onClick={nextSlide} /></Arrow>
-                                </Arrows>
-                            )}
-
-                        </Slider>
-
-                        <Data>
-
-                            <h1>Descrição completa</h1>
-                            <LongDescription>{item.long_desc}</LongDescription>
-
-                            <h2>Localização do item:</h2>
+                        <InfoItem>
+                            <h2>Localização do item</h2>
                             <Price>Itaquera, São Paulo</Price>
+                        </InfoItem>
 
-                            <h2>Valor da locação:</h2>
+                        <InfoItem>
+                            <h2>Valor da locação/dia</h2>
                             <Price>{`R$${item.price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}</Price>
+                        </InfoItem>
 
-
-                            {token ? (
-                                <Button onClick={rent}>Solicitar uma visita</Button>
-                            ) : (
-                                <CreateCount> Você precisa &nbsp;<Link to='/register'> criar com uma conta </Link>&nbsp; para solicitar o aluguel</CreateCount>
-                            )}
-
-                        </Data>
+                        <InfoItem>
+                            <h2>Dias desejados</h2>
+                            <Input type={'number'} min={"1"} value={1} />
+                        </InfoItem>
 
                     </Info>
 
-                </>)}
+                    {token ? (
+                        <Button onClick={rent}>Solicitar uma visita</Button>
+                    ) : (
+                        <CreateCount> Você precisa &nbsp;<Link to='/register'> criar com uma conta </Link> &nbsp; para solicitar o aluguel </CreateCount>
+                    )}
+
+                </Data>
+
+            </Box>
+
+
         </Container>
 
     )

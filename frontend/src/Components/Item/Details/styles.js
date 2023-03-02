@@ -5,32 +5,62 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   margin: 0 5%;
-  color: white;
+
+  color: whitesmoke;
+
+  
+  
 
   h1{
     font-size: 2em;
-    margin-bottom: .5em;
+    margin-bottom: .7em;
   }
   
+`
+
+export const Box = styled.div`
+
+  display: flex;
+  justify-content:space-around;
+  padding-bottom: 2em;
+
+  border-radius: 15px;
+  background: #202020;
+
+  box-shadow:  15px 15px 30px #171717,
+              -15px -15px 30px #292929;
+
 `
 
 export const Info = styled.div`
 
   display: flex;
-  background-color: grey;
-  justify-content:space-around;
-  height: 37em;
+  justify-content: space-around;
+  width: 100%;
+  margin-bottom: 1.5em;
+  
+`
+
+export const InfoItem = styled.div`
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  
 `
 
 export const Slider = styled.div`
 
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: center;
 
-
+ 
   img{
-    margin-right: 2em;
+    
+  margin-right: 2em;
+  border: 2px solid red;
+  
   }
 
 `
@@ -43,10 +73,14 @@ export const Data = styled.div`
     align-items:center;
     justify-content: center;
 
-
-
     h1 {
         margin-bottom: .5em;
+        color:rgb(255, 56, 86);
+        
+    }
+
+    h2{
+      color:rgb(255, 56, 86);
     }
 
 `
@@ -63,21 +97,36 @@ export const LongDescription = styled.span`
 
 export const Price = styled.span`
 
-    display: flex;
-    font-size: 1.3em;
-    justify-content: center;
-    margin-bottom: .5em;
+  font-size: 1.3em;
+
+`
+
+export const Input = styled.input`
+
+  font-size: 1.3em;
+  width: 3em;
+  background-color: transparent;
+  color: whitesmoke;
+  border: solid 1px red;
+  border-radius:10px ;
+  text-align: center;
+
+  :focus{
+    outline: none;
+  }
+
 
 `
 
 export const Arrow = styled.div`
 
-  color: black;
+  color: whitesmoke;
   font-size: 2.5em;
   cursor: pointer;
   transition: .3s;
 
   :hover{
+    
     color: rgb(255, 56, 86);
   }
 
@@ -87,6 +136,7 @@ export const Arrows = styled.div`
 
  display: flex;
  justify-content: center;
+ margin-top: 1em;
 
 `
 
@@ -95,12 +145,15 @@ export const CreateCount = styled.span`
     display: flex;
     font-size: 1.6em;
     justify-content: center;
+    
 
     a{
+      transition: .2s;
         text-decoration: none;
+        color: rgb(255, 56, 86);
         
         :hover{
-            color: red;
+            color: whitesmoke;
         }
     }
 
