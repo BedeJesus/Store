@@ -111,7 +111,7 @@ export default function DetailsItem() {
 
                         <InfoItem>
                             <h2>Dias desejados</h2>
-                            <Input type={'number'} min={"1"} value={1} />
+                            <Input type={'number'} min={"1"}  />
                         </InfoItem>
 
                     </Info>

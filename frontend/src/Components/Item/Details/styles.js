@@ -8,8 +8,6 @@ export const Container = styled.div`
 
   color: whitesmoke;
 
-  
-  
 
   h1{
     font-size: 2em;
@@ -23,17 +21,24 @@ export const Box = styled.div`
   display: flex;
   justify-content:space-around;
   padding-bottom: 2em;
-
+  padding: 0 2em  2em 2em;
+  margin-bottom: 2em;
   border-radius: 15px;
   background: #202020;
 
   box-shadow:  15px 15px 30px #171717,
               -15px -15px 30px #292929;
 
+  @media(max-width : 1400px) {
+        flex-direction: column;
+        align-items: center;
+    } 
+
 `
 
 export const Info = styled.div`
 
+    
   display: flex;
   justify-content: space-around;
   width: 100%;
@@ -67,7 +72,7 @@ export const Slider = styled.div`
 
 export const Data = styled.div` 
 
-    width: 47em;
+    max-width: 50em;
     display: flex;
     flex-direction: column;
     align-items:center;
@@ -107,7 +112,7 @@ export const Input = styled.input`
   width: 3em;
   background-color: transparent;
   color: whitesmoke;
-  border: solid 1px red;
+  border: solid 1px whitesmoke;
   border-radius:10px ;
   text-align: center;
 
