@@ -4,7 +4,7 @@ export const ItemCards = styled.div`
 
   display: flex;
   flex-wrap: wrap;
-  justify-content:space-between;
+  justify-content:space-evenly;
   margin: 0 5%;
 `
 

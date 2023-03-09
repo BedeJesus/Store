@@ -1,7 +1,7 @@
 import api from '../../../utils/api'
 import { useEffect, useState } from 'react'
 
-import { Container, Description, ItemLink, PetData, Rents } from './styles'
+import { Container, Description, ItemLink, Item, Rents } from './styles'
 
 export default function MyRents() {
 
@@ -21,20 +21,21 @@ export default function MyRents() {
     }, [token])
 
 
-
-
     return (
+
         <Container>
 
             <h1>Minhas Locações</h1>
 
-
             <Rents>
 
                 {items.length > 0 &&
+
                     items.map((item) => (
 
-                        <PetData>
+                        <Item>
+
+                            <ItemLink to={`item/${item._id}`}> {item.title} </ItemLink>
 
                             <img
                                 src={`${process.env.REACT_APP_API}/images/items/${item.images[0]}`}
@@ -42,8 +43,6 @@ export default function MyRents() {
                             />
 
                             <Description>
-
-                                <ItemLink to={`item/${item._id}`}> {item.title} </ItemLink>
 
                                 <div>
 
@@ -59,16 +58,16 @@ export default function MyRents() {
                                     {item.available ? (
                                         <p>Locação em processo</p>
                                     ) : (
-                                        <p>Locação foi realizada</p>
+                                        <p>Locação realizada</p>
                                     )}
                                 </div>
 
                             </Description>
 
-                        </PetData>
+                        </Item>
                     ))}
 
-                {items.length === 0 && <h2>Ainda não há items solicitados para locação</h2>}
+                {items.length === 0 && <h2>Você ainda não solicitou uma locação</h2>}
 
             </Rents>
 

@@ -48,11 +48,7 @@ export default function Sale(props) {
 
             </Items>
 
-
-
         </Container>
-
-
 
     )
 }

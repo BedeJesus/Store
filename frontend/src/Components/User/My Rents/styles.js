@@ -3,42 +3,50 @@ import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
 
-    color: white;
+    color: whitesmoke;
+
+    h1{
+      margin-bottom: .5em;
+    }
 
 `
 
 export const Rents = styled.div`
 
     display: flex;
-    justify-content:space-around;
+    justify-content:space-evenly;
     flex-wrap: wrap;
-    margin-bottom: 1%;
+    margin: 0 5%;
 `
 
-export const PetData = styled.div`
+export const Item = styled.div`
 
     display: flex;
-    flex-direction:column;
-    border-bottom: solid 4px black;
-
- img {
-    display: flex;
-    justify-content: center;
-    width: 23em;
-    height: 23em;
+    flex-direction: column;
+    margin: 1.5% 0;
+    width: 22%;
+    padding: 5px 0;
+    overflow: hidden;
     border-radius: 10px;
+    transition: all 0.5s;
 
-    @media(max-width : 1515px) {
-        width: 23em;
-        height: 23em;
-    }
+    background: linear-gradient(145deg, #2e2e2e, #272727);
+    box-shadow:  19px 19px 38px #151515,
+             -19px -19px 38px #2b2b2b;
 
+img {
+    height:14.6em;
+    width: 100%;
+    object-fit: cover;
 }
 
-@media(max-width : 1515px) {
-    margin-left:2% ;
-    margin-right:2% ;
-}
+@media(max-width : 1200px) {
+        width: 30%;
+    } 
+
+    @media(max-width : 850px) {
+        width: 47%;
+    } 
 
 
 `
@@ -46,9 +54,10 @@ export const PetData = styled.div`
 export const Description = styled.div`
 
     display: flex;
-    height: 19em;
     flex-direction: column;
     justify-content: center;
+    
+    height: 100%;
 
 span {
     font-size: 1.3em;
@@ -56,12 +65,10 @@ span {
     justify-content: center;
 }
 
-@media(max-width : 1515px) {
-    height: 17em;
-}
-
-@media(max-width : 679px) {
-    height: 17em; 
+p{
+    color: rgb(255, 56, 86) ;
+    font-size: 1.5em;
+    font-weight: bold;
 }
 
 `
@@ -73,9 +80,10 @@ export const ItemLink = styled(Link)`
     text-decoration: none;
     color: white;
     transition: .3s;
+    
 
 :hover {
-    color:red;
+    color: rgb(255, 56, 86) ;
 }
 
 
