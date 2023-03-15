@@ -3,9 +3,9 @@ import useFlashMessage from "../../../hooks/useFlashMessage"
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { ArrowLeft, ArrowRight } from 'phosphor-react';
-import './Conclude.css'
+import './Conclude.css' //VER aqui como resolver esse bo
 
-import {Container,Button,Data,LongDescription,Price} from './styles'
+import { Container, Box, Slider, Data, Button, Arrows, Arrow } from './styles'
 
 export default function Conclude() {
 
@@ -18,7 +18,7 @@ export default function Conclude() {
         api.get(`/items/${id}`).then((response) => {
             setItem(response.data.item)
         })
-    }, [id]) 
+    }, [id])
 
     async function concludeRent(id) {
         let msgType = 'success'
@@ -61,69 +61,67 @@ export default function Conclude() {
 
 
     return (
-        <>
 
-            {item.title && (
+        <Container>
 
-                <Container>
+            <h1>{item.title}</h1>
 
-                    <div className='slider'>
+            <Box>
 
-                        {item.images.map((image, index) => {
-                            return (
-                                <div className={index === current ? 'slide active' : 'slide'}
-                                    key={index}>
+                <Slider>
 
-                                    {index === current && (
+                    {item.images.map((image, index) => {
+                        return (
+                            <div className={index === current ? 'slide active' : 'slide'}
+                                key={index}>
 
-                                        <img
-                                            src={`${process.env.REACT_APP_API}/images/items/${image}`}
-                                            alt={item.title}
-                                            key={index}
-                                            className='image'
-                                        />
-                                    )}
-                                </div>
-                            )
-                        })}
+                                {index === current && (
 
-                        {item.images.length > 1 ? (
-                            <>
-                                <ArrowLeft className='left-arrow' onClick={prevSlide} />
-                                <ArrowRight className='right-arrow' onClick={nextSlide} />
-                            </>
-                        ) : (
-                            <></>
-                        )}
+                                    <img
+                                        src={`${process.env.REACT_APP_API}/images/items/${image}`}
+                                        alt={item.title}
+                                        key={index}
+                                        className='image'
+                                    />
+                                )}
+                            </div>
+                        )
+                    })}
 
-
-                    </div>
+                    {item.images.length > 1 && (
+                        <Arrows>
+                            <Arrow><ArrowLeft onClick={prevSlide} /></Arrow>
+                            <Arrow><ArrowRight onClick={nextSlide} /></Arrow>
+                        </Arrows>
+                    )}
 
 
-                    <Data>
+                </Slider>
 
-                        <h1>Nome do alugador:</h1><p></p>
-                        <LongDescription>{item.renter.name}</LongDescription>
 
-                        <p></p>
+                <Data>
 
-                        <h1>Valor da locação:</h1>
-                        <Price>{`R$${item.price}`}</Price>
 
-                        <p></p>
+                    <h2>Nome do alugador: {item.renter.name}</h2>
 
-                        {token ? (
-                            <Button onClick={() => concludeRent(item._id)}>Concluir Locação</Button>
-                        ) : (
-                            <></>
-                        )}
+                    <h2>Telefone do alugador: (11) 9999-9399</h2>
 
-                    </Data>
+                    <h2>Dias desejados: 2 </h2>
 
-                </Container>
-            )}
+                    <h2>Valor da locação: {`R$${item.price}`}</h2>
 
-        </>
+
+                    {token && (
+                        <Button onClick={() => concludeRent(item._id)}>Concluir Locação</Button>
+                    )}
+
+                </Data>
+
+            </Box>
+
+
+        </Container>
+
     )
 }
 

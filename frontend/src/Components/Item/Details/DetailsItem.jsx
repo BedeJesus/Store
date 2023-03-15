@@ -3,7 +3,6 @@ import useFlashMessage from '../../../hooks/useFlashMessage'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
-// import './DetailsItem.css'
 import { ArrowLeft, ArrowRight } from 'phosphor-react';
 
 import {
@@ -111,7 +110,7 @@ export default function DetailsItem() {
 
                         <InfoItem>
                             <h2>Dias desejados</h2>
-                            <Input type={'number'} min={"1"}  />
+                            <Input type={'number'} min={"1"} />
                         </InfoItem>
 
                     </Info>

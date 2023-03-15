@@ -60,11 +60,10 @@ export const Slider = styled.div`
   flex-direction: column;
   justify-content: center;
 
- 
   img{
     
-  margin-right: 2em;
-  border: 2px solid red;
+    margin-right: 2em;
+    border: 2px solid red;
   
   }
 

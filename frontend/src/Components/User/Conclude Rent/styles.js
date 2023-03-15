@@ -3,54 +3,116 @@ import styled from "styled-components";
 export const Container = styled.div`
 
   display: flex;
-  justify-content: space-around;
+  flex-direction: column;
+  margin: 0 5%;
 
+  color: whitesmoke;
+
+
+  h1{
+    font-size: 2em;
+    margin-bottom: .7em;
+  }
+  
+`
+
+export const Box = styled.div`
+
+  display: flex;
+  justify-content:space-around;
+  padding-bottom: 2em;
+  padding: 0 2em  2em 2em;
+  margin-bottom: 2em;
+  border-radius: 15px;
+  background: #202020;
+
+  box-shadow:  15px 15px 30px #171717,
+              -15px -15px 30px #292929;
+
+  @media(max-width : 1400px) {
+        flex-direction: column;
+        align-items: center;
+    } 
+
+`
+
+
+export const Slider = styled.div`
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  img{
+    
+    margin-right: 2em;
+    border: 2px solid red;
+  
+  }
 
 `
 
 export const Data = styled.div` 
 
-    margin-left: 5%;
+    max-width: 50em;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
 
-    h1 {
-        font-size: 2em;
+    h2{
+      color:whitesmoke;
+      margin: .5em 0 ;
     }
 
 `
 
-export const LongDescription = styled.span`
-
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  font-size: 1.3em;
 
 
+export const Arrow = styled.div`
+
+  color: whitesmoke;
+  font-size: 2.5em;
+  cursor: pointer;
+  transition: .3s;
+
+  :hover{
+    
+    color: rgb(255, 56, 86);
+  }
+
+`
+
+export const Arrows = styled.div`
+
+ display: flex;
+ justify-content: center;
+ margin-top: 1em;
 
 `
 
-export const Price = styled.span`
-
-    display: flex;
-    font-size: 1.3em;
-    justify-content: center;
-
-`
 
 export const Button = styled.button`
 
-  font-size: 1.3em;
-  font-weight: bold;
-  border-radius: 10px;
-  background-color: red;
-  color: white;
-  transition: .3s;
-  padding: 2% 4% 2% 4%;
+ padding: .5em 2em;
+ border-radius: 10px;
+ 
+ background-color: rgb(255, 56, 86);
+ font-size: 1.7rem;
+ transition: all .3s ease;
+ box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
+ color: hsl(0, 0%, 100%);
 
-  :hover {
+
+ :hover {
+    box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
     cursor: pointer;
-    background-color: white;
-    color: red;
+}
+
+:active {
+ box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+ transform: translateY(5px);
+ transition: 50ms;
 }
 
 `
