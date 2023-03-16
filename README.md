@@ -8,6 +8,7 @@
 <h2>Linguagens utilizadas:</h2>
     <h3>Front-end:</h3>
     - React JS
+    - Styled Components
     <h3>Backend-end:</h3>
     - Node JS com Express como framework<br>
     - Mongodb como banco de dados e Mongoose como framework<p></p>
