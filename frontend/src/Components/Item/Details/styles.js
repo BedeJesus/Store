@@ -1,4 +1,6 @@
 import styled from "styled-components";
+import { ArrowLeft, ArrowRight } from 'phosphor-react';
+
 
 export const Container = styled.div`
 
@@ -60,13 +62,15 @@ export const Slider = styled.div`
   flex-direction: column;
   justify-content: center;
 
-  img{
-    
-    margin-right: 2em;
-    border: 2px solid red;
-  
-  }
+`
 
+export const Image = styled.img`
+
+  width: 27em;
+  height: 27em;
+  border-radius: 10px;
+  margin-top: 3em;
+  border: 2px solid rgb(255, 56, 86);
 `
 
 export const Data = styled.div` 
@@ -122,7 +126,21 @@ export const Input = styled.input`
 
 `
 
-export const Arrow = styled.div`
+export const LeftArrow = styled(ArrowLeft)`
+
+  color: whitesmoke;
+  font-size: 2.5em;
+  cursor: pointer;
+  transition: .3s;
+
+  :hover{
+    
+    color: rgb(255, 56, 86);
+  }
+
+`
+
+export const RightArrow = styled(ArrowRight)`
 
   color: whitesmoke;
   font-size: 2.5em;

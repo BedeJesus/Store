@@ -2,10 +2,8 @@ import api from "../../../utils/api"
 import useFlashMessage from "../../../hooks/useFlashMessage"
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { ArrowLeft, ArrowRight } from 'phosphor-react';
-import './Conclude.css' //VER aqui como resolver esse bo
 
-import { Container, Box, Slider, Data, Button, Arrows, Arrow } from './styles'
+import { Container, Box, Slider, Data, Button, Arrows, LeftArrow,RightArrow, Image } from './styles'
 
 export default function Conclude() {
 
@@ -58,8 +56,6 @@ export default function Conclude() {
     }
 
 
-
-
     return (
 
         <Container>
@@ -71,27 +67,25 @@ export default function Conclude() {
                 <Slider>
 
                     {item.images.map((image, index) => {
-                        return (
-                            <div className={index === current ? 'slide active' : 'slide'}
-                                key={index}>
 
+                        return (
+                            <>
                                 {index === current && (
 
-                                    <img
+                                    <Image
                                         src={`${process.env.REACT_APP_API}/images/items/${image}`}
                                         alt={item.title}
                                         key={index}
-                                        className='image'
                                     />
                                 )}
-                            </div>
+                            </>
                         )
                     })}
 
                     {item.images.length > 1 && (
                         <Arrows>
-                            <Arrow><ArrowLeft onClick={prevSlide} /></Arrow>
-                            <Arrow><ArrowRight onClick={nextSlide} /></Arrow>
+                            <LeftArrow onClick={prevSlide} />
+                            <RightArrow onClick={nextSlide} />
                         </Arrows>
                     )}
 
@@ -101,12 +95,11 @@ export default function Conclude() {
 
                 <Data>
 
-
                     <h2>Nome do alugador: {item.renter.name}</h2>
 
-                    <h2>Telefone do alugador: (11) 9999-9399</h2>
+                    <h2>Telefone do alugador: colocar aqui</h2>
 
-                    <h2>Dias desejados: 2 </h2>
+                    <h2>Dias desejados: colocar aqui </h2>
 
                     <h2>Valor da locação: {`R$${item.price}`}</h2>
 
@@ -118,7 +111,6 @@ export default function Conclude() {
                 </Data>
 
             </Box>
-
 
         </Container>
 

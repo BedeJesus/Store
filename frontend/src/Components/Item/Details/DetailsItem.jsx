@@ -3,11 +3,10 @@ import useFlashMessage from '../../../hooks/useFlashMessage'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 import { Link } from 'react-router-dom'
-import { ArrowLeft, ArrowRight } from 'phosphor-react';
 
 import {
     Button, Container, Data, LongDescription,
-    Price, CreateCount, Box, Arrow, Arrows, Slider, Info, InfoItem, Input
+    Price, CreateCount, Box, RightArrow, LeftArrow, Arrows, Slider, Image, Info, InfoItem, Input
 } from './styles'
 
 export default function DetailsItem() {
@@ -63,29 +62,27 @@ export default function DetailsItem() {
                 <Slider>
 
                     {item.images.map((image, index) => {
+
                         return (
-
-                            <div className={index === current ? 'slide active' : 'slide'}
-                                key={index}>
-
+                            <>
                                 {index === current && (
 
-                                    <img
+                                    <Image
                                         src={`${process.env.REACT_APP_API}/images/items/${image}`}
                                         alt={item.title}
                                         key={index}
-                                        className='image'
+
                                     />
                                 )}
-                            </div>
+                            </>
                         )
                     })}
 
                     {item.images.length > 1 && (
 
                         <Arrows>
-                            <Arrow><ArrowLeft onClick={prevSlide} /></Arrow>
-                            <Arrow><ArrowRight onClick={nextSlide} /></Arrow>
+                            <LeftArrow onClick={prevSlide} />
+                            <RightArrow onClick={nextSlide} />
                         </Arrows>
                     )}
 
