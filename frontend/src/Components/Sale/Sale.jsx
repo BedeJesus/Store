@@ -1,11 +1,28 @@
 import { useEffect, useState } from "react";
 import Card from '../Card/Card'
 import api from "../../utils/api";
-import {Container,Items} from './styles'
+import { Container, Items, Input, Filter } from './styles'
+import Pagination from "../Pagination/Pagination";
 
 export default function Sale(props) {
 
     const [items, setItems] = useState([])
+
+    const [currentPage, setCurrentPage] = useState(1)
+    const itemsInPage = 15
+    const lastItemIndex = currentPage * itemsInPage
+    const firstItemIndex = lastItemIndex - itemsInPage
+
+    const [filter, setFilter] = useState('')
+    const filteredItems = items.filter((item) => item.title.toLowerCase().includes(filter.toLowerCase()))
+
+    const currentItems = filteredItems.slice(firstItemIndex, lastItemIndex)
+
+    const paginate = pageNumber => {
+        setCurrentPage(pageNumber)
+
+    }
+
 
     useEffect(() => {
         api.get('/items').then((response) => {
@@ -27,10 +44,25 @@ export default function Sale(props) {
         <Container>
             <h1>Todos os Itens</h1>
 
+            <Filter>
+
+                <Input placeholder='Filtre por Titulo'
+                    value={filter}
+                    onChange={(e) => setFilter(e.target.value)}
+                />
+
+                <Pagination itensInPage={itemsInPage}
+                    totalItens={filteredItems.length}
+                    paginate={paginate}
+                />
+
+            </Filter>
+
+
             <Items>
 
                 {items.length > 0 &&
-                    items.map((item) => (
+                    currentItems.map((item) => (
 
                         <Card
                             item={item}
@@ -41,6 +73,7 @@ export default function Sale(props) {
                             description={item.short_desc}
                             button={Button(item)}
                         />
+
                     ))}
                 {items.length === 0 && (
                     <h3>Não há itens cadastrados ou disponiveis para locação</h3>
