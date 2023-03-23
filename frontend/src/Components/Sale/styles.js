@@ -20,9 +20,7 @@ export const Filter = styled.div`
 
 display: flex;
 justify-content: space-between;
-
-height:3em;
-
+height: 2em;
 margin-bottom: 2em;
 
 `
@@ -39,6 +37,7 @@ export const Items = styled.div`
 
 export const Input = styled.input`
 
+    
     background-color: transparent;
     border-color: yellow;
     color:yellow;

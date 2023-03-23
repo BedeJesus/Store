@@ -5,8 +5,6 @@ export const Container = styled.ul`
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    height: 5em;
-    margin-bottom: 1em;
     flex-wrap: wrap;
 
     @media(max-width : 800px) {
@@ -20,7 +18,6 @@ export const Button = styled.button`
 
  padding: .1em .5em;
  border-radius: 10px;
- 
  background-color: rgb(255, 56, 86);
  font-size: 1.5rem;
  transition: all .3s ease;

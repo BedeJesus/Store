@@ -87,18 +87,3 @@ export default function Sale(props) {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
