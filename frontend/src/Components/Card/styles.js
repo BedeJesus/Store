@@ -13,8 +13,8 @@ export const Container = styled.div`
     transition: all 0.5s;
 
     background: linear-gradient(145deg, #2e2e2e, #272727);
-    box-shadow:  19px 19px 38px #151515,
-             -19px -19px 38px #2b2b2b;
+    box-shadow:  17px 17px 34px #151515,
+             -17px -17px 34px #2b2b2b;
 
      @media(max-width : 1200px) {
         width: 30%;

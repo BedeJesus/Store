@@ -40,7 +40,6 @@ export const Input = styled.input`
     
     background-color: transparent;
     border-color: yellow;
-    color:yellow;
     font-size: 1.5em;
     padding-left: 1%;
     border-top: transparent ;
@@ -49,12 +48,13 @@ export const Input = styled.input`
 
     ::placeholder,
     ::-webkit-input-placeholder {
-        color:yellow;
+        color:rgba(245,234,90,.5);
         
     }
 
     &:focus {
         outline: none;
+       color:rgb(245,234,90);
     }
 
     @media(max-width : 800px) {
