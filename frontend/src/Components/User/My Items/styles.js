@@ -10,7 +10,7 @@ export const ItemCards = styled.div`
 
 export const Content = styled.div`
 
-color: white;
+color: ${props => props.theme.colors.primary_text};
 
 h2{
 
@@ -21,11 +21,11 @@ h2{
 
 a {
   margin: 1em 0 2em 0;
-  color: rgb(255, 56, 86) ;
+  color: ${props => props.theme.colors.primary_details};
   text-decoration: none;
   transition: .3s;
   :hover{
-      color: whitesmoke;
+   color: ${props => props.theme.colors.secundary_details};
   }
   
   

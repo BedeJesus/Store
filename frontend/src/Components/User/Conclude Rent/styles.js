@@ -7,7 +7,7 @@ export const Container = styled.div`
   flex-direction: column;
   margin: 0 5%;
 
-  color: whitesmoke;
+  color: ${props => props.theme.colors.primary_text};
 
 
   h1{
@@ -23,7 +23,7 @@ export const Image = styled.img`
   height: 27em;
   border-radius: 10px;
   margin-top: 3em;
-  border: 2px solid rgb(255, 56, 86);
+  border: 2px solid ${props => props.theme.colors.primary_details};
 `
 
 
@@ -35,10 +35,9 @@ export const Box = styled.div`
   padding: 0 2em  2em 2em;
   margin-bottom: 2em;
   border-radius: 15px;
-  background: #202020;
+  background: ${props => props.theme.colors.primary_background};
 
-  box-shadow:  15px 15px 30px #171717,
-              -15px -15px 30px #292929;
+  box-shadow: ${props => props.theme.item.box_shadow};
 
   @media(max-width : 1400px) {
         flex-direction: column;
@@ -66,7 +65,7 @@ export const Data = styled.div`
     justify-content: center;
 
     h2{
-      color:whitesmoke;
+      color: ${props => props.theme.colors.primary_text};
       margin: .5em 0 ;
     }
 
@@ -74,28 +73,28 @@ export const Data = styled.div`
 
 export const LeftArrow = styled(ArrowLeft)`
 
-  color: whitesmoke;
+  color: ${props => props.theme.colors.primary_text};
   font-size: 2.5em;
   cursor: pointer;
   transition: .3s;
 
   :hover{
     
-    color: rgb(255, 56, 86);
+    color: ${props => props.theme.colors.secundary_details};
   }
 
 `
 
 export const RightArrow = styled(ArrowRight)`
 
-  color: whitesmoke;
+  color: ${props => props.theme.colors.primary_text};
   font-size: 2.5em;
   cursor: pointer;
   transition: .3s;
 
   :hover{
     
-    color: rgb(255, 56, 86);
+    color: ${props => props.theme.colors.secundary_details};
   }
 
 `

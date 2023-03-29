@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
 
-    color: whitesmoke;
+    color: ${props => props.theme.colors.primary_text};
 
     h1{
       margin-bottom: .5em;
@@ -30,9 +30,8 @@ export const Item = styled.div`
     border-radius: 10px;
     transition: all 0.5s;
 
-    background: linear-gradient(145deg, #2e2e2e, #272727);
-    box-shadow:  19px 19px 38px #151515,
-             -19px -19px 38px #2b2b2b;
+    background: ${props => props.theme.card.background};
+    box-shadow: ${props => props.theme.card.box_shadow};
 
 img {
     height:14.6em;
@@ -66,7 +65,7 @@ span {
 }
 
 p{
-    color: rgb(255, 56, 86) ;
+    color: ${props => props.theme.colors.primary_details};
     font-size: 1.5em;
     font-weight: bold;
 }
@@ -83,7 +82,7 @@ export const ItemLink = styled(Link)`
     
 
 :hover {
-    color: rgb(255, 56, 86) ;
+    color: ${props => props.theme.colors.primary_details};
 }
 
 

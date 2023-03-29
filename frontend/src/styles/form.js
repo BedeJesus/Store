@@ -9,12 +9,13 @@ export const Container = styled.div`
 export const Box = styled.div`
 
 border-radius: 15px;
-background: #202020;
+
+background-color: ${props => props.theme.colors.primary_background};
 
 box-shadow:  15px 15px 30px #171717,
              -15px -15px 30px #292929;
 
-    color: whitesmoke;
+    color: ${props => props.theme.colors.primary_text};;
     text-align: left;
     width: 90vw;
     max-width: 70em;

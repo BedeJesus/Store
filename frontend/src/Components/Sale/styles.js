@@ -10,7 +10,7 @@ export const Container = styled.div`
     }
 
     h1{
-      color: white;
+      color: ${props => props.theme.colors.primary_text};
       margin-bottom: .5em;
     }
 
@@ -37,9 +37,8 @@ export const Items = styled.div`
 
 export const Input = styled.input`
 
-    
     background-color: transparent;
-    border-color: yellow;
+    border-color: ${props => props.theme.colors.secundary_details};
     font-size: 1.5em;
     padding-left: 1%;
     border-top: transparent ;
@@ -48,13 +47,15 @@ export const Input = styled.input`
 
     ::placeholder,
     ::-webkit-input-placeholder {
-        color:rgba(245,234,90,.5);
+        color: ${props => props.theme.colors.secundary_details}66 ;
         
     }
 
     &:focus {
         outline: none;
-       color:rgb(245,234,90);
+       color:${props => props.theme.colors.secundary_details};;
+       
+
     }
 
     @media(max-width : 800px) {

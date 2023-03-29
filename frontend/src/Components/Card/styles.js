@@ -12,9 +12,8 @@ export const Container = styled.div`
     border-radius: 10px;
     transition: all 0.5s;
 
-    background: linear-gradient(145deg, #2e2e2e, #272727);
-    box-shadow:  17px 17px 34px #151515,
-             -17px -17px 34px #2b2b2b;
+    background: ${props => props.theme.card.background};
+    box-shadow: ${props => props.theme.card.box_shadow} ;
 
      @media(max-width : 1200px) {
         width: 30%;
@@ -27,7 +26,7 @@ export const Container = styled.div`
     } 
 
     :hover {
-        border: 1px solid #F5EA5A;
+        border: 1px solid ${props => props.theme.colors.secundary_details};
         transform: scale(1.05);
         cursor: pointer;
     }
@@ -52,7 +51,7 @@ export const Title = styled.div`
     justify-content: center;
     font-size: 1.4rem;
     font-weight: bold;
-    color: whitesmoke;
+    color: ${props => props.theme.colors.primary_text};
 
 `
 
@@ -62,7 +61,7 @@ export const Content = styled.div`
     display: grid;
     grid-template-rows: 60% 33% 7%;
     padding: 0.5%;
-    color: whitesmoke;
+    color: ${props => props.theme.colors.primary_text};
 
 `
 

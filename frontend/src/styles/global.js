@@ -9,7 +9,7 @@ export default createGlobalStyle`
 }
 
 body{
-    background-color: #202020; 
+    background-color: ${props => props.theme.colors.primary_background}; 
     
 }
 
@@ -22,7 +22,7 @@ body{
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #3d3d3d;
+  background: ${props => props.theme.colors.secundary_background}; 
   border-radius: 10px;
 }
 

@@ -13,8 +13,6 @@ export const Container = styled.div`
   width: 40px;
   height: 30px;
   cursor: pointer;
-
-  background: #3d3d3d;
   
   transition: all .2s;
   display: inline-block;
@@ -40,7 +38,7 @@ export const Container = styled.div`
   position: absolute;
   height: 4px;
   width: 100%;
-  background: #B4A5A5;
+  background: ${props => props.theme.colors.secundary_text};
   border-radius: 9px;
   opacity: 1;
   left: 0;
@@ -86,7 +84,7 @@ export const Container = styled.div`
 
 export const Box = styled.div`
 
-  background-color: #202020;
+  background-color: ${props => props.theme.colors.primary_background};
   opacity: 0.9;
   position:absolute;
   height: 14em;

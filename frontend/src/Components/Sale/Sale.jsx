@@ -15,12 +15,10 @@ export default function Sale(props) {
 
     const [filter, setFilter] = useState('')
     const filteredItems = items.filter((item) => item.title.toLowerCase().includes(filter.toLowerCase()))
-
     const currentItems = filteredItems.slice(firstItemIndex, lastItemIndex)
 
     const paginate = pageNumber => {
         setCurrentPage(pageNumber)
-
     }
 
 
@@ -75,6 +73,7 @@ export default function Sale(props) {
                         />
 
                     ))}
+                    
                 {items.length === 0 && (
                     <h3>Não há itens cadastrados ou disponiveis para locação</h3>
                 )}

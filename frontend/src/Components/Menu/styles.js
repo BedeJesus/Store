@@ -3,10 +3,10 @@ import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
 
-    background-color:#3d3d3d;
+    background-color:${props => props.theme.colors.secundary_background};
 
 a{
-    color: #B4A5A5;
+    color: ${props => props.theme.colors.secundary_text};
     font-size: 30px ;
     text-decoration: none;
     
@@ -41,6 +41,16 @@ export const MiddleButtons = styled.div`
 
 `
 
+export const Toggle = styled.div`
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 7em;
+    color:${props => props.theme.colors.secundary_text}; ;
+
+`
+
 export const Button = styled(Link)`
 
     margin: .5em;
@@ -53,7 +63,7 @@ export const Button = styled(Link)`
     :hover {
         transform: translateY(-5px);
         box-shadow: 0 15px 15px rgba(27, 27, 27, .5);
-        color: white;
+        color: ${props => props.theme.colors.primary_text};
     }
 
     :active {

@@ -1,13 +1,17 @@
 import React, { useContext } from "react";
-import { Link } from 'react-router-dom'
 import { Context } from '../../context/UserContext'
-import { Top, Container, Button, Store, MiddleButtons } from './styles'
-
+import { Top, Container, Button, Store, MiddleButtons, Toggle } from './styles'
+import Switch from "react-switch";
 import SubMenu from "./SubMenu/SubMenu";
+import { ThemeContext } from 'styled-components'
 
-export default function Menu() {
+import { Sun, Moon } from 'phosphor-react';
+
+export default function Menu({ toggleTheme }) {
 
     const { authenticated } = useContext(Context)
+
+    const { title } = useContext(ThemeContext)
 
     return (
         <Container>
@@ -29,7 +33,7 @@ export default function Menu() {
                     </>
 
                 ) : (
-                    
+
                     <>
 
                         <MiddleButtons>
@@ -41,7 +45,23 @@ export default function Menu() {
 
                 )}
 
-                <Store to='/'>Switch</Store>
+                <Toggle>
+
+                    <Sun size={25} weight={title === 'light' ? 'fill' : 'regular'} />
+
+                    <Switch
+                        onChange={toggleTheme}
+                        checked={title === 'dark'}
+                        uncheckedIcon={false}
+                        checkedIcon={false}
+                        onColor={'#FFFF00'}
+                    />
+
+                    <Moon size={25} weight={title === 'dark' ? 'fill' : 'regular'} />
+
+                </Toggle>
+
+
 
             </Top>
 
