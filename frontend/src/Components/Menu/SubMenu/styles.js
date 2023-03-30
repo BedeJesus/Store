@@ -120,8 +120,8 @@ export const Button = styled(Link)`
 
   :hover {
       transform: translateY(-5px);
-      box-shadow: 0 15px 15px rgba(27, 27, 27, .5);
-      color: white;
+      box-shadow: 0 12px 12px rgba(27, 27, 27, .5);
+      color: ${props => props.theme.colors.primary_text};
   }
   :active {
       transform: translateY(-1px);

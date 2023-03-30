@@ -1,21 +1,24 @@
 export default {
     title: 'light',
+
     colors:{
-        primary: '#ACF7C1',
-        secundary: '#F5CAC3',
-        primary_background:'#dde5b6',
+        primary_background:'#F9F9F9',
         secundary_background:'#F6BD60',
-        secundary_text: '#e3e',
+        primary_text:'#222222',
+        secundary_text: '#576F72',
+        primary_details: '#3A98B9',
+        secundary_details: '#FF3856', 
     },
 
     card: {
-        background:'linear-gradient(145deg, #2e2e2e, #F6BD60)',
-        box_shadow:' 17px 17px 34px #F6BD60, -17px -17px 34px #dde5b6;'
+        background:'linear-gradient(145deg, #d7d7d7, #ffffff)',
+        box_shadow:'17px 17px 34px #c0c0c0, -17px -17px 34px #ffffff;'
         
     },
 
     item: {
-        box_shadow: '15px 15px 30px #171717, -15px -15px 30px #292929;'
+        box_shadow: '15px 15px 30px #c0c0c0, -15px -15px 30px #ffffff;'
     }
 }
+
 
