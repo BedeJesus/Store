@@ -77,7 +77,7 @@ export const ItemLink = styled(Link)`
     font-size: 1.8em;
     font-weight: bold;
     text-decoration: none;
-    color: white;
+    color: ${props => props.theme.colors.primary_text};
     transition: .3s;
     
 

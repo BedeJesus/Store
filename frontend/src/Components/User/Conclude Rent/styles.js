@@ -35,8 +35,7 @@ export const Box = styled.div`
   padding: 0 2em  2em 2em;
   margin-bottom: 2em;
   border-radius: 15px;
-  background: ${props => props.theme.colors.primary_background};
-
+  background: ${props => props.theme.item.background};
   box-shadow: ${props => props.theme.item.box_shadow};
 
   @media(max-width : 1400px) {

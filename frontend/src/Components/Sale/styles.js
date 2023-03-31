@@ -47,7 +47,7 @@ export const Input = styled.input`
 
     ::placeholder,
     ::-webkit-input-placeholder {
-        color: ${props => props.theme.colors.secundary_details}66 ;
+        color: ${props => props.theme.colors.secundary_details}80 ;
         
     }
 

@@ -12,8 +12,7 @@ border-radius: 15px;
 
 background-color: ${props => props.theme.colors.primary_background};
 
-box-shadow:  15px 15px 30px #171717,
-             -15px -15px 30px #292929;
+box-shadow: ${props => props.theme.item.box_shadow};
 
     color: ${props => props.theme.colors.primary_text};;
     text-align: left;
@@ -47,14 +46,14 @@ export const Input = styled.input`
 
     background-color: transparent;
     border: 0;
-    border-bottom:whitesmoke solid 2px ;
-    color: white;
+    border-bottom: ${props => props.theme.colors.primary_text} solid 2px ;
+    color: ${props => props.theme.colors.primary_text};
     font-size: 1em;
     padding: 0.7% 0;
 
     :focus,:hover{
         outline:none;
-        border-bottom:yellow solid 2px ;
+        border-bottom:#F5EA5A solid 2px ;
     }
 `
 
