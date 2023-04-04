@@ -14,6 +14,8 @@ export const Container = styled.div`
       margin-bottom: .5em;
     }
 
+  
+
 `
 
 export const Filter = styled.div`
@@ -30,8 +32,8 @@ export const Items = styled.div`
 
   display: flex;
   flex-wrap: wrap;
-  justify-content:space-between;
-
+  justify-content:flex-start;
+  
 
 `
 

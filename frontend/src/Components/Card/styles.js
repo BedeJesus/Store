@@ -4,7 +4,7 @@ export const Container = styled.div`
 
     display: flex;
     flex-direction: column;
-    margin: 1.5% 0;
+    margin: 1.3em 1%;
     width: 18%;
     height: 27em;
     padding: 5px 0;
@@ -16,12 +16,12 @@ export const Container = styled.div`
     box-shadow: ${props => props.theme.card.box_shadow} ;
 
      @media(max-width : 1200px) {
-        width: 30%;
+        width: 31%;
         height: 26em;
     } 
 
     @media(max-width : 850px) {
-        width: 47%;
+        width: 47.5%;
         height: 25em;
     } 
 

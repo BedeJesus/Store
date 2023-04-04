@@ -3,9 +3,11 @@ import styled from "styled-components";
 export const ItemCards = styled.div`
 
   display: flex;
-  flex-wrap: wrap;
-  justify-content:space-evenly;
+  flex-wrap: wrap; 
+  justify-content:flex-start;
   margin: 0 5%;
+
+  
 `
 
 export const Content = styled.div`
