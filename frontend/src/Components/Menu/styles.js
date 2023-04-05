@@ -9,10 +9,9 @@ a{
     color: ${props => props.theme.colors.secundary_text};
     font-size: 30px ;
     text-decoration: none;
-    
 }
 
-margin-bottom: 1em;
+    margin-bottom: 1em;
 `
 export const Store = styled(Link)`
 
@@ -21,6 +20,7 @@ export const Store = styled(Link)`
     text-decoration: none;
     list-style: none;
     transition: .3s;
+
 `
 
 export const Top = styled.div`
@@ -38,16 +38,6 @@ export const MiddleButtons = styled.div`
     @media(max-width : 1100px) {
         display: none;
     }
-
-`
-
-export const Toggle = styled.div`
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    width: 7em;
-    color:${props => props.theme.colors.secundary_text}; ;
 
 `
 

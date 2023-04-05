@@ -20,10 +20,15 @@ export const Container = styled.div`
 
 export const Filter = styled.div`
 
-display: flex;
-justify-content: space-between;
-height: 2em;
-margin-bottom: 2em;
+  display: flex;
+  justify-content: space-between;
+  height: 2em;
+  margin: 0 1.5em 2em 1.5em;
+
+  @media(max-width : 550px) {
+       flex-direction:column;
+       height: 4em;
+    }
 
 `
 
@@ -34,7 +39,6 @@ export const Items = styled.div`
   flex-wrap: wrap;
   justify-content:flex-start;
   
-
 `
 
 export const Input = styled.input`
@@ -42,7 +46,6 @@ export const Input = styled.input`
     background-color: transparent;
     border-color: ${props => props.theme.colors.secundary_details};
     font-size: 1.5em;
-    padding-left: 1%;
     border-top: transparent ;
     border-right: transparent ;
     border-left: transparent ;
@@ -56,12 +59,12 @@ export const Input = styled.input`
     &:focus {
         outline: none;
        color:${props => props.theme.colors.secundary_details};;
-       
-
     }
 
-    @media(max-width : 800px) {
-       margin:2em 0;
+    @media(max-width : 550px) {
+       margin-bottom: .5em;
     }
+
+    
     
 `

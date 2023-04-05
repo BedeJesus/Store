@@ -20,7 +20,7 @@ export default function Menu({ toggleTheme }) {
 
                 <SubMenu />
 
-                <Store to='/'>Store (logo)</Store>
+                <Store to='/'>Store</Store>
 
                 {authenticated ? (
                     <>
@@ -45,21 +45,16 @@ export default function Menu({ toggleTheme }) {
 
                 )}
 
-                <Toggle>
-
-                    <Sun size={25} weight={title === 'light' ? 'fill' : 'regular'} />
-
+              
                     <Switch
                         onChange={toggleTheme}
                         checked={title === 'dark'}
-                        uncheckedIcon={false}
-                        checkedIcon={false}
+                        uncheckedIcon={<Sun size={26}  />}
+                        checkedIcon={<Moon size={28} />}
                         onColor={'#FFFF00'}
-                    />
+                    />  
 
-                    <Moon size={25} weight={title === 'dark' ? 'fill' : 'regular'} />
-
-                </Toggle>
+             
 
 
 

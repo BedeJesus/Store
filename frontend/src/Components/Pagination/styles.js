@@ -3,12 +3,9 @@ import styled from "styled-components";
 export const Container = styled.ul`
 
     display: flex;
-    justify-content: space-evenly;
-    align-items: center;
     flex-wrap: wrap;
 
     @media(max-width : 800px) {
-        justify-content:center;
     }
 
 `
@@ -23,6 +20,7 @@ export const Button = styled.button`
  transition: all .3s ease;
  box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
  color: hsl(0, 0%, 100%);
+ margin: 0 0 0 .5em;
 
 
  :hover {
@@ -31,9 +29,9 @@ export const Button = styled.button`
 }
 
 :active {
- box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
- transform: translateY(5px);
- transition: 50ms;
+    box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+    transform: translateY(5px);
+    transition: 50ms;
 }
 
 `
