@@ -16,6 +16,8 @@ const createUserToken = async(user,req,res) =>{
         userId:user._id
     })
 
+    return token
+
 
 }
 

@@ -56,13 +56,13 @@ module.exports = class UserController {
             res.status(422).json({ message: 'As senhas devem ser identicas' })
             return
         }
+        
         //chech if user exists
         const userExists = await User.findOne({ email: email })
 
         if (userExists) {
             res.status(422).json({ message: 'Já existe um usuario com esse e-mail' })
             return
-
         }
 
         //create an encrypted password

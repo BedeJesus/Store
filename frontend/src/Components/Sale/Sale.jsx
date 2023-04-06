@@ -62,7 +62,7 @@ export default function Sale(props) {
                 {items.length > 0 &&
                     currentItems.map((item) => (
 
-                        <Card
+                        <Card 
                             item={item}
                             available={item.available}
                             name={item.title}
@@ -70,6 +70,7 @@ export default function Sale(props) {
                             price={item.price}
                             description={item.short_desc}
                             button={Button(item)}
+                    
                         />
 
                     ))}
