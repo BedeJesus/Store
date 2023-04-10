@@ -14,7 +14,7 @@ export default function DetailsItem() {
     const [item, setItem] = useState({})
     const { id } = useParams()
     const { setFlashMessage } = useFlashMessage()
-    const [token, setToken] = useState()
+    const [token] = useState(localStorage.getItem('token') || '')
 
 
     useEffect(() => {
@@ -22,17 +22,13 @@ export default function DetailsItem() {
             setItem(response.data.item)
         })
 
-        const token = localStorage.getItem('token') || '';
-        setToken(token);
-
-
     }, [id])
 
     async function rent() {
         let msgType = 'success'
         console.log(`Bearer ${JSON.parse(token)}`)
         const data = await api.patch(`items/rent/${item._id}`, {
-        
+
             Authorization: `Bearer ${JSON.parse(token)}`
 
         }).then((response) => {

@@ -14,17 +14,18 @@ export const Container = styled.div`
 export const Rents = styled.div`
 
     display: flex;
-    justify-content:space-evenly;
+    justify-content:flex-start;
     flex-wrap: wrap;
-    margin: 0 5%;
+    margin: 0 1%;
 `
 
 export const Item = styled.div`
 
     display: flex;
     flex-direction: column;
-    margin: 1.5% 0;
+    margin: 1.2em ;
     width: 22%;
+    height: 27em;
     padding: 5px 0;
     overflow: hidden;
     border-radius: 10px;
@@ -39,13 +40,27 @@ img {
     object-fit: cover;
 }
 
-@media(max-width : 1200px) {
-        width: 30%;
+@media(max-width : 1500px) {
+        width: 21%;
+        height: 30em;
+        
+    } 
+
+    @media(max-width : 1100px) {
+        width: 28%;
+        
     } 
 
     @media(max-width : 850px) {
-        width: 47%;
-    } 
+        width: 42%;
+        
+    }
+
+
+    @media(max-width : 600px) {
+        width: 100%;
+        height: 30em;
+    }
 
 
 `
