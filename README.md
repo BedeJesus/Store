@@ -9,7 +9,7 @@
     <h3>Front-end:</h3>
     - React JS <br>
     - Styled Components
-    <h3>Backend-end:</h3>
+    <h3>Back-end:</h3>
     - Node JS com Express como framework<br>
     - Mongodb como banco de dados e Mongoose como framework<p></p>
     
