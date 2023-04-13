@@ -5,7 +5,7 @@
 🛠️ O projeto está sendo atualizado.<br>
 🤏🏽 Site totalmente responsivo.
 
-<h2>Linguagens utilizadas:</h2>
+<h2>Linguagens Utilizadas:</h2>
     <h3>Front-end:</h3>
     - React JS <br>
     - Styled Components
@@ -13,14 +13,14 @@
     - Node JS com Express como framework<br>
     - Mongodb como banco de dados e Mongoose como framework<p></p>
     
-<h2>Cadastro e login</h2>  
+<h2>Cadastro e Login</h2>  
 <img src ="for_readme/cadastro_login.gif">
 
-<h2>Cadastro e detalhes do item</h2>  
+<h2>Cadastro e Detalhes do Item</h2>  
 <img src ="for_readme/cadastro_detalhes_item.gif">
 
-<h2>Edição e solicitação de locação</h2>  
+<h2>Edição e Solicitação de Locação</h2>  
 <img src ="for_readme/edicao_solicitacao.gif">
 
-<h2>Conclusão de locação de item</h2>  
+<h2>Conclusão de Locação de Item</h2>  
 <img src ="for_readme/concluir_locacao.gif">
