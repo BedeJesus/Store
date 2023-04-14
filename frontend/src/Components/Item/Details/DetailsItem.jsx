@@ -103,7 +103,8 @@ export default function DetailsItem() {
 
                         <InfoItem>
                             <h2>Localização do item</h2>
-                            <Price>Itaquera, São Paulo</Price>
+                            <Price>{item.user.address}</Price>
+                            
                         </InfoItem>
 
                         <InfoItem>
@@ -111,17 +112,12 @@ export default function DetailsItem() {
                             <Price>{`R$${item.price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}</Price>
                         </InfoItem>
 
-                        <InfoItem>
-                            <h2>Dias desejados</h2>
-                            <Input type={'number'} min={"1"} />
-                        </InfoItem>
-
                     </Info>
 
                     {token ? (
                         <Button onClick={rent}>Solicitar uma visita</Button>
                     ) : (
-                        <CreateCount> Você precisa &nbsp;<Link to='/register'> criar com uma conta </Link> &nbsp; para solicitar o aluguel </CreateCount>
+                        <CreateCount> Você precisa &nbsp;<Link to='/register'> criar com uma conta </Link> &nbsp; para solicitar a locação </CreateCount>
                     )}
 
                 </Data>

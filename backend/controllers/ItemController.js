@@ -291,13 +291,14 @@ module.exports = class ItemController {
         item.renter = {
             _id: user._id,
             name: user.name,
+            phone: user.phone,
             image: user.image
         }
 
         await Item.findByIdAndUpdate(id, item)
 
         res.status(200).json({
-            message: `A visita foi marcada com sucesso! Entre em contato com  ${item.user.name} nesse número: ${item.user.phone}`
+            message: `A solicitacão foi feita! Entre em contato com  ${item.user.name} nesse número: ${item.user.phone}`
         })
 
     }
@@ -311,7 +312,8 @@ module.exports = class ItemController {
         // check if item exists
         const item = await Item.findOne({ _id: id })
 
-        item.available = false
+        item.available = true
+        item.renter = null
 
         await Item.findByIdAndUpdate(item._id, item)
 

@@ -17,9 +17,6 @@ const User = mongoose.model('User',new Schema({
         type:String,
         required:true
     },
-    image:{
-        type:String
-    },
     address:{
         type:String,
         required:true

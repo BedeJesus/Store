@@ -27,6 +27,7 @@ export default function EditItem(props) {
     async function updateItem(item) {
         let msgType = 'sucess'
         const formData = new FormData()
+        
         await Object.keys(item).forEach((key) => {
             if (key === 'images') {
                 for (let i = 0; i < item[key].length; i++) {

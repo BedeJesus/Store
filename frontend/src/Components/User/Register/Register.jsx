@@ -52,8 +52,8 @@ export default function Register() {
                         <Input type="number" name="phone" id='phone' placeholder="Digite seu telefone" onChange={handleOnChange} />
                         <br />
 
-                        <Label htmlFor="address" >Endereço</Label>
-                        <Input type="text" name="address" id='address' placeholder="Digite seu endereço" onChange={handleOnChange} />
+                        <Label htmlFor="address" >Cidade e estado</Label>
+                        <Input type="text" name="address" id='address' placeholder="Digite sua cidade e estado" onChange={handleOnChange} />
                         <br />
 
                         <Label htmlFor="password" >Senha</Label>

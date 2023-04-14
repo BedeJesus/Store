@@ -9,6 +9,11 @@ export const Container = styled.div`
       margin-bottom: .5em;
     }
 
+
+    
+
+
+
 `
 
 export const Rents = styled.div`
@@ -17,6 +22,10 @@ export const Rents = styled.div`
     justify-content:flex-start;
     flex-wrap: wrap;
     margin: 0 1%;
+
+    h2{
+        margin:auto;
+    }
 `
 
 export const Item = styled.div`
@@ -40,7 +49,7 @@ img {
     object-fit: cover;
 }
 
-@media(max-width : 1500px) {
+    @media(max-width : 1500px) {
         width: 21%;
         height: 30em;
         
@@ -61,7 +70,6 @@ img {
         width: 100%;
         height: 30em;
     }
-
 
 `
 

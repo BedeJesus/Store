@@ -92,8 +92,8 @@ export default function Profile() {
                         <Input type="number" name="phone" id='phone' placeholder="Digite seu telefone" onChange={handleChange} value={user.phone || ''} />
                         <br />
 
-                        <Label htmlFor="address" >Endereço</Label>
-                        <Input type="text" name="address" id='address' placeholder="Digite seu endereço" onChange={handleChange} value={user.address || ''} />
+                        <Label htmlFor="address" >Cidade e Estado</Label>
+                        <Input type="text" name="address" id='address' placeholder="Digite sua cidade de estado" onChange={handleChange} value={user.address || ''} />
                         <br />
 
                         <Label htmlFor="password" >Senha</Label>
