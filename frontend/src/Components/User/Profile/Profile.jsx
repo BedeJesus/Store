@@ -73,19 +73,31 @@ export default function Profile() {
             <Box>
 
                 <Header>
-                   <h1> {<SignIn />} Atualize seus dados </h1> 
+                    <h1> {<SignIn />} Atualize seus dados </h1>
                 </Header>
 
                 <form onSubmit={handleSubmit}>
 
                     <Data>
 
-                        <Label htmlFor="name">Nome</Label>
+                        <Label htmlFor="cnpj">CNPJ</Label>
+                        <Input type="text" maxLength="14" readOnly name="cnpj" id='cnpj' placeholder="Digite o seu CNPJ" onChange={handleChange} value={user.cnpj || ''} />
+                        <br />
+
+                        <Label htmlFor="business_name">Razão Social</Label>
+                        <Input type="text" readOnly name="business_name" id='business_name' placeholder="Digite sua razão social" onChange={handleChange} value={user.business_name || ''}/>
+                        <br />
+
+                        <Label htmlFor="cnae">CNAE</Label>
+                        <Input type="text" readOnly name="cnae" maxLength="7" id='cnae' placeholder="Digite seu CNAE" onChange={handleChange} value={user.cnae || ''}/>
+                        <br />
+
+                        <Label htmlFor="name">Nome do Titular</Label>
                         <Input type="text" name="name" id='name' placeholder="Digite seu nome completo" onChange={handleChange} value={user.name || ''} />
                         <br />
 
-                        <Label htmlFor="email">E-mail</Label>
-                        <Input type="email" name="email" id='email' placeholder="Digite seu e-mail" onChange={handleChange} value={user.email || ''} />
+                        <Label htmlFor="cpf">CPF do Titular</Label>
+                        <Input type="text" maxLength="11" name="cpf" id='cpf' placeholder="Digite o CPF do Titular do CNPJ" onChange={handleChange} value={user.cpf || ''} />
                         <br />
 
                         <Label htmlFor="phone" >Telefone</Label>
@@ -94,6 +106,10 @@ export default function Profile() {
 
                         <Label htmlFor="address" >Cidade e Estado</Label>
                         <Input type="text" name="address" id='address' placeholder="Digite sua cidade de estado" onChange={handleChange} value={user.address || ''} />
+                        <br />
+
+                        <Label htmlFor="email">E-mail</Label>
+                        <Input type="email" name="email" id='email' placeholder="Digite seu e-mail" onChange={handleChange} value={user.email || ''} />
                         <br />
 
                         <Label htmlFor="password" >Senha</Label>

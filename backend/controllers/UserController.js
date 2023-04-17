@@ -14,7 +14,12 @@ module.exports = class UserController {
 
     //user register
     static async register(req, res) {
+
+        const cnpj = req.body.cnpj
+        const business_name = req.body.business_name
+        const cnae = req.body.cnae
         const name = req.body.name
+        const cpf = req.body.cpf
         const email = req.body.email
         const phone = req.body.phone
         const address = req.body.address
@@ -22,13 +27,28 @@ module.exports = class UserController {
         const confirmpassword = req.body.confirmpassword
 
         //validations
+
+        if (!cnpj) {
+            res.status(422).json({ message: 'Faltando CNPJ' })
+            return
+        }
+
+        if (!business_name) {
+            res.status(422).json({ message: 'Faltando Razão Social' })
+            return
+        }
+
+        if (!cnae) {
+            res.status(422).json({ message: 'Faltando CNAE' })
+            return
+        }
         if (!name) {
             res.status(422).json({ message: 'Faltando nome' })
             return
         }
 
-        if (!email) {
-            res.status(422).json({ message: 'Faltando E-mail' })
+        if (!cpf) {
+            res.status(422).json({ message: 'Faltando CPF' })
             return
         }
 
@@ -39,6 +59,11 @@ module.exports = class UserController {
 
         if (!address) {
             res.status(422).json({ message: 'Faltando Endereço' })
+            return
+        }
+
+        if (!email) {
+            res.status(422).json({ message: 'Faltando E-mail' })
             return
         }
 
@@ -71,6 +96,10 @@ module.exports = class UserController {
 
         //create a user
         const user = new User({
+            cnpj,
+            business_name,
+            cnae,
+            cpf,
             name,
             email,
             phone,
@@ -170,7 +199,11 @@ module.exports = class UserController {
 
         const user = await getUserByToken(token)
 
+        const cnpj = req.body.cnpj
+        const business_name = req.body.business_name
+        const cnae = req.body.cnae
         const name = req.body.name
+        const cpf = req.body.cpf
         const email = req.body.email
         const phone = req.body.phone
         const address = req.body.address

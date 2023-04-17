@@ -112,23 +112,27 @@ export default function EditItem(props) {
                 <form onSubmit={submit}>
 
                     <Data>
-                        <Label for="title">Nome:</Label>
+                        <Label for="title">Nome</Label>
                         <Input type="text" name="title" maxLength="20" placeholder="Digite o nome do produto" onChange={handleChange} value={item.title} />
                         <br />
 
-                        <Label for="short_desc" >Breve descrição:</Label>
+                        <Label for="short_desc" >Breve descrição</Label>
                         <Input type="text" name="short_desc" maxLength="120" placeholder="Digite uma Breve Descrição" onChange={handleChange} value={item.short_desc} />
                         <br />
 
-                        <Label for="long_desc" >Descrição completa:</Label>
+                        <Label for="long_desc" >Descrição completa</Label>
                         <Input type="text" name="long_desc" maxLength='970' placeholder="Digite a Descrição Completa" onChange={handleChange} value={item.long_desc} />
                         <br />
 
-                        <Label for="price" >Preço:</Label>
+                        <Label for="brand" >Marca</Label>
+                        <Input type="text" name="brand" maxLength='30' placeholder="Digite a Marca do Produto" onChange={handleChange} value={item.brand}/>
+                        <br />
+
+                        <Label for="price" >Preço</Label>
                         <Input type="number" name="price" step='any' placeholder="Digite o valor em R$:" onChange={handleChange} value={item.price} />
                         <br />
 
-                        <Label for="images" >Imagens:</Label>
+                        <Label for="images" >Imagens</Label>
                         <Input type="file" name="images" placeholder="Digite o valor em R$:" multiple='true' onChange={onFileChange} />
                         <br />
 

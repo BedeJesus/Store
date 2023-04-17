@@ -8,7 +8,7 @@ const ObjectId = require('mongoose').Types.ObjectId
 module.exports = class ItemController {
     //create a item
     static async create(req, res) {
-        const { title,short_desc,long_desc,price } = req.body
+        const { title, short_desc, long_desc, price, brand } = req.body
 
         const images = req.files
         const available = true
@@ -31,6 +31,11 @@ module.exports = class ItemController {
             return
         }
 
+        if (!brand) {
+            res.status(422).json({ message: "Faltando Marca" })
+            return
+        }
+
         if (!price) {
             res.status(422).json({ message: "Faltando Preço" })
             return
@@ -38,6 +43,11 @@ module.exports = class ItemController {
 
         if (images.length === 0) {
             res.status(422).json({ message: "Faltando imagens" })
+            return
+        }
+
+        if (images.length <= 2) {
+            res.status(422).json({ message: "Selecione 3 ou mais imagens" })
             return
         }
 
@@ -52,15 +62,18 @@ module.exports = class ItemController {
             title,
             short_desc,
             long_desc,
+            brand,
             price,
             available,
             images: [],
             user: {
                 _id: user._id,
+                cnpj: user.cnpj,
+                business_name: user.business_name,
                 name: user.name,
                 image: user.image,
                 phone: user.phone,
-                address:user.address
+                address: user.address
             }
         })
 
@@ -185,7 +198,7 @@ module.exports = class ItemController {
     static async updateItem(req, res) {
         const id = req.params.id
 
-        const { title,short_desc,long_desc,price, available } = req.body
+        const { title, short_desc, long_desc, price, available,brand } = req.body
 
         const images = req.files
 
@@ -204,10 +217,7 @@ module.exports = class ItemController {
         const user = await getUserByToken(token)
 
         if (item.user._id.toString() != user._id.toString()) {
-            res.status(404).json({
-                message:
-                    'Tente novamente depois',
-            })
+            res.status(404).json({ message: 'Tente novamente depois' })
             return
         }
 
@@ -231,6 +241,13 @@ module.exports = class ItemController {
             return
         } else {
             updatedData.long_desc = long_desc
+        }
+
+        if (!brand) {
+            res.status(422).json({ message: "Faltando Descrição Completa" })
+            return
+        } else {
+            updatedData.brand = brand
         }
 
         if (!price) {

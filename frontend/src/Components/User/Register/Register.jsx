@@ -4,7 +4,7 @@ import { useState } from "react";
 import { useContext } from "react";
 import { Context } from '../../../context/UserContext'
 
-import { Container, Header, Input, Label,Box, DivButton, Data, Button } from './../../../styles/form'
+import { Container, Header, Input, Label, Box, DivButton, Data, Button } from './../../../styles/form'
 
 export default function Register() {
 
@@ -40,20 +40,37 @@ export default function Register() {
 
                     <Data>
 
-                        <Label htmlFor="name">Nome</Label>
-                        <Input type="text" name="name" id='name' placeholder="Digite seu nome completo" onChange={handleOnChange} />
+
+                        <Label htmlFor="cnpj">CNPJ</Label>
+                        <Input type="text" maxLength="14" name="cnpj" id='cnpj' placeholder="Digite o seu CNPJ" onChange={handleOnChange} />
                         <br />
 
-                        <Label htmlFor="email">E-mail</Label>
-                        <Input type="email" name="email" id='email' placeholder="Digite seu e-mail" onChange={handleOnChange} />
+                        <Label htmlFor="business_name">Razão Social</Label>
+                        <Input type="text" name="business_name" id='business_name' placeholder="Digite sua razão social" onChange={handleOnChange} />
+                        <br />
+
+                        <Label htmlFor="cnae">CNAE</Label>
+                        <Input type="text" name="cnae" maxLength="7" id='cnae' placeholder="Digite seu CNAE" onChange={handleOnChange} />
+                        <br />
+
+                        <Label htmlFor="name">Nome do Titular</Label>
+                        <Input type="text" name="name" id='name' placeholder="Digite o nome completo do Titular do CNPJ" onChange={handleOnChange} />
+                        <br />
+
+                        <Label htmlFor="cpf">CPF do Titular</Label>
+                        <Input type="text"  maxLength="11"name="cpf" id='cpf' placeholder="Digite o CPF do Titular do CNPJ" onChange={handleOnChange} />
                         <br />
 
                         <Label htmlFor="phone" >Telefone</Label>
-                        <Input type="number" name="phone" id='phone' placeholder="Digite seu telefone" onChange={handleOnChange} />
+                        <Input type="number" name="phone" id='phone' placeholder="Digite o telefone para contato" onChange={handleOnChange} />
                         <br />
 
                         <Label htmlFor="address" >Cidade e estado</Label>
                         <Input type="text" name="address" id='address' placeholder="Digite sua cidade e estado" onChange={handleOnChange} />
+                        <br />
+
+                        <Label htmlFor="email">E-mail</Label>
+                        <Input type="email" name="email" id='email' placeholder="Digite o email para cadastro" onChange={handleOnChange} />
                         <br />
 
                         <Label htmlFor="password" >Senha</Label>

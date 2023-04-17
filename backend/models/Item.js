@@ -13,6 +13,10 @@ const Item = mongoose.model('Item', new Schema({
         type: String,
         required: true
     },
+    brand: {
+        type: String,
+        required: true
+    },
     long_desc: {
         type: String,
         required: true
