@@ -1,5 +1,5 @@
 <h1>Store</h1>
-👨‍💻 Site para os usuários poderem disponibilizar um item para locação,e também alugar itens de outros usuários.<br>
+👨‍💻 Site para os usuários poderem disponibilizar itens para locação,e também alugar itens de outros usuários.<br>
 🧑🏽‍🦰 Uma pessoa não pode alugar o proprio item e pode colocar varios itens para locação.<br>
 🪄 Utilização de JWT para autenticação para login e cadastro do usuário.<br>
 🛠️ O projeto está sendo atualizado.<br>
