@@ -7,7 +7,6 @@
 🤏🏽 Aplicação totalmente responsiva.
 
 <h2>Linguagens Utilizadas</h2>
-
     <h3>Front-end</h3>
     - React JS <br>
     - Styled Components
