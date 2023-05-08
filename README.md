@@ -1,15 +1,16 @@
 <h1>Store</h1>
-👨‍💻 Aplicação web para os usuários poderem disponibilizar itens para locação,e também alugar itens de outros usuários.<br>
+👨‍💻 Aplicação web onde os usuários podem disponibilizar itens para locação,e também alugar itens de outros usuários.<br>
 🧑🏽‍🦰 Uma pessoa não pode alugar o proprio item e pode colocar varios itens para locação.<br>
 🪄 Utilização de JWT para autenticação para login e cadastro do usuário.<br>
+🔍 Itens filtraveis e paginados na tela principal.<br>
 🛠️ O projeto está sendo atualizado.<br>
 🤏🏽 Aplicação totalmente responsiva.
 
-<h2>Linguagens Utilizadas:</h2>
-    <h3>Front-end:</h3>
+<h2>Linguagens Utilizadas</h2>
+    <h3>Front-end</h3>
     - React JS <br>
     - Styled Components
-    <h3>Back-end:</h3>
+    <h3>Back-end</h3>
     - Node JS com Express como framework<br>
     - Mongodb como banco de dados e Mongoose como framework<p></p>
     
