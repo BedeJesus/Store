@@ -2,7 +2,7 @@
 👨‍💻 Aplicação web onde os usuários podem disponibilizar itens para locação,e também alugar itens de outros usuários.<br>
 🧑🏽‍🦰 Uma pessoa não pode alugar o proprio item e pode colocar varios itens para locação.<br>
 🪄 Utilização de JWT para autenticação para login e cadastro do usuário.<br>
-🔍 Itens filtraveis e paginados na tela principal.<br>
+🔍 Itens paginados e filtraveis pelo usuario.<br>
 🛠️ O projeto está sendo atualizado.<br>
 🔛 Utilização de toogle switch para tema claro e escuro.<br>
 🤏🏽 Aplicação totalmente responsiva.
