@@ -39,8 +39,7 @@ export default function Register() {
                 <form onSubmit={handleSubmit}>
 
                     <Data>
-
-
+                        
                         <Label htmlFor="cnpj">CNPJ</Label>
                         <Input type="text" maxLength="14" name="cnpj" id='cnpj' placeholder="Digite o seu CNPJ" onChange={handleOnChange} />
                         <br />
