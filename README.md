@@ -16,13 +16,13 @@
     - Mongodb como banco de dados e Mongoose como framework<p></p>
     
 <h2>Cadastro e Login</h2>  
-<img src ="for_readme/cadastro_login.gif">
+<img src ="for_readme/tela-principal-e-cadastro-1m.gif">
 
 <h2>Cadastro e Detalhes do Item</h2>  
-<img src ="for_readme/cadastro_detalhes_item.gif">
+<img src ="for_readme/cadastro-produto-1m.gif">
 
 <h2>Edição e Solicitação de Locação</h2>  
-<img src ="for_readme/edicao_solicitacao.gif">
+<img src ="for_readme/solicitacao-locacao.gif">
 
 <h2>Conclusão de Locação de Item</h2>  
-<img src ="for_readme/concluir_locacao.gif">
+<img src ="for_readme/conclusao-locacao.gif">
