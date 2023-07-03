@@ -4,6 +4,11 @@ import { Link } from 'react-router-dom'
 export const Container = styled.div`
 
     background-color:${props => props.theme.colors.secundary_background};
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index:1;
 
 a{
     color: ${props => props.theme.colors.secundary_text};

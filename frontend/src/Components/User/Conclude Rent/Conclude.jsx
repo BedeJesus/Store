@@ -100,8 +100,7 @@ export default function Conclude() {
                     <h2>Telefone do alugador: {item.renter.phone}</h2>
 
                     <h2>Valor da locação: {`R$${item.price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}</h2>
-
-
+                    
                     {token && (
                         <Button onClick={() => concludeRent(item._id)}>Concluir Locação</Button>
                     )}
