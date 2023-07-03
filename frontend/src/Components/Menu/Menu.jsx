@@ -10,7 +10,6 @@ import { Sun, Moon } from 'phosphor-react';
 export default function Menu({ toggleTheme }) {
 
     const { authenticated } = useContext(Context)
-
     const { title } = useContext(ThemeContext)
 
     return (
@@ -29,23 +28,19 @@ export default function Menu({ toggleTheme }) {
                             <Button to='/myrents'>Minhas Locações</Button>
                             <Button to='/user/profile'>Perfil</Button>
                         </MiddleButtons>
-
                     </>
 
                 ) : (
 
                     <>
-
                         <MiddleButtons>
                             <Button to='/login'>Login</Button>
                             <Button to='/register'>Cadastro</Button>
                         </MiddleButtons>
-
                     </>
 
                 )}
 
-              
                     <Switch
                         onChange={toggleTheme}
                         checked={title === 'dark'}
@@ -53,10 +48,6 @@ export default function Menu({ toggleTheme }) {
                         checkedIcon={<Moon size={28} />}
                         onColor={'#FFFF00'}
                     />  
-
-             
-
-
 
             </Top>
 
