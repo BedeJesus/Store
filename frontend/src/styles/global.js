@@ -14,11 +14,12 @@ body{
 }
 
 ::-webkit-scrollbar {
-  width: .8em;
+  width: .5em;
+  
 }
 
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background-image: linear-gradient(to bottom, ${props => props.theme.colors.secundary_background} , ${props => props.theme.colors.secundary_background} 4.5em, transparent 4.5em);
 }
 
 ::-webkit-scrollbar-thumb {

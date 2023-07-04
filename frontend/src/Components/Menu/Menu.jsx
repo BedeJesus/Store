@@ -41,13 +41,13 @@ export default function Menu({ toggleTheme }) {
 
                 )}
 
-                    <Switch
-                        onChange={toggleTheme}
-                        checked={title === 'dark'}
-                        uncheckedIcon={<Sun size={26}  />}
-                        checkedIcon={<Moon size={28} />}
-                        onColor={'#FFFF00'}
-                    />  
+                <Switch
+                    onChange={toggleTheme}
+                    checked={title === 'dark'}
+                    uncheckedIcon={<Sun size={26} />}
+                    checkedIcon={<Moon size={28} />}
+                    onColor={'#FFFF00'}
+                />
 
             </Top>
 
