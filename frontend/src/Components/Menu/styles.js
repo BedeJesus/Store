@@ -24,7 +24,12 @@ export const Store = styled(Link)`
     font-size: 30px ;
     text-decoration: none;
     list-style: none;
-    transition: .3s;
+    transition: .3s; 
+
+    :hover {
+        color: ${props => props.theme.colors.primary_text};
+    }
+
 
 `
 

@@ -1,7 +1,5 @@
-import { useState, useContext } from 'react'
+import { useState, useContext, useRef } from 'react'
 import { Context } from '../../../context/UserContext'
-
-
 import { Container, Box, Options, Button } from './styles'
 
 export default function SubMenu() {
@@ -9,12 +7,19 @@ export default function SubMenu() {
     const [show, setShow] = useState(false)
     const { authenticated } = useContext(Context)
 
+    const labelRef = useRef(null);
+
+    const handleClick = () => {
+        if (labelRef.current) {
+            labelRef.current.click();
+        }
+    };
 
     return (
 
         <Container>
 
-            <label for="burger" class="burger" >
+            <label ref={labelRef} for="burger" class="burger" >
                 <input id="burger" type="checkbox" onClick={() => show ? setShow(false) : setShow(true)} />
                 <span></span>
                 <span></span>
@@ -22,15 +27,15 @@ export default function SubMenu() {
             </label>
 
             {show && (
-                
+
                 <Box>
 
                     {authenticated ? (
                         <Options>
 
-                            <Button to='/myitems'>Meus Itens</Button>
-                            <Button to='/myrents'>Minhas Locações</Button>
-                            <Button to='/user/profile'>Perfil</Button>
+                            <Button to='/myrents' onClick={handleClick}>Minhas Locações</Button>
+                            <Button to='/myitems' onClick={handleClick}>Meus Itens</Button>
+                            <Button to='/user/profile' onClick={handleClick}>Perfil</Button>
 
                         </Options>
 
@@ -38,15 +43,15 @@ export default function SubMenu() {
 
                         <Options>
 
-                            <Button to='/login'>Login</Button>
-                            <Button to='/register'>Cadastro</Button>
+                            <Button to='/login' onClick={handleClick}>Login</Button>
+                            <Button to='/register' onClick={handleClick}>Cadastro</Button>
 
                         </Options>
 
                     )}
 
                 </Box>
-            ) }
+            )}
 
         </Container>
     )

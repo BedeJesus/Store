@@ -4,7 +4,6 @@ import { Top, Container, Button, Store, MiddleButtons, Toggle } from './styles'
 import Switch from "react-switch";
 import SubMenu from "./SubMenu/SubMenu";
 import { ThemeContext } from 'styled-components'
-
 import { Sun, Moon } from 'phosphor-react';
 
 export default function Menu({ toggleTheme }) {
