@@ -3,14 +3,27 @@ import { Link } from 'react-router-dom'
 import useFlashMessage from '../../../hooks/useFlashMessage'
 import api from '../../../utils/api'
 import Card from '../../Card/Card'
-import { ItemCards, Content } from './styles'
-
+import { ItemCards, Container, Filter, Input } from './styles'
+import Pagination from '../../Pagination/Pagination'
 
 export default function MyItems() {
 
     const [items, setItems] = useState([])
     const [token] = useState(localStorage.getItem('token') || '')
     const { setFlashMessage } = useFlashMessage()
+
+    const [currentPage, setCurrentPage] = useState(1)
+    const itemsInPage = 15
+    const lastItemIndex = currentPage * itemsInPage
+    const firstItemIndex = lastItemIndex - itemsInPage
+
+    const [filter, setFilter] = useState('')
+    const filteredItems = items.filter((item) => item.title.toLowerCase().includes(filter.toLowerCase()))
+    const currentItems = filteredItems.slice(firstItemIndex, lastItemIndex)
+
+    const paginate = pageNumber => {
+        setCurrentPage(pageNumber)
+    }
 
     useEffect(() => {
         api.get('/items/myitems', {
@@ -57,18 +70,30 @@ export default function MyItems() {
 
     return (
 
-        <>
-            <Content>
-
+        <Container>
+            <>
                 <h1>Meus Itens</h1>
-                <h2><Link to='/newitem'>Clique aqui para cadastrar um novo Item</Link></h2>
+                <h2><Link to='/newitem'>Cadastre um novo Item</Link></h2>
+            </>
 
-            </Content>
+            <Filter>
+
+                <Input placeholder='Filtre por Titulo'
+                    value={filter}
+                    onChange={(e) => setFilter(e.target.value)}
+                />
+                
+                <Pagination itensInPage={itemsInPage}
+                    totalItens={filteredItems.length}
+                    paginate={paginate}
+                />
+
+            </Filter>
 
             <ItemCards>
 
                 {items.length > 0 &&
-                    items.map((item) => (
+                    currentItems.map((item) => (
 
                         <Card
                             item={item}
@@ -79,33 +104,16 @@ export default function MyItems() {
                             description={item.short_desc}
                             button={Button(item)}
                         />
-                    ))
-                }
+                    ))}
+
+                {items.length === 0 && (
+                    <h3>Você não tem nenhum item cadastrado</h3>
+                )}
 
             </ItemCards>
 
-        </>
+        </Container>
 
     )
 
-
-
-
-
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

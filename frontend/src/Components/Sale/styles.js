@@ -63,8 +63,6 @@ export const Input = styled.input`
 
     @media(max-width : 550px) {
        margin-bottom: .5em;
-    }
-
-    
+    }   
     
 `
