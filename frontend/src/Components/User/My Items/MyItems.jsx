@@ -76,19 +76,24 @@ export default function MyItems() {
                 <h2><Link to='/newitem'>Cadastre um novo Item</Link></h2>
             </>
 
-            <Filter>
+            {items.length > 1 && (
 
-                <Input placeholder='Filtre por Titulo'
-                    value={filter}
-                    onChange={(e) => setFilter(e.target.value)}
-                />
-                
-                <Pagination itensInPage={itemsInPage}
-                    totalItens={filteredItems.length}
-                    paginate={paginate}
-                />
+                <Filter>
 
-            </Filter>
+                    <Input placeholder='Filtre por Titulo'
+                        value={filter}
+                        onChange={(e) => setFilter(e.target.value)}
+                    />
+
+                    <Pagination itensInPage={itemsInPage}
+                        totalItens={filteredItems.length}
+                        paginate={paginate}
+                    />
+
+                </Filter>
+            )}
+
+
 
             <ItemCards>
 
