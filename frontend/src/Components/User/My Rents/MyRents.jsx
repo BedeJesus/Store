@@ -1,6 +1,5 @@
 import api from '../../../utils/api'
 import { useEffect, useState } from 'react'
-
 import { Container, Description, ItemLink, Item, Rents } from './styles'
 
 export default function MyRents() {
@@ -9,12 +8,11 @@ export default function MyRents() {
     const [token] = useState(localStorage.getItem('token') || '')
 
     useEffect(() => {
-        api
-            .get('/items/myrents', {
-                headers: {
-                    Authorization: `Bearer ${JSON.parse(token)}`,
-                },
-            })
+        api.get('/items/myrents', {
+            headers: {
+                Authorization: `Bearer ${JSON.parse(token)}`,
+            },
+        })
             .then((response) => {
                 setItems(response.data.items)
             })

@@ -10,10 +10,6 @@ export const Container = styled.div`
     }
 
 
-    
-
-
-
 `
 
 export const Rents = styled.div`

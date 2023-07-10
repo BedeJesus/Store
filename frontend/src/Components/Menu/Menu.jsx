@@ -11,6 +11,8 @@ export default function Menu({ toggleTheme }) {
     const { authenticated } = useContext(Context)
     const { title } = useContext(ThemeContext)
 
+    
+
     return (
         <Container>
 

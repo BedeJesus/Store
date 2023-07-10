@@ -19,11 +19,11 @@ body{
 }
 
 ::-webkit-scrollbar-track {
-  background-image: linear-gradient(to bottom, ${props => props.theme.colors.secundary_background} , ${props => props.theme.colors.secundary_background} 4.5em, transparent 4.5em);
+  background-image: linear-gradient(to bottom, ${props => props.theme.colors.secundary_background}E6 , ${props => props.theme.colors.secundary_background}E6 4.5em, transparent 4.5em);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: ${props => props.theme.colors.secundary_background}; 
+  background: ${props => props.theme.colors.secundary_background}E6; 
   border-radius: 10px;
 }
 

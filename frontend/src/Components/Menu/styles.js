@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom'
 
 export const Container = styled.div`
 
-    background-color:${props => props.theme.colors.secundary_background};
+    background-color: ${props =>props.theme.colors.secundary_background}E6;
+    backdrop-filter: blur(5px) saturate(100%);
     position: fixed;
     top: 0;
     left: 0;
