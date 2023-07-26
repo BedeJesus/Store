@@ -3,9 +3,9 @@
 🧑🏽‍🦰 Uma pessoa não pode alugar o proprio item e pode colocar varios itens para locação.<br>
 🪄 Utilização de JWT para autenticação para login e cadastro do usuário.<br>
 🔍 Itens paginados e filtraveis pelo usuario.<br>
-🛠️ O projeto está sendo atualizado.<br>
 🔛 Utilização de toogle switch para tema claro e escuro.<br>
 🤏🏽 Aplicação totalmente responsiva.
+🛠️ O projeto está sendo atualizado.<br>
 
 <h2>Linguagens Utilizadas</h2>
     <h3>Front-end</h3>
