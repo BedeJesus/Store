@@ -4,7 +4,7 @@
 🪄 Utilização de JWT para autenticação para login e cadastro do usuário.<br>
 🔍 Itens paginados e filtraveis pelo usuario.<br>
 🔛 Utilização de toogle switch para tema claro e escuro.<br>
-🤏🏽 Aplicação totalmente responsiva.
+🤏🏽 Aplicação totalmente responsiva.<br>
 🛠️ O projeto está sendo atualizado.<br>
 
 <h2>Linguagens Utilizadas</h2>
