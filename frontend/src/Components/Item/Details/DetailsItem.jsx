@@ -104,7 +104,6 @@ export default function DetailsItem() {
                         <InfoItem>
                             <h2>Localização do item</h2>
                             <Price>{item.user.address}</Price>
-                            
                         </InfoItem>
 
                         <InfoItem>
