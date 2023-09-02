@@ -1,6 +1,7 @@
 import api from '../../../utils/api'
 import { useEffect, useState } from 'react'
-import { Container, Description, ItemLink, Item, Rents } from './styles'
+import { Container, Description, ItemLink, Item, Rents, WhatsApp, Email, Options } from './styles'
+import { WhatsappLogo, UserCircle, Envelope } from 'phosphor-react'
 
 export default function MyRents() {
 
@@ -27,11 +28,16 @@ export default function MyRents() {
 
             <Rents>
 
+
                 {items.length > 0 &&
 
                     items.map((item) => (
 
                         <Item>
+
+                            {console.log(item)}
+
+
 
                             <ItemLink to={`item/${item._id}`}> {item.title} </ItemLink>
 
@@ -42,15 +48,22 @@ export default function MyRents() {
 
                             <Description>
 
-                                <div>
+                                <Options>
 
-                                    <h2>Ligue para:</h2>
-                                    <span>{item.user.phone}</span>
+                                    <WhatsApp href={`https://api.whatsapp.com/send?phone=${item.user.phone}`}
+                                        target="_blank" >
+                                        <WhatsappLogo size={45} />
+                                        Mande uma mensagem
+                                    </WhatsApp>
 
-                                    <h2>Fale com:</h2>
-                                    <span>{item.user.name}</span>
+                                    <Email href={`mailto:${item.user.email}`}>
+                                        <Envelope size={45} />
+                                        Envie um e-mail
+                                    </Email>
 
-                                </div>
+                                    <span> <UserCircle size={45} />Fale com {item.user.name} </span>
+
+                                </Options>
 
                                 <div>
                                     {item.available ? (

@@ -8,8 +8,6 @@ export const Container = styled.div`
     h1{
       margin-bottom: .5em;
     }
-
-
 `
 
 export const Rents = styled.div`
@@ -29,7 +27,7 @@ export const Item = styled.div`
     display: flex;
     flex-direction: column;
     margin: 1.2em ;
-    width: 22%;
+    width: 18%;
     height: 27em;
     padding: 5px 0;
     overflow: hidden;
@@ -73,14 +71,16 @@ export const Description = styled.div`
 
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     
     height: 100%;
 
 span {
+    display: flex;
+    align-items: center;
+    
     font-size: 1.3em;
     font-weight:400;
-    justify-content: center;
 }
 
 p{
@@ -88,6 +88,16 @@ p{
     font-size: 1.5em;
     font-weight: bold;
 }
+
+`
+
+export const Options = styled.div`
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100%;
+    
 
 `
 
@@ -104,5 +114,36 @@ export const ItemLink = styled(Link)`
     color: ${props => props.theme.colors.primary_details};
 }
 
+
+`
+
+export const WhatsApp = styled.a`
+
+display: flex;
+align-items: center;
+border-radius: 15px;
+color:black;
+font-size: 1.3em;
+text-decoration: none;
+background-color: greenyellow;
+transition: all .2s;
+
+:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 12px rgba(27, 27, 27, .5);
+
+    }
+
+    :active {
+        transform: translateY(-1px);
+    }
+
+`
+
+export const Email = styled(WhatsApp)`
+
+color:white;
+
+background-color: blue;
 
 `

@@ -73,7 +73,8 @@ module.exports = class ItemController {
                 name: user.name,
                 image: user.image,
                 phone: user.phone,
-                address: user.address
+                address: user.address,
+                email:user.email
             }
         })
 
