@@ -4,6 +4,9 @@ const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
+const { cpf } = require('cpf-cnpj-validator');
+const { cnpj } = require('cpf-cnpj-validator');
+
 //helpers
 const createUserToken = require('../helpers/create-user-token')
 const getToken = require('../helpers/get-token')
@@ -12,14 +15,15 @@ const getUserByToken = require('../helpers/get-user-by-token')
 
 module.exports = class UserController {
 
+
     //user register
     static async register(req, res) {
 
-        const cnpj = req.body.cnpj
+        const user_cnpj = req.body.cnpj
         const business_name = req.body.business_name
         const cnae = req.body.cnae
         const name = req.body.name
-        const cpf = req.body.cpf
+        const user_cpf = req.body.cpf
         const email = req.body.email
         const phone = req.body.phone
         const address = req.body.address
@@ -28,8 +32,15 @@ module.exports = class UserController {
 
         //validations
 
-        if (!cnpj) {
+        
+
+        if (!user_cnpj) {
             res.status(422).json({ message: 'Faltando CNPJ' })
+            return
+        }
+
+        if (!cnpj.isValid(user_cnpj)) {
+            res.status(422).json({ message: 'CNPJ Inválido' })
             return
         }
 
@@ -47,8 +58,13 @@ module.exports = class UserController {
             return
         }
 
-        if (!cpf) {
+        if (!user_cpf) {
             res.status(422).json({ message: 'Faltando CPF' })
+            return
+        }
+
+        if (!cpf.isValid(user_cpf)) {
+            res.status(422).json({ message: 'CPF Inválido' })
             return
         }
 
@@ -96,10 +112,10 @@ module.exports = class UserController {
 
         //create a user
         const user = new User({
-            cnpj,
+            user_cnpj,
             business_name,
             cnae,
-            cpf,
+            user_cpf,
             name,
             email,
             phone,
