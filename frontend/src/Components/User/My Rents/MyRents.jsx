@@ -28,16 +28,11 @@ export default function MyRents() {
 
             <Rents>
 
-
                 {items.length > 0 &&
 
                     items.map((item) => (
 
                         <Item>
-
-                            {console.log(item)}
-
-
 
                             <ItemLink to={`item/${item._id}`}> {item.title} </ItemLink>
 

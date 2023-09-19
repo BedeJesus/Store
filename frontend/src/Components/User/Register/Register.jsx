@@ -61,7 +61,7 @@ export default function Register() {
                         <br />
 
                         <Label htmlFor="phone" >Telefone</Label>
-                        <Input type="number" name="phone" id='phone' placeholder="Digite o telefone para contato" onChange={handleOnChange} />
+                        <Input type="number" name="phone" id='phone' placeholder="Digite o telefone para contato. Ex: 11123456789" onChange={handleOnChange} />
                         <br />
 
                         <Label htmlFor="address" >Cidade e estado</Label>
