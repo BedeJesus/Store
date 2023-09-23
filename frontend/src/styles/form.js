@@ -34,12 +34,19 @@ export const Header = styled.div`
         display: flex;
         align-items: center;
         
+        
     }
 
     h2{
         font-size: 1.4rem;
         margin: .4em 0;
     }
+
+    @media(max-width : 550px) {
+        text-align: center;
+    } 
+
+    
 `
 
 export const Input = styled.input` 

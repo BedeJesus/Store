@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { ArrowLeft, ArrowRight } from 'phosphor-react';
+import { Link } from "react-router-dom";
 
 
 export const Container = styled.div`
@@ -160,22 +161,36 @@ export const Arrows = styled.div`
 
 `
 
+export const Highlight = styled(Link)`
+
+ display: flex;
+ padding-left:.1em; 
+ padding-right:.1em; 
+ border-radius: 10px;
+  transition: .2s;
+  text-decoration: none;
+  background-color: rgb(255, 56, 86);
+  color: hsl(0, 0%, 100%);
+  box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
+  
+  :hover{
+      color:${props => props.theme.colors.primary_text};
+      box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
+  }
+
+  :active {
+ box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+ transform: translateY(5px);
+ transition: 50ms;
+}
+
+`
+
 export const CreateCount = styled.span`
 
     display: flex;
     font-size: 1.6em;
-    justify-content: center;
-    
-
-    a{
-      transition: .2s;
-        text-decoration: none;
-        color: ${props => props.theme.colors.primary_details};
-        
-        :hover{
-            color:${props => props.theme.colors.primary_text};
-        }
-    }
+    justify-content: center;    
 
 `
 
@@ -183,7 +198,6 @@ export const Button = styled.button`
 
  padding: .5em 2em;
  border-radius: 10px;
- 
  background-color: rgb(255, 56, 86);
  font-size: 1.7rem;
  transition: all .3s ease;
@@ -192,7 +206,7 @@ export const Button = styled.button`
 
 
  :hover {
-    box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
+  box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
     cursor: pointer;
 }
 

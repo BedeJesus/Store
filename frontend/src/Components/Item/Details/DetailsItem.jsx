@@ -6,7 +6,8 @@ import { Link } from 'react-router-dom'
 
 import {
     Button, Container, Data, LongDescription,
-    Price, CreateCount, Box, RightArrow, LeftArrow, Arrows, Slider, Image, Info, InfoItem, Input
+    Price, CreateCount, Box, RightArrow, LeftArrow,
+    Arrows, Slider, Image, Info, InfoItem, Input, Highlight
 } from './styles'
 
 export default function DetailsItem() {
@@ -76,9 +77,7 @@ export default function DetailsItem() {
                                         src={`${process.env.REACT_APP_API}/images/items/${image}`}
                                         alt={item.title}
                                         key={index}
-
                                     />
-
                                 )}
                             </>
                         )
@@ -116,7 +115,7 @@ export default function DetailsItem() {
                     {token ? (
                         <Button onClick={rent}>Solicitar uma visita</Button>
                     ) : (
-                        <CreateCount> Você precisa &nbsp;<Link to='/register'> criar com uma conta </Link> &nbsp; para solicitar a locação </CreateCount>
+                        <CreateCount> Você precisa &nbsp;<Highlight to='/register'> criar com uma conta </Highlight> &nbsp; para solicitar a locação </CreateCount>
                     )}
 
                 </Data>
