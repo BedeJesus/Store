@@ -14,16 +14,12 @@ export default function Login() {
 
     function handleChange(e) {
         setUser({ ...user, [e.target.name]: e.target.value })
-
-
     }
 
     function handleSubmit(e) {
         e.preventDefault()
         login(user)
-
     }
-
 
     return (
 
@@ -52,6 +48,7 @@ export default function Login() {
 
                         <Button type="submit">Entrar</Button>
                         <h6>Não tem uma conta? <Link to='/register'>Registre-se</Link></h6>
+                        <h6><Link to='/forgotpassword'>Esqueci minha senha</Link></h6>
 
                     </Footer>
 
@@ -64,19 +61,4 @@ export default function Login() {
     )
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

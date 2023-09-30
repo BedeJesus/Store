@@ -48,7 +48,7 @@ export default function MyRents() {
                                     <WhatsApp href={`https://api.whatsapp.com/send?phone=${item.user.phone}`}
                                         target="_blank" >
                                         <WhatsappLogo size={45} />
-                                        Mande uma mensagem
+                                        Envie uma mensagem
                                     </WhatsApp>
 
                                     <Email href={`mailto:${item.user.email}`}>

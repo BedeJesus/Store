@@ -96,7 +96,7 @@ a{
     text-decoration: none;
     transition: .3s;
     :hover{
-        color: whitesmoke;
+        color: ${props => props.theme.colors.primary_text};
     }
 }
 `
@@ -106,7 +106,6 @@ display: flex;
 justify-content: space-evenly;
 
 `
-
 
 export const Button = styled.button`
 

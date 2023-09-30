@@ -10,6 +10,7 @@ import Profile from "../User/Profile/Profile";
 import DetailsItem from "../Item/Details/DetailsItem";
 import Conclude from "../User/Conclude Rent/Conclude";
 import Login from "../User/Login/Login";
+import ForgotPassword from "../User/Forgot Password/ForgotPassword";
 import { Container } from "./styles"
 
 const Content = props => (
@@ -28,6 +29,7 @@ const Content = props => (
             <Route path="/user/profile" caseSensitive={false} element={<Profile />} />
             <Route path='/item/:id' caseSensitive={false} element={<DetailsItem />} />
             <Route path='/myrents/item/:id' caseSensitive={false} element={<DetailsItem />} />
+            <Route path='/forgotpassword' caseSensitive={false} element={<ForgotPassword />} />
         </Routes>
 
     </Container>
