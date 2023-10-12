@@ -8,6 +8,9 @@ margin: 0 5%;
 
 h2{
   margin-bottom:1em;
+  :hover{
+    
+  }
 }
 
 h3{

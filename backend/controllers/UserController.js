@@ -3,6 +3,8 @@
 const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const crypto = require('crypto')
+const mailer = require('../modules/mailer')
 
 const { cpf } = require('cpf-cnpj-validator');
 const { cnpj } = require('cpf-cnpj-validator');
@@ -117,10 +119,10 @@ module.exports = class UserController {
 
         //create a user
         const user = new User({
-            user_cnpj,
+            cnpj: user_cnpj,
             business_name,
             cnae,
-            user_cpf,
+            cpf: user_cpf,
             name,
             email,
             phone,
@@ -131,7 +133,6 @@ module.exports = class UserController {
         try {
 
             const newUser = await user.save()
-
             await createUserToken(newUser, req, res)
 
         } catch (err) {
@@ -311,6 +312,92 @@ module.exports = class UserController {
         } catch (error) {
             res.status(500).json({ message: error })
         }
+    }
+
+    static async forgotPassword(req, res) {
+        const { email } = req.body;
+
+        try {
+
+            const user = await User.findOne({ email })
+            if (!user) {
+                return res.status(422).json({ message: 'Usuario não encontrado' })
+            }
+
+            const token = crypto.randomBytes(20).toString('hex');
+
+            const now = new Date()
+            now.setHours(now.getHours() + 1)
+
+            await User.findByIdAndUpdate(user.id, {
+                '$set': {
+                    passwordResetToken: token,
+                    passwordResetExpires: now,
+                }
+            })
+
+            mailer.sendMail({
+                to: email,
+                from: 'gabriel.jesilva@gmail.com',
+                template: 'forgot_password',
+                context: { token },
+            }, (err) => {
+                if (err) {
+                    return res.status(400).json({ message: 'Não foi possivel enviar o email para mudar a senha' })
+                }
+
+                res.status(200).json({
+                    message: 'Email enviado',
+                    data: token,
+                })
+            })
+
+
+        } catch (err) {
+            res.status(400).json({ message: 'Erro no esqueci minha senha' })
+        }
+
+    }
+
+    static async resetPassword(req, res) {
+
+        const email = req.body.email.email
+        const token = req.body.token.token
+        const password = req.body.password.password
+
+        try {
+
+            const user = await User.findOne({ email })
+
+
+            if (!user) {
+                return res.status(400).send({ message: 'Usuario não encontrado' })
+            }
+
+            if (token !== user.passwordResetToken) {
+                return res.status(400).send({ message: 'Token inválido' })
+            }
+
+            const now = new Date()
+            if (now > user.passwordResetExpires) {
+                return res.status(400).send({ message: 'Token expirado, gere um novo' })
+            }
+
+            const salt = await bcrypt.genSalt(12)
+            const passwordHash = await bcrypt.hash(password, salt)
+            user.password = passwordHash;
+
+            await user.save()
+
+            return res.status(200).json({ message: 'Senha atualziada', })
+
+
+
+        } catch (err) {
+            console.log(err)
+            res.status(400).json({ message: 'Erro em resetar a senha' })
+        }
+
     }
 
 

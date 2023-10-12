@@ -42,8 +42,14 @@ const User = mongoose.model('User', new Schema({
         type: String,
         required: true
     },
-    
-    
+    passwordResetToken: {
+        type: String,
+    },
+    passwordResetExpires: {
+        type: Date
+    },
+
+
 
 }, //create 2 new fields: createdAt and updatedAt, witch saves every time a new update is made
     { timestamps: true },
