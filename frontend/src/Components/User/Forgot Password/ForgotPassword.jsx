@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { Container, Data, Header, Input, Label, Footer, Button, Box } from './../../../styles/form'
 import { SignIn } from 'phosphor-react'
 import api from "../../../utils/api"
@@ -14,6 +15,7 @@ export default function ForgotPassword() {
     const [email, setEmail] = useState({})
     const [password, setPassword] = useState('')
 
+    const navigate = useNavigate()
 
     async function sendToken() {
 
@@ -36,11 +38,11 @@ export default function ForgotPassword() {
 
     async function resetPassword() {
 
-
         let msgType = 'success'
 
         const data = await api.post('/users/reset_password/', { token, password, email })
             .then((response) => {
+                navigate('/login')
                 return response.data
             })
             .catch((err) => {

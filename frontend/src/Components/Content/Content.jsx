@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route } from "react-router";
+import { Container } from "./styles"
 import Sale from "../Sale/Sale";
 import Register from '../User/Register/Register'
 import MyItems from "../User/My Items/MyItems";
@@ -11,7 +12,8 @@ import DetailsItem from "../Item/Details/DetailsItem";
 import Conclude from "../User/Conclude Rent/Conclude";
 import Login from "../User/Login/Login";
 import ForgotPassword from "../User/Forgot Password/ForgotPassword";
-import { Container } from "./styles"
+import Subscription from "../User/Subscription/Subscription";
+
 
 const Content = props => (
 
@@ -30,6 +32,7 @@ const Content = props => (
             <Route path='/item/:id' caseSensitive={false} element={<DetailsItem />} />
             <Route path='/myrents/item/:id' caseSensitive={false} element={<DetailsItem />} />
             <Route path='/forgotpassword' caseSensitive={false} element={<ForgotPassword />} />
+            <Route path='/subscription' caseSensitive={false} element={<Subscription />} />
         </Routes>
 
     </Container>

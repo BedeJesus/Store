@@ -73,7 +73,7 @@ export default function MyItems() {
         <Container>
             <>
                 <h1>Meus Itens</h1>
-                <h2><Link to='/newitem'>Cadastre um novo Item</Link></h2>
+                <h2><Link to='/subscription'>Cadastre um novo Item</Link></h2>
             </>
 
             {items.length > 1 && (
