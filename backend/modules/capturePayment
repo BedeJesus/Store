@@ -1,5 +1,3 @@
-// set some important variables
-
 const base = "https://api-m.sandbox.paypal.com";
 const generateAccessToken = require('./generateAccessToken')
 const handleResponse = require('./handleResponse')
@@ -7,7 +5,6 @@ const handleResponse = require('./handleResponse')
 async function capturePayment(orderID) {
     const accessToken = await generateAccessToken();
     const url = `${base}/v2/checkout/orders/${orderID}/capture`;
-    console.log(orderID)
 
     const response = await fetch(url, {
         method: "post",

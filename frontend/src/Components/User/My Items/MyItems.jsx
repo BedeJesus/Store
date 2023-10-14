@@ -21,6 +21,9 @@ export default function MyItems() {
     const filteredItems = items.filter((item) => item.title.toLowerCase().includes(filter.toLowerCase()))
     const currentItems = filteredItems.slice(firstItemIndex, lastItemIndex)
 
+    const [user, setUser] = useState({})
+
+
     const paginate = pageNumber => {
         setCurrentPage(pageNumber)
     }
@@ -34,6 +37,18 @@ export default function MyItems() {
             .then((response) => {
                 setItems(response.data.items)
             })
+    }, [token])
+
+
+    useEffect(() => {
+        api.get('/users/checkuser', {
+            headers: {
+                Authorization: `Bearer ${JSON.parse(token)}`
+            }
+        }).then((response) => [
+            setUser(response.data)
+        ])
+
     }, [token])
 
 
@@ -73,12 +88,18 @@ export default function MyItems() {
         <Container>
             <>
                 <h1>Meus Itens</h1>
-                <h2><Link to='/subscription'>Cadastre um novo Item</Link></h2>
+                {user.subscribed ?
+                    <h2><Link to='/newitem'>Cadastre um novo Item</Link></h2>
+                    :
+                    <h2><Link to='/subscription'>Inscreva-se</Link></h2>
+                }
+
             </>
 
             {items.length > 1 && (
 
                 <Filter>
+
 
                     <Input placeholder='Filtre por Titulo'
                         value={filter}

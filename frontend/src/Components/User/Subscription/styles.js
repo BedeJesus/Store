@@ -4,11 +4,10 @@ import styled from "styled-components";
 export const Container = styled.div`
 
   display: flex;
-  flex-direction: column;
   margin: 0 5%;
+  justify-content:space-around;
 
   color: ${props => props.theme.colors.primary_text};
-
 
   h1{
     font-size: 2em;
@@ -20,6 +19,7 @@ export const Container = styled.div`
 export const Box = styled.div`
 
   display: flex;
+  flex-direction: column;
   justify-content:space-around;
   padding-bottom: 2em;
   padding: 0 2em  2em 2em;
@@ -32,5 +32,10 @@ export const Box = styled.div`
         flex-direction: column;
         align-items: center;
     } 
+
+    p{
+      font-size: 1.5em;
+      margin-bottom: .5em;
+    }
 
 `

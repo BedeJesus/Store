@@ -128,6 +128,7 @@ module.exports = class UserController {
             phone,
             address,
             password: passwordHash,
+            subscribed: false
         })
 
         try {
@@ -295,8 +296,10 @@ module.exports = class UserController {
             const passwordHash = await bcrypt.hash(reqPassword, salt)
 
             user.password = passwordHash
-
+            
         }
+
+        user.subscribed = user.subscribed
 
         try {
             // returns updated data
@@ -390,8 +393,6 @@ module.exports = class UserController {
             await user.save()
 
             return res.status(200).json({ message: 'Senha atualziada', })
-
-
 
         } catch (err) {
             console.log(err)

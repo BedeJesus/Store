@@ -25,7 +25,6 @@ export default function Profile() {
             setUser(response.data)
         ])
 
-
     }, [token])
 
     function onFileChange(e) {

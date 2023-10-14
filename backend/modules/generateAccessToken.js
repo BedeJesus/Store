@@ -2,8 +2,10 @@ const base = "https://api-m.sandbox.paypal.com";
 
 const handleResponse = require('./handleResponse')
 
-const PAYPAL_CLIENT_ID = 'AW2PGeRo8c_mWjU1PxkMAKmfS1NIryET2Jymx31-piVRQPjE7cYoLbA9qKziseu5AUQJGQTabM0DxOk2'
-const PAYPAL_CLIENT_SECRET = 'EL9W1Ekl727iJporReJP8Y-OJil1oorvEHYGDneCF6yGdynIOhFi2ljuTFPyncsKze30T0E4XzGL1dqe'
+require('dotenv').config({ path: '.env' });
+
+const PAYPAL_CLIENT_ID = process.env.PAYPAL_CLIENT_ID
+const PAYPAL_CLIENT_SECRET = process.env.PAYPAL_CLIENT_SECRET
 
 const generateAccessToken = async () => {
     try {

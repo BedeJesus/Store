@@ -48,6 +48,9 @@ const User = mongoose.model('User', new Schema({
     passwordResetExpires: {
         type: Date
     },
+    subscribed: {
+        type: Boolean
+    },
 
 
 
