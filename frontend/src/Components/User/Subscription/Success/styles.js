@@ -9,11 +9,7 @@ export const Container = styled.div`
 
   color: ${props => props.theme.colors.primary_text};
 
-  h1{
-    font-size: 2em;
-    margin-bottom: .7em;
-  }
-  
+ 
 `
 
 export const Box = styled.div`
@@ -23,7 +19,7 @@ export const Box = styled.div`
   justify-content:space-around;
   padding-bottom: 2em;
   padding: 0 2em  2em 2em;
-  margin-bottom: 2em;
+  margin: 2em;
   border-radius: 15px;
   background: ${props => props.theme.item.background};
   box-shadow: ${props => props.theme.item.box_shadow};
@@ -37,5 +33,25 @@ export const Box = styled.div`
       font-size: 1.5em;
       margin-bottom: .5em;
     }
+
+    h1{
+        font-size: 2em;
+        margin: .7em;
+    }
+
+    h2{
+        margin-bottom: .5em;
+    }
+
+    a{
+        text-decoration: none;
+        color: ${props => props.theme.colors.primary_details};
+        transition: .3s;
+
+        :hover{
+            color: ${props => props.theme.colors.secundary_details};
+        }
+    }
+  
 
 `

@@ -1,10 +1,13 @@
 import { PayPalButtons } from "@paypal/react-paypal-js";
 import {useState} from "react";
+import { useNavigate } from 'react-router-dom'
+
 export default function PayPalPayment() {
 
     const serverUrl = "http://localhost:4000/pay-pal"
 
     const [token] = useState(localStorage.getItem('token') || '')
+    const navigate = useNavigate()
 
     const createOrder = (data) => {
         // Order is created on the server and the order id is returned
@@ -41,8 +44,7 @@ export default function PayPalPayment() {
         })
             .then((response) => {
 
-                // window.alert('nem acredito q deu certo')
-                
+                navigate('/subscription/success')
                 response.json()
             });
     };

@@ -23,7 +23,6 @@ export default function MyItems() {
 
     const [user, setUser] = useState({})
 
-
     const paginate = pageNumber => {
         setCurrentPage(pageNumber)
     }

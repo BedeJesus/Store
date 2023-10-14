@@ -12,8 +12,8 @@ import DetailsItem from "../Item/Details/DetailsItem";
 import Conclude from "../User/Conclude Rent/Conclude";
 import Login from "../User/Login/Login";
 import ForgotPassword from "../User/Forgot Password/ForgotPassword";
-import SubscriptionMain from "../User/Subscription/SubscriptionMain";
-
+import SubscriptionMain from "../User/Subscription/Main/SubscriptionMain";
+import Success from "../User/Subscription/Success/Success";
 
 const Content = props => (
 
@@ -33,6 +33,7 @@ const Content = props => (
             <Route path='/myrents/item/:id' caseSensitive={false} element={<DetailsItem />} />
             <Route path='/forgotpassword' caseSensitive={false} element={<ForgotPassword />} />
             <Route path='/subscription' caseSensitive={false} element={<SubscriptionMain />} />
+            <Route path='/subscription/success' caseSensitive={false} element={<Success />} />
         </Routes>
 
     </Container>
