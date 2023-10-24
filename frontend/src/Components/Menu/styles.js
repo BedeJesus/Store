@@ -21,6 +21,9 @@ a{
 `
 export const Store = styled(Link)`
 
+    display: flex;
+    align-items:center;
+    justify-content: space-between;
     border: none;
     font-size: 30px ;
     text-decoration: none;
