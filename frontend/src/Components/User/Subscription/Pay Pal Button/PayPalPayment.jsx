@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom'
 
 export default function PayPalPayment() {
 
-    const serverUrl = "http://localhost:4000/pay-pal"
+    const serverUrl = "https://backend-f5y22qhtg-bedejesus.vercel.app/pay-pal"
 
     const [token] = useState(localStorage.getItem('token') || '')
     const navigate = useNavigate()
