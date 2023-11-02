@@ -1,5 +1,5 @@
 import { PayPalButtons } from "@paypal/react-paypal-js";
-import {useState} from "react";
+import { useState } from "react";
 import { useNavigate } from 'react-router-dom'
 
 export default function PayPalPayment() {
@@ -46,7 +46,10 @@ export default function PayPalPayment() {
 
                 navigate('/subscription/success')
                 response.json()
+            }).catch((err) => {
+                window.alert('Pagamento não aprovado, tente novamente')
             });
+
     };
 
     return (

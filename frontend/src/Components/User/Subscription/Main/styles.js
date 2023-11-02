@@ -38,3 +38,17 @@ export const Box = styled.div`
   }
 
 `
+
+export const Buttons = styled.div`
+
+  padding-left: 8em;
+ 
+
+  @media(max-width : 1400px) {
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    } 
+
+  
+`

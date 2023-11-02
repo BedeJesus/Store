@@ -1,5 +1,6 @@
 const createOrder = require('./../modules/createOrder')
 const capturePayment = require('./../modules/capturePayment')
+const createProduct = require('./../modules/createProduct')
 
 //helpers
 const getToken = require('../helpers/get-token')
