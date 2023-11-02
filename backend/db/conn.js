@@ -1,9 +1,10 @@
 const mongoose = require('mongoose')
 
-
+require('dotenv').config({ path: '.env' });
 //conecting to the db 'store'
 async function main() {
-    await mongoose.connect('mongodb://127.0.0.1:27017/store')
+
+    await mongoose.connect(process.env.MONGODB_CONNECT_URL)
     console.log('Conectou ao banco!')
 }
 
