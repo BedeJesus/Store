@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Bag } from 'phosphor-react'
 import api from '../../../utils/api'
-
 import { useNavigate } from "react-router";
 import useFlashMessage from '../../../hooks/useFlashMessage'
 
@@ -11,17 +10,40 @@ import { Container, Button, Data, Header, Input, Label, Box, DivButton } from '.
 export default function ItemForm(props) {
 
     const [item, setitem] = useState(props.itemData || {})
-    const [preview, setPreview] = useState([])
 
     function onFileChange(e) {
-        setitem({ ...item, images: [...e.target.files] })
-        setPreview(Array.from(e.target.files))
+        const files = e.target.files;
+        let imagesArray = [];
+      
+        const loadAndSetImages = async () => {
+          try {
+            const promises = Array.from(files).map(file => {
+              return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (event) => resolve(event.target.result);
+                reader.onerror = (error) => reject(error);
+                reader.readAsDataURL(file);
+              });
+            });
+      
+            const imageUrls = await Promise.all(promises);
+            imagesArray = imageUrls;
 
-    }
+            setitem(prevItem => {
+              return { ...prevItem, images: imagesArray };
+            });
+            
+          } catch (error) {
+            console.error("Error loading images", error);
+          }
+        };
+        loadAndSetImages();
+      }
+
+
 
     function handleChange(e) {
         setitem({ ...item, [e.target.name]: e.target.value })
-
     }
 
     function submit(e) {
@@ -78,7 +100,7 @@ export default function ItemForm(props) {
 
                 <Header>
 
-                    <h1>{<Bag/>} Faça o Cadastro do Produto</h1>
+                    <h1>{<Bag />} Faça o Cadastro do Produto</h1>
                     <h2>Entre com suas informações de cadastro do produto</h2>
 
                 </Header>
@@ -125,24 +147,4 @@ export default function ItemForm(props) {
     )
 
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

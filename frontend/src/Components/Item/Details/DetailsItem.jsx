@@ -2,7 +2,6 @@ import api from '../../../utils/api'
 import useFlashMessage from '../../../hooks/useFlashMessage'
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
-import { Link } from 'react-router-dom'
 
 import {
     Button, Container, Data, LongDescription,
@@ -16,18 +15,20 @@ export default function DetailsItem() {
     const { id } = useParams()
     const { setFlashMessage } = useFlashMessage()
     const [token] = useState(localStorage.getItem('token') || '')
+    const [loading, setLoading] = useState(true)
+
 
 
     useEffect(() => {
         api.get(`/items/${id}`).then((response) => {
             setItem(response.data.item)
+            setLoading(false)
         })
 
     }, [id])
 
     async function rent() {
         let msgType = 'success'
-        console.log(`Bearer ${JSON.parse(token)}`)
         const data = await api.patch(`items/rent/${item._id}`, {
 
             Authorization: `Bearer ${JSON.parse(token)}`
@@ -61,86 +62,87 @@ export default function DetailsItem() {
 
     return (
         <Container>
+
             <h1>{item.title}</h1>
 
             <Box>
 
-                <Slider>
+                {!loading ? (
+                    <>
 
-                    {item.images.map((image, index) => {
 
-                        return (
-                            <>
-                                {index === current && (
+                        <Slider>
 
-                                    <Image
-                                        src={`${process.env.REACT_APP_API}/images/items/${image}`}
-                                        alt={item.title}
-                                        key={index}
-                                    />
-                                )}
-                            </>
-                        )
-                    })}
+                            {item.images.map((image, index) => {
 
-                    {item.images.length > 1 && (
+                                return (
+                                    <>
+                                        {index === current && (
 
-                        <Arrows>
-                            <LeftArrow onClick={prevSlide} />
-                            <RightArrow onClick={nextSlide} />
-                        </Arrows>
-                    )}
+                                            <Image
+                                                src={image}
+                                                alt={item.title}
+                                                key={index}
+                                            />
+                                        )}
+                                    </>
+                                )
 
-                </Slider>
 
-                <Data>
+                            })}
 
-                    <h1>Descrição Completa</h1>
-                    <LongDescription>{item.long_desc}</LongDescription>
+                            {item.images.length > 1 && (
 
-                    <Info>
+                                <Arrows>
+                                    <LeftArrow onClick={prevSlide} />
+                                    <RightArrow onClick={nextSlide} />
+                                </Arrows>
+                            )}
 
-                        <InfoItem>
-                            <h2>Localização do item</h2>
-                            <Price>{item.user.address}</Price>
-                        </InfoItem>
+                        </Slider>
 
-                        <InfoItem>
-                            <h2>Valor da locação/dia</h2>
-                            <Price>{`R$${item.price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}</Price>
-                        </InfoItem>
+                        <Data>
 
-                    </Info>
+                            <h1>Descrição Completa</h1>
+                            <LongDescription>{item.long_desc}</LongDescription>
 
-                    {token ? (
-                        <Button onClick={rent}>Solicitar uma visita</Button>
-                    ) : (
-                        <CreateCount> Você precisa &nbsp;<Highlight to='/register'> criar com uma conta </Highlight> &nbsp; para solicitar a locação </CreateCount>
-                    )}
+                            <Info>
 
-                </Data>
+                                <InfoItem>
+                                    <h2>Localização do item</h2>
+                                    <Price>{item.user.address}</Price>
+                                </InfoItem>
+
+                                <InfoItem>
+                                    <h2>Valor da locação/dia</h2>
+                                    <Price>{`R$${item.price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}</Price>
+                                </InfoItem>
+
+                            </Info>
+
+                            {token ? (
+                                <Button onClick={rent}>Solicitar uma visita</Button>
+                            ) : (
+                                <CreateCount> Você precisa &nbsp;<Highlight to='/register'> criar uma conta </Highlight> &nbsp; para solicitar a locação </CreateCount>
+                            )}
+
+                        </Data>
+
+                    </>
+                    
+                ) : (
+
+                    <p>Carregando</p>
+
+                )}
 
             </Box>
+
+
 
 
         </Container>
 
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 

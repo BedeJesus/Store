@@ -47,7 +47,8 @@ export default function Login() {
                     <Footer>
 
                         <Button type="submit">Entrar</Button>
-                        <h6>Não tem uma conta? <Link to='/register'>Registre-se</Link></h6>
+                        <h6>Não tem uma conta? </h6>
+                        <h6><Link to='/register'>Registre-se</Link></h6>
                         <h6><Link to='/forgotpassword'>Esqueci minha senha</Link></h6>
 
                     </Footer>

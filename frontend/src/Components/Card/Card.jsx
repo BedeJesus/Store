@@ -37,7 +37,6 @@ export default function Produto(props) {
         }
     }
 
-
     return (
 
         <Container onClick={() => handleClick(props.button)}>
@@ -45,7 +44,7 @@ export default function Produto(props) {
 
             <Content>
 
-                <img src={props.image} alt={props.name} />
+                <img src={props.item.images[0]} alt={props.name} />
 
                 <Description>
                     {props.description}

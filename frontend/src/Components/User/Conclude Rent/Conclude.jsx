@@ -73,7 +73,7 @@ export default function Conclude() {
                                 {index === current && (
 
                                     <Image
-                                        src={`${process.env.REACT_APP_API}/images/items/${image}`}
+                                        src={image}
                                         alt={item.title}
                                         key={index}
                                     />
@@ -95,9 +95,9 @@ export default function Conclude() {
 
                 <Data>
 
-                    <h2>Nome do alugador: {item.renter.name}</h2>
+                    <h2>Nome do locador: {item.renter.name}</h2>
 
-                    <h2>Telefone do alugador: {item.renter.phone}</h2>
+                    <h2>Telefone do locador: {item.renter.phone}</h2>
 
                     <h2>Valor da locação: {`R$${item.price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}</h2>
                     

@@ -119,6 +119,11 @@ export const Button = styled.button`
  box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
  color: hsl(0, 0%, 100%);
 
+    @media(max-width : 400px) {
+        font-size: 1.2em;
+        
+    }
+
 
  :hover {
     box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;

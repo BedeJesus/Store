@@ -12,7 +12,7 @@ export default {
 
     card: {
         background:'linear-gradient(145deg, #d7d7d7, #ffffff)',
-        box_shadow:'17px 17px 34px #c0c0c0, -17px -17px 34px #ffffff;'
+        box_shadow:'17px 17px 34px #c0c0c0, -10px -10px 34px #ffffff;'
         
     },
 

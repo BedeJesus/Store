@@ -22,7 +22,11 @@ export const Container = styled.div`
 
     @media(max-width : 850px) {
         width: 47.5%;
-        height: 25em;
+        height: 25em;  
+    } 
+
+    @media(max-width : 400px) {
+        box-shadow: none;  
     } 
 
     :hover {
@@ -43,6 +47,18 @@ export const Container = styled.div`
         object-fit: cover;
     }
 
+    @media(max-width : 850px) {
+        img{
+            grid-row-start:1 ;
+            grid-row-end:2 ;
+            height:13em;
+            width: 100%;
+            object-fit: cover;
+        }
+    }
+
+    
+
 `
 
 export const Title = styled.div`
@@ -52,6 +68,10 @@ export const Title = styled.div`
     font-size: 1.4rem;
     font-weight: bold;
     color: ${props => props.theme.colors.primary_text};
+
+    @media(max-width : 850px) {
+        font-size: 1.3rem; 
+    }
 
 `
 
@@ -82,6 +102,11 @@ export const Status = styled.div`
     font-weight: bold;
     margin-bottom: 5%;
     font-size: 1.5em;
+
+    @media(max-width : 400px) {
+        font-size: 1.1em;
+        
+    } 
 `
 
 

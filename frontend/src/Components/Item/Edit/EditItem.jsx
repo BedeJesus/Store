@@ -85,8 +85,32 @@ export default function EditItem(props) {
     const [preview, setPreview] = useState([])
 
     function onFileChange(e) {
-        setItem({ ...item, images: [...e.target.files] })
-        setPreview(Array.from(e.target.files))
+        const files = e.target.files;
+        let imagesArray = [];
+      
+        const loadAndSetImages = async () => {
+          try {
+            const promises = Array.from(files).map(file => {
+              return new Promise((resolve, reject) => {
+                const reader = new FileReader();
+                reader.onload = (event) => resolve(event.target.result);
+                reader.onerror = (error) => reject(error);
+                reader.readAsDataURL(file);
+              });
+            });
+      
+            const imageUrls = await Promise.all(promises);
+            imagesArray = imageUrls;
+
+            setItem(prevItem => {
+              return { ...prevItem, images: imagesArray };
+            });
+            
+          } catch (error) {
+            console.error("Error loading images", error);
+          }
+        };
+        loadAndSetImages();
     }
 
     function handleChange(e) {

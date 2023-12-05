@@ -8,12 +8,10 @@ const ObjectId = require('mongoose').Types.ObjectId
 module.exports = class ItemController {
     //create a item
     static async create(req, res) {
-        const { title, short_desc, long_desc, price, brand } = req.body
+        const { title, short_desc, long_desc, price, brand, images } = req.body
 
-        const images = req.files
         const available = true
 
-        //images upload
 
         //validations
         if (!title) {
@@ -65,7 +63,7 @@ module.exports = class ItemController {
             brand,
             price,
             available,
-            images: [],
+            images,
             user: {
                 _id: user._id,
                 cnpj: user.cnpj,
@@ -76,10 +74,6 @@ module.exports = class ItemController {
                 address: user.address,
                 email:user.email
             }
-        })
-
-        images.map((image) => {
-            item.images.push(image.filename)
         })
 
         try {
@@ -114,6 +108,10 @@ module.exports = class ItemController {
         const user = await getUserByToken(token)
 
         const items = await Item.find({ 'user._id': user._id }).sort('-createAt')
+
+        res.setHeader('Content-Type', 'application/json');
+        res.setHeader('Accept-Encoding', 'gzip');
+        
         res.status(200).json({
             items
         })
@@ -199,11 +197,12 @@ module.exports = class ItemController {
     static async updateItem(req, res) {
         const id = req.params.id
 
-        const { title, short_desc, long_desc, price, available,brand } = req.body
+        const { title, short_desc, long_desc, price, available,brand ,images} = req.body
 
-        const images = req.files
 
         const updatedData = {}
+
+        updatedData.images = images
 
         //check if item exists
         const item = await Item.findOne({ _id: id })
@@ -256,13 +255,6 @@ module.exports = class ItemController {
             return
         } else {
             updatedData.price = price
-        }
-
-        if (images.length > 0) {
-            updatedData.images = []
-            images.map((image) => {
-                updatedData.images.push(image.filename)
-            })
         }
 
         await Item.findByIdAndUpdate(id, updatedData)
@@ -341,19 +333,3 @@ module.exports = class ItemController {
         })
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

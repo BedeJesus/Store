@@ -28,7 +28,7 @@ export const Item = styled.div`
     flex-direction: column;
     margin: 1.2em ;
     width: 18%;
-    height: 27em;
+    height: 30em;
     padding: 5px 0;
     overflow: hidden;
     border-radius: 10px;
@@ -37,11 +37,11 @@ export const Item = styled.div`
     background: ${props => props.theme.card.background};
     box-shadow: ${props => props.theme.card.box_shadow};
 
-img {
-    height:14.6em;
-    width: 100%;
-    object-fit: cover;
-}
+    img {
+        height:14.6em;
+        width: 100%;
+        object-fit: cover;
+    }
 
     @media(max-width : 1500px) {
         width: 21%;
@@ -75,19 +75,18 @@ export const Description = styled.div`
     
     height: 100%;
 
-span {
-    display: flex;
-    align-items: center;
-    
-    font-size: 1.3em;
-    font-weight:400;
-}
+    span {
+        display: flex;
+        align-items: center;
+        font-size: 1.3em;
+        font-weight:400;
+    }
 
-p{
-    color: ${props => props.theme.colors.primary_details};
-    font-size: 1.5em;
-    font-weight: bold;
-}
+    p{
+        color: ${props => props.theme.colors.primary_details};
+        font-size: 1.5em;
+        font-weight: bold;
+    }
 
 `
 
@@ -110,25 +109,25 @@ export const ItemLink = styled(Link)`
     transition: .3s;
     
 
-:hover {
-    color: ${props => props.theme.colors.primary_details};
-}
+    :hover {
+        color: ${props => props.theme.colors.primary_details};
+    }
 
 
 `
 
 export const WhatsApp = styled.a`
 
-display: flex;
-align-items: center;
-border-radius: 15px;
-color:black;
-font-size: 1.3em;
-text-decoration: none;
-background-color: #25D366;
-transition: all .2s;
+    display: flex;
+    align-items: center;
+    border-radius: 15px;
+    color:black;
+    font-size: 1.3em;
+    text-decoration: none;
+    background-color: #25D366;
+    transition: all .2s;
 
-:hover {
+    :hover {
         transform: translateY(-5px);
         box-shadow: 0 12px 12px rgba(27, 27, 27, .5);
 
@@ -142,8 +141,7 @@ transition: all .2s;
 
 export const Email = styled(WhatsApp)`
 
-color:white;
-
-background-color: blue;
+    color:white;
+    background-color: blue;
 
 `

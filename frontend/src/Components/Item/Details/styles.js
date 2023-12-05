@@ -52,7 +52,7 @@ export const InfoItem = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  
+
 `
 
 export const Slider = styled.div`
@@ -70,6 +70,20 @@ export const Image = styled.img`
   border-radius: 10px;
   margin-top: 3em;
   border: 2px solid ${props => props.theme.colors.primary_details};
+
+   @media(max-width : 800px) {
+
+    width: 19em;
+    height: 19em;
+  } 
+   
+
+  @media(max-width : 350px) {
+
+    width: 16em;
+    height: 16em;
+  }   
+   
 `
 
 export const Data = styled.div` 

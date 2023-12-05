@@ -7,6 +7,8 @@ export default function MyRents() {
 
     const [items, setItems] = useState([])
     const [token] = useState(localStorage.getItem('token') || '')
+    const [loading, setLoading] = useState(true)
+    
 
     useEffect(() => {
         api.get('/items/myrents', {
@@ -16,6 +18,7 @@ export default function MyRents() {
         })
             .then((response) => {
                 setItems(response.data.items)
+                setLoading(false)
             })
     }, [token])
 
@@ -26,56 +29,65 @@ export default function MyRents() {
 
             <h1>Minhas Locações</h1>
 
-            <Rents>
+            {!loading ? (
 
-                {items.length > 0 &&
+                <Rents>
 
-                    items.map((item) => (
+                    {items.length > 0 &&
 
-                        <Item>
+                        items.map((item) => (
 
-                            <ItemLink to={`item/${item._id}`}> {item.title} </ItemLink>
+                            <Item>
 
-                            <img
-                                src={`${process.env.REACT_APP_API}/images/items/${item.images[0]}`}
-                                alt={item.name}
-                            />
+                                <ItemLink to={`item/${item._id}`}> {item.title} </ItemLink>
 
-                            <Description>
+                                <img
+                                    src={item.images[0]}
+                                    alt={item.name}
+                                />
 
-                                <Options>
+                                <Description>
 
-                                    <WhatsApp href={`https://api.whatsapp.com/send?phone=${item.user.phone}`}
-                                        target="_blank" >
-                                        <WhatsappLogo size={45} />
-                                        Envie uma mensagem
-                                    </WhatsApp>
+                                    <Options>
 
-                                    <Email href={`mailto:${item.user.email}`}>
-                                        <Envelope size={45} />
-                                        Envie um e-mail
-                                    </Email>
+                                        <WhatsApp href={`https://api.whatsapp.com/send?phone=${item.user.phone}`}
+                                            target="_blank" >
+                                            <WhatsappLogo size={45} />
+                                            Envie uma mensagem
+                                        </WhatsApp>
 
-                                    <span> <UserCircle size={45} />Fale com {item.user.name} </span>
+                                        <Email href={`mailto:${item.user.email}`}>
+                                            <Envelope size={45} />
+                                            Envie um e-mail
+                                        </Email>
 
-                                </Options>
+                                        <span> <UserCircle size={45} />Fale com {item.user.name.substring(0, item.user.name.indexOf(' '))} </span>
 
-                                <div>
-                                    {item.available ? (
-                                        <p>Locação em processo</p>
-                                    ) : (
-                                        <p>Locação realizada</p>
-                                    )}
-                                </div>
+                                    </Options>
 
-                            </Description>
+                                    <div>
+                                        {item.available ? (
+                                            <p>Locação em processo</p>
+                                        ) : (
+                                            <p>Locação realizada</p>
+                                        )}
+                                    </div>
 
-                        </Item>
-                    ))}
+                                </Description>
 
-                {items.length === 0 && <h2>Você ainda não solicitou uma locação</h2>}
+                            </Item>
+                        ))}
 
-            </Rents>
+                    {items.length === 0 && <h2>Você ainda não solicitou uma locação</h2>}
+
+                </Rents>
+
+            ) : (
+            
+                <h1>Carregando</h1>
+            
+            )}
+
 
         </Container>
     )

@@ -11,7 +11,7 @@ import { ThemeProvider } from 'styled-components'
 
 function App() {
 
-    const [theme, setTheme] = useState(dark)
+    const [theme, setTheme] = useState(light)
 
     const toggleTheme = () => {
         setTheme(theme === dark ? light : dark)

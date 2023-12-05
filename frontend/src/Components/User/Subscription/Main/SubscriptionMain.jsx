@@ -1,4 +1,4 @@
-import { Box, Container, Buttons } from './styles'
+import { Box, Container, Buttons, Error } from './styles'
 import { PayPalScriptProvider } from "@paypal/react-paypal-js";
 import PayPalPayment from '../Pay Pal Button/PayPalPayment';
 
@@ -30,6 +30,12 @@ export default function SubscriptionMain() {
                     <Buttons>
                         <PayPalPayment />
                     </Buttons>
+
+                    <Error>
+                        <p>Se ocorrer algum problema com o pagamento entre em contato conosco: </p>
+                        <p>atendimento.customerconn@gmail.com </p>
+                    </Error>
+
 
                 </Box>
 

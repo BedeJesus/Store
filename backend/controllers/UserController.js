@@ -1,5 +1,8 @@
 //creating the functions for the UserRoutes
 
+const zlib = require('zlib');
+
+
 const User = require('../models/User')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
@@ -392,12 +395,44 @@ module.exports = class UserController {
 
             await user.save()
 
-            return res.status(200).json({ message: 'Senha atualziada', })
+            return res.status(200).json({ message: 'Senha atualziada' })
 
         } catch (err) {
-            console.log(err)
-            res.status(400).json({ message: 'Erro em resetar a senha' })
+            res.status(400).json({ message: err })
         }
+
+    }
+
+    static async teste(req, res) {
+
+        const payload = '123456789'
+
+        const data = {
+            '1':payload.repeat(1000),
+            '2':payload.repeat(1000),
+            '3':payload.repeat(1000),
+            '4':payload.repeat(1000),
+            '5':payload.repeat(1000),
+            '6':payload.repeat(1000),
+            '7':payload.repeat(1000),
+            '8':payload.repeat(1000)
+        }
+
+        const objString = JSON.stringify(data);
+
+        // res.setHeader('Content-Type', 'application/json');
+        // zlib.gzip(objString, (err, buffer) => {
+        //     if (!err) {
+        //       // buffer contém os dados comprimidos em formato gzip
+        //       res.send(objString);
+        //     } else {
+        //       console.error('Erro na compressão gzip:', err);
+        //     }
+        //   });
+
+           res.send(objString);
+
+        
 
     }
 

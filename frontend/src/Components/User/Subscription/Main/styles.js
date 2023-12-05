@@ -52,3 +52,12 @@ export const Buttons = styled.div`
 
   
 `
+
+
+export const Error = styled.div`
+
+p{
+  font-size:1.3em;
+}
+  
+`
