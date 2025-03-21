@@ -3,13 +3,13 @@ import { SignIn } from 'phosphor-react'
 import { useState } from "react";
 import { useContext } from "react";
 import { Context } from '../../../context/UserContext'
-
 import { Container, Header, Input, Label, Box, DivButton, Data, Button } from './../../../styles/form'
 
 export default function Register() {
 
     const [user, setUser] = useState({})
     const { register } = useContext(Context)
+    const [loading, setLoading] = useState(false);
 
     //get user data
     function handleOnChange(e) {
@@ -17,10 +17,17 @@ export default function Register() {
 
     }
 
-    function handleSubmit(e) {
-        e.preventDefault()
-        //send  user to db
-        register(user)
+    async function handleSubmit(e) {
+        e.preventDefault();
+        setLoading(true);
+
+        try {
+            await register(user);
+        } catch (error) {
+            console.error("Erro no cadastro:", error);
+        }
+
+        setLoading(false);
     }
 
     return (
@@ -39,7 +46,7 @@ export default function Register() {
                 <form onSubmit={handleSubmit}>
 
                     <Data>
-                        
+
                         <Label htmlFor="cnpj">CNPJ</Label>
                         <Input type="text" maxLength="14" name="cnpj" id='cnpj' placeholder="Digite o seu CNPJ" onChange={handleOnChange} />
                         <br />
@@ -57,7 +64,7 @@ export default function Register() {
                         <br />
 
                         <Label htmlFor="cpf">CPF do Titular</Label>
-                        <Input type="text"  maxLength="11"name="cpf" id='cpf' placeholder="Digite o CPF do Titular do CNPJ" onChange={handleOnChange} />
+                        <Input type="text" maxLength="11" name="cpf" id='cpf' placeholder="Digite o CPF do Titular do CNPJ" onChange={handleOnChange} />
                         <br />
 
                         <Label htmlFor="phone" >Telefone</Label>
@@ -83,7 +90,9 @@ export default function Register() {
                     </Data>
 
                     <DivButton>
-                        <Button type="submit">Cadastre-se</Button>
+
+                        <Button type="submit" disabled={loading}>{!loading ? "Cadastre-se" : "Realizando login..."}</Button>
+
                     </DivButton>
 
                 </form>

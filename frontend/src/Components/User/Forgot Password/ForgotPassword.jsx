@@ -9,7 +9,7 @@ import useFlashMessage from "../../../hooks/useFlashMessage"
 export default function ForgotPassword() {
 
     const { setFlashMessage } = useFlashMessage()
-
+    const [loading, setLoading] = useState(false);
     const [token, setToken] = useState(true)
     const [tokenSent, setTokenSent] = useState(false)
     const [email, setEmail] = useState({})
@@ -32,6 +32,7 @@ export default function ForgotPassword() {
                 msgType = 'error'
                 return err.response.data
             })
+        setLoading(false);
 
         setFlashMessage(data.message, msgType)
     }
@@ -51,6 +52,7 @@ export default function ForgotPassword() {
                 return err.response.data
             })
 
+        setLoading(false);
         setFlashMessage(data.message, msgType)
     }
 
@@ -75,7 +77,7 @@ export default function ForgotPassword() {
                     </Data>
 
                     <Footer>
-                        <Button onClick={sendToken}>Gerar token</Button>
+                        <Button onClick={sendToken} disabled={loading}>{!loading ? "Gerar token" : "Gerando token..."}</Button>
                     </Footer>
 
                     {tokenSent &&
@@ -96,7 +98,7 @@ export default function ForgotPassword() {
 
 
                             <Footer>
-                                <Button onClick={resetPassword}>Mude sua senha</Button>
+                                <Button onClick={resetPassword}disabled={loading}>{!loading ? "Mude Sua Senha" : "Mudando Senha..."}</Button>
                             </Footer>
                         </>
 

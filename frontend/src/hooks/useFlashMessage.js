@@ -8,7 +8,7 @@ export default function useFlashMessage() {
             type: type,
         })
     }
-
+    window.scrollTo({ top: 0, behavior: 'smooth' })
     return { setFlashMessage }
 }
 

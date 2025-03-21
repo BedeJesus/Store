@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from 'react-router-dom'
+import {ShareNetwork } from 'phosphor-react';
 
 export const Container = styled.div`
 
@@ -18,6 +19,12 @@ a{
 }
 
     margin-bottom: 1em;
+`
+
+export const Logo = styled(ShareNetwork)`
+
+    margin-top: 8px;
+
 `
 export const Store = styled(Link)`
 

@@ -7,14 +7,13 @@ export const Container = styled.div`
     h3{
         margin-left: auto;
         margin-right: auto;
+        color:${props => props.theme.colors.primary_text};
     }
 
     h1{
       color: ${props => props.theme.colors.primary_text};
       margin-bottom: .5em;
     }
-
-  
 
 `
 

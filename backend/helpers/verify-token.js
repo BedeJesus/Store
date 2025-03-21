@@ -12,7 +12,7 @@ const checkToken = (req, res, next) => {
     const token = getToken(req)
 
     if (!token) {
-        return res.status(401).json({ message: 'Access Deniedeee' })
+        return res.status(401).json({ message: 'Acesso negado, tente atualizar a página' })
     }
 
     try{

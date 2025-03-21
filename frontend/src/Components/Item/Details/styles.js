@@ -70,6 +70,12 @@ export const Image = styled.img`
   border-radius: 10px;
   margin-top: 3em;
   border: 2px solid ${props => props.theme.colors.primary_details};
+
+  @media(max-width : 600px) {
+    width: 20em;
+    height: 20em;
+    }
+
 `
 
 export const Data = styled.div` 
@@ -172,6 +178,7 @@ export const Highlight = styled(Link)`
   background-color: rgb(255, 56, 86);
   color: hsl(0, 0%, 100%);
   box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
+  justify-content: center; 
   
   :hover{
       color:${props => props.theme.colors.primary_text};
@@ -191,6 +198,10 @@ export const CreateCount = styled.span`
     display: flex;
     font-size: 1.6em;
     justify-content: center;    
+
+    @media(max-width : 600px) {
+      flex-direction: column;
+    }
 
 `
 

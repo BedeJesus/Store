@@ -2,11 +2,13 @@ import api from '../../../utils/api'
 import { useEffect, useState } from 'react'
 import { Container, Description, ItemLink, Item, Rents, WhatsApp, Email, Options } from './styles'
 import { WhatsappLogo, UserCircle, Envelope } from 'phosphor-react'
+import Loader from '../../Loader/Loader'
 
 export default function MyRents() {
 
     const [items, setItems] = useState([])
     const [token] = useState(localStorage.getItem('token') || '')
+    const [loading, setLoading] = useState(true)
 
     useEffect(() => {
         api.get('/items/myrents', {
@@ -16,7 +18,9 @@ export default function MyRents() {
         })
             .then((response) => {
                 setItems(response.data.items)
+                setLoading(false)
             })
+
     }, [token])
 
 
@@ -26,56 +30,63 @@ export default function MyRents() {
 
             <h1>Minhas Locações</h1>
 
-            <Rents>
+            {!loading ? (
+                <Rents>
 
-                {items.length > 0 &&
+                    {items.length > 0 &&
 
-                    items.map((item) => (
+                        items.map((item) => (
 
-                        <Item>
+                            <Item>
 
-                            <ItemLink to={`item/${item._id}`}> {item.title} </ItemLink>
+                                <ItemLink to={`item/${item._id}`}> {item.title} </ItemLink>
 
-                            <img
-                                src={`${process.env.REACT_APP_API}/images/items/${item.images[0]}`}
-                                alt={item.name}
-                            />
+                                <img
+                                    src={`${process.env.REACT_APP_API}/images/items/${item.images[0]}`}
+                                    alt={item.name}
+                                />
 
-                            <Description>
+                                <Description>
 
-                                <Options>
+                                    <Options>
 
-                                    <WhatsApp href={`https://api.whatsapp.com/send?phone=${item.user.phone}`}
-                                        target="_blank" >
-                                        <WhatsappLogo size={45} />
-                                        Envie uma mensagem
-                                    </WhatsApp>
+                                        <WhatsApp href={`https://api.whatsapp.com/send?phone=${item.user.phone}`}
+                                            target="_blank" >
+                                            <WhatsappLogo size={45} />
+                                            Envie uma mensagem
+                                        </WhatsApp>
 
-                                    <Email href={`mailto:${item.user.email}`}>
-                                        <Envelope size={45} />
-                                        Envie um e-mail
-                                    </Email>
+                                        <Email href={`mailto:${item.user.email}`}>
+                                            <Envelope size={45} />
+                                            Envie um e-mail
+                                        </Email>
 
-                                    <span> <UserCircle size={45} />Fale com {item.user.name} </span>
+                                        <span> <UserCircle size={45} />Fale com {item.user.name} </span>
 
-                                </Options>
+                                    </Options>
 
-                                <div>
-                                    {item.available ? (
-                                        <p>Locação em processo</p>
-                                    ) : (
-                                        <p>Locação realizada</p>
-                                    )}
-                                </div>
+                                    <div>
+                                        {item.available ? (
+                                            <p>Locação em processo</p>
+                                        ) : (
+                                            <p>Locação realizada</p>
+                                        )}
+                                    </div>
 
-                            </Description>
+                                </Description>
 
-                        </Item>
-                    ))}
+                            </Item>
+                        ))}
 
-                {items.length === 0 && <h2>Você ainda não solicitou uma locação</h2>}
+                    {items.length === 0 && <h2>Você ainda não solicitou uma locação</h2>}
 
-            </Rents>
+                </Rents>
+
+            ) : (
+
+                <Loader />
+
+            )}
 
         </Container>
     )

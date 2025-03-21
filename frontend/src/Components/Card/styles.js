@@ -25,6 +25,11 @@ export const Container = styled.div`
         height: 25em;
     } 
 
+    @media(max-width : 600px) {
+        width: 47.5%;
+        height: 30em;
+    } 
+
     :hover {
         border: 1px solid ${props => props.theme.colors.secundary_details};
         transform: scale(1.05);
@@ -81,7 +86,7 @@ export const Status = styled.div`
     justify-content: center;
     font-weight: bold;
     margin-bottom: 5%;
-    font-size: 1.5em;
+    font-size: 1.2em;
 `
 
 

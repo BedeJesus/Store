@@ -42,7 +42,7 @@ export const Header = styled.div`
         margin: .4em 0;
     }
 
-    @media(max-width : 550px) {
+    @media(max-width : 600px) {
         text-align: center;
     } 
 
@@ -55,8 +55,13 @@ export const Input = styled.input`
     border: 0;
     border-bottom: ${props => props.theme.colors.primary_text} solid 2px ;
     color: ${props => props.theme.colors.primary_text};
+    width: 100%;
     font-size: 1em;
     padding: 0.7% 0;
+
+    @media(max-width : 400px) {
+        /* max-width: 80%; */
+    } 
 
     :focus,:hover{
         outline:none;
@@ -67,6 +72,7 @@ export const Input = styled.input`
 export const Data = styled.div` 
 
    display: grid;
+   width: 100%
 `
 
 export const Label = styled.label` 
@@ -89,6 +95,7 @@ align-items: center;
 h6{
     font-size: 1.4em;
     margin-top: .4em ;
+    text-align: center;
 }
 
 a{
@@ -104,6 +111,10 @@ export const TwoButtons = styled.div`
 
 display: flex;
 justify-content: space-evenly;
+
+@media(max-width : 600px) {
+    justify-content: space-around;
+} 
 
 `
 
@@ -130,6 +141,14 @@ export const Button = styled.button`
  transform: translateY(5px);
  transition: 50ms;
 }
+
+    @media(max-width : 600px) {
+        padding: .5em;
+        font-size: 1.5em;
+    } 
+
+
+
 
 `
 

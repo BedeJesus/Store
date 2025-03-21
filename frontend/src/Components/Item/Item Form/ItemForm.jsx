@@ -1,10 +1,8 @@
 import React, { useState } from "react";
 import { Bag } from 'phosphor-react'
 import api from '../../../utils/api'
-
 import { useNavigate } from "react-router";
 import useFlashMessage from '../../../hooks/useFlashMessage'
-
 import { Container, Button, Data, Header, Input, Label, Box, DivButton } from './../../../styles/form'
 
 
@@ -12,6 +10,7 @@ export default function ItemForm(props) {
 
     const [item, setitem] = useState(props.itemData || {})
     const [preview, setPreview] = useState([])
+    const [loading, setLoading] = useState(false);
 
     function onFileChange(e) {
         setitem({ ...item, images: [...e.target.files] })
@@ -26,6 +25,7 @@ export default function ItemForm(props) {
 
     function submit(e) {
         e.preventDefault()
+        setLoading(true);
         registerItem(item)
     }
 
@@ -63,6 +63,7 @@ export default function ItemForm(props) {
                 return err.response.data
             })
 
+        setLoading(false);
         setFlashMessage(data.message, msgType)
 
         if (msgType !== 'error') {
@@ -114,7 +115,7 @@ export default function ItemForm(props) {
                     </Data>
 
                     <DivButton>
-                        <Button type="submit">Cadastre o produto</Button>
+                        <Button type="submit" disabled={loading}>{!loading ? "Cadastre o Produto" : "Cadastrando Produto..."}</Button>
                     </DivButton>
 
                 </form>

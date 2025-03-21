@@ -9,10 +9,13 @@ import {
     Price, CreateCount, Box, RightArrow, LeftArrow,
     Arrows, Slider, Image, Info, InfoItem, Input, Highlight
 } from './styles'
+import Loader from '../../Loader/Loader'
 
 export default function DetailsItem() {
 
     const [item, setItem] = useState({})
+    const [loading, setLoading] = useState(true)
+    const [reqLoading, setReqLoading] = useState(false)
     const { id } = useParams()
     const { setFlashMessage } = useFlashMessage()
     const [token] = useState(localStorage.getItem('token') || '')
@@ -21,11 +24,13 @@ export default function DetailsItem() {
     useEffect(() => {
         api.get(`/items/${id}`).then((response) => {
             setItem(response.data.item)
+            setLoading(false)
         })
 
     }, [id])
 
     async function rent() {
+        setReqLoading(true)
         let msgType = 'success'
         console.log(`Bearer ${JSON.parse(token)}`)
         const data = await api.patch(`items/rent/${item._id}`, {
@@ -38,7 +43,7 @@ export default function DetailsItem() {
             msgType = 'error'
             return err.response.data
         })
-
+        setReqLoading(false)
         setFlashMessage(data.message, msgType)
     }
 
@@ -61,86 +66,83 @@ export default function DetailsItem() {
 
     return (
         <Container>
-            <h1>{item.title}</h1>
 
-            <Box>
+            {!loading ? (
 
-                <Slider>
+                <>
+                    <h1>{item.title}</h1>
 
-                    {item.images.map((image, index) => {
+                    <Box>
 
-                        return (
-                            <>
-                                {index === current && (
+                        <Slider>
 
-                                    <Image
-                                        src={`${process.env.REACT_APP_API}/images/items/${image}`}
-                                        alt={item.title}
-                                        key={index}
-                                    />
-                                )}
-                            </>
-                        )
-                    })}
+                            {item.images.map((image, index) => {
 
-                    {item.images.length > 1 && (
+                                return (
+                                    <>
+                                        {index === current && (
 
-                        <Arrows>
-                            <LeftArrow onClick={prevSlide} />
-                            <RightArrow onClick={nextSlide} />
-                        </Arrows>
-                    )}
+                                            <Image
+                                                src={`${process.env.REACT_APP_API}/images/items/${image}`}
+                                                alt={item.title}
+                                                key={item.images.length}
+                                            />
+                                        )}
+                                    </>
+                                )
+                            })}
 
-                </Slider>
+                            {item.images.length > 1 && (
 
-                <Data>
+                                <Arrows>
+                                    <LeftArrow onClick={prevSlide} />
+                                    <RightArrow onClick={nextSlide} />
+                                </Arrows>
+                            )}
 
-                    <h1>Descrição Completa</h1>
-                    <LongDescription>{item.long_desc}</LongDescription>
+                        </Slider>
 
-                    <Info>
+                        <Data>
 
-                        <InfoItem>
-                            <h2>Localização do item</h2>
-                            <Price>{item.user.address}</Price>
-                        </InfoItem>
+                            <h1>Descrição Completa</h1>
+                            <LongDescription>{item.long_desc}</LongDescription>
 
-                        <InfoItem>
-                            <h2>Valor da locação/dia</h2>
-                            <Price>{`R$${item.price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}</Price>
-                        </InfoItem>
+                            <Info>
 
-                    </Info>
+                                <InfoItem>
+                                    <h2>Localização do item</h2>
+                                    <Price>{item.user.address}</Price>
+                                </InfoItem>
 
-                    {token ? (
-                        <Button onClick={rent}>Solicitar uma visita</Button>
-                    ) : (
-                        <CreateCount> Você precisa &nbsp;<Highlight to='/register'> criar com uma conta </Highlight> &nbsp; para solicitar a locação </CreateCount>
-                    )}
+                                <InfoItem>
+                                    <h2>Valor da locação/dia</h2>
+                                    <Price>{`R$${item.price.toLocaleString('pt-br', { minimumFractionDigits: 2 })}`}</Price>
+                                </InfoItem>
 
-                </Data>
+                            </Info>
 
-            </Box>
+                            {token ? (
+                                <Button onClick={rent} disabled={reqLoading}>{!reqLoading ? "Solicitar uma Visita" : "Solicitando Visita..."}</Button>
+                            ) : (
+                                <CreateCount> Você precisa &nbsp;<Highlight to='/register'> criar uma conta </Highlight> &nbsp; para solicitar a locação </CreateCount>
+                            )}
+
+                        </Data>
+
+                    </Box>
+
+                </>
+
+            ) : (
+
+                <Loader />
+
+            )}
 
 
         </Container>
 
     )
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 

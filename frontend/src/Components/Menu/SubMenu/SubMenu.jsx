@@ -19,7 +19,7 @@ export default function SubMenu() {
 
         <Container>
 
-            <label ref={labelRef} for="burger" class="burger" >
+            <label ref={labelRef} htmlFor="burger" className="burger" >
                 <input id="burger" type="checkbox" onClick={() => show ? setShow(false) : setShow(true)} />
                 <span></span>
                 <span></span>

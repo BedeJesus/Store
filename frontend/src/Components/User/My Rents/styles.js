@@ -28,7 +28,7 @@ export const Item = styled.div`
     flex-direction: column;
     margin: 1.2em ;
     width: 18%;
-    height: 27em;
+    height: 30em;
     padding: 5px 0;
     overflow: hidden;
     border-radius: 10px;

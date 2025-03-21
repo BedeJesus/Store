@@ -5,16 +5,18 @@ import useFlashMessage from '../../../hooks/useFlashMessage'
 import { Context } from "../../../context/UserContext";
 
 import { Button, Container, Data, Header, Input, Label, TwoButtons, Box } from './../../../styles/form'
+import Loader from "../../Loader/Loader";
 
 export default function Profile() {
 
 
     const { logout } = useContext(Context)
-
     const [user, setUser] = useState({})
     const [preview, setPreview] = useState('')
     const [token] = useState(localStorage.getItem('token') || '')
     const { setFlashMessage } = useFlashMessage()
+    const [loading, setLoading] = useState(true)
+    const [reqLoading, setReqLoading] = useState(false)
 
     useEffect(() => {
         api.get('/users/checkuser', {
@@ -22,7 +24,8 @@ export default function Profile() {
                 Authorization: `Bearer ${JSON.parse(token)}`
             }
         }).then((response) => [
-            setUser(response.data)
+            setUser(response.data),
+            setLoading(false)
         ])
 
     }, [token])
@@ -40,6 +43,7 @@ export default function Profile() {
 
     async function handleSubmit(e) {
         e.preventDefault()
+        setReqLoading(true)
 
         let msgType = 'success'
 
@@ -56,12 +60,13 @@ export default function Profile() {
 
             },
         }).then((response) => {
+            setReqLoading(false)
             return response.data
         }).catch((err) => {
+            setReqLoading(false)
             msgType = 'error'
             return err.response.data
         })
-
         setFlashMessage(data.message, msgType)
 
     }
@@ -74,61 +79,65 @@ export default function Profile() {
                 <Header>
                     <h1> {<SignIn />} Atualize seus dados </h1>
                 </Header>
+                {!loading ? (
+                    <form onSubmit={handleSubmit}>
 
-                <form onSubmit={handleSubmit}>
+                        <Data>
 
-                    <Data>
+                            <Label htmlFor="cnpj">CNPJ</Label>
+                            <Input type="text" maxLength="14" readOnly name="cnpj" id='cnpj' placeholder="Digite o seu CNPJ" onChange={handleChange} value={user.cnpj || ''} />
+                            <br />
 
-                        <Label htmlFor="cnpj">CNPJ</Label>
-                        <Input type="text" maxLength="14" readOnly name="cnpj" id='cnpj' placeholder="Digite o seu CNPJ" onChange={handleChange} value={user.cnpj || ''} />
-                        <br />
+                            <Label htmlFor="business_name">Razão Social</Label>
+                            <Input type="text" readOnly name="business_name" id='business_name' placeholder="Digite sua razão social" onChange={handleChange} value={user.business_name || ''} />
+                            <br />
 
-                        <Label htmlFor="business_name">Razão Social</Label>
-                        <Input type="text" readOnly name="business_name" id='business_name' placeholder="Digite sua razão social" onChange={handleChange} value={user.business_name || ''}/>
-                        <br />
+                            <Label htmlFor="cnae">CNAE</Label>
+                            <Input type="text" readOnly name="cnae" maxLength="7" id='cnae' placeholder="Digite seu CNAE" onChange={handleChange} value={user.cnae || ''} />
+                            <br />
 
-                        <Label htmlFor="cnae">CNAE</Label>
-                        <Input type="text" readOnly name="cnae" maxLength="7" id='cnae' placeholder="Digite seu CNAE" onChange={handleChange} value={user.cnae || ''}/>
-                        <br />
+                            <Label htmlFor="name">Nome do Titular</Label>
+                            <Input type="text" name="name" id='name' placeholder="Digite seu nome completo" onChange={handleChange} value={user.name || ''} />
+                            <br />
 
-                        <Label htmlFor="name">Nome do Titular</Label>
-                        <Input type="text" name="name" id='name' placeholder="Digite seu nome completo" onChange={handleChange} value={user.name || ''} />
-                        <br />
+                            <Label htmlFor="cpf">CPF do Titular</Label>
+                            <Input type="text" maxLength="11" name="cpf" id='cpf' placeholder="Digite o CPF do Titular do CNPJ" onChange={handleChange} value={user.cpf || ''} />
+                            <br />
 
-                        <Label htmlFor="cpf">CPF do Titular</Label>
-                        <Input type="text" maxLength="11" name="cpf" id='cpf' placeholder="Digite o CPF do Titular do CNPJ" onChange={handleChange} value={user.cpf || ''} />
-                        <br />
+                            <Label htmlFor="phone" >Telefone</Label>
+                            <Input type="number" name="phone" id='phone' placeholder="Digite seu telefone" onChange={handleChange} value={user.phone || ''} />
+                            <br />
 
-                        <Label htmlFor="phone" >Telefone</Label>
-                        <Input type="number" name="phone" id='phone' placeholder="Digite seu telefone" onChange={handleChange} value={user.phone || ''} />
-                        <br />
+                            <Label htmlFor="address" >Cidade e Estado</Label>
+                            <Input type="text" name="address" id='address' placeholder="Digite sua cidade de estado" onChange={handleChange} value={user.address || ''} />
+                            <br />
 
-                        <Label htmlFor="address" >Cidade e Estado</Label>
-                        <Input type="text" name="address" id='address' placeholder="Digite sua cidade de estado" onChange={handleChange} value={user.address || ''} />
-                        <br />
+                            <Label htmlFor="email">E-mail</Label>
+                            <Input type="email" name="email" id='email' placeholder="Digite seu e-mail" onChange={handleChange} value={user.email || ''} />
+                            <br />
 
-                        <Label htmlFor="email">E-mail</Label>
-                        <Input type="email" name="email" id='email' placeholder="Digite seu e-mail" onChange={handleChange} value={user.email || ''} />
-                        <br />
+                            <Label htmlFor="password" >Senha</Label>
+                            <Input type="password" name="password" id='password' placeholder="Digite sua senha" onChange={handleChange} />
+                            <br />
 
-                        <Label htmlFor="password" >Senha</Label>
-                        <Input type="password" name="password" id='password' placeholder="Digite sua senha" onChange={handleChange} />
-                        <br />
+                            <Label htmlFor="confirmpassword" >Confirme sua senha</Label>
+                            <Input type="password" name="confirmpassword" id='confirmpassword' placeholder="Digite sua senha" onChange={handleChange} />
+                            <br />
 
-                        <Label htmlFor="confirmpassword" >Confirme sua senha</Label>
-                        <Input type="password" name="confirmpassword" id='confirmpassword' placeholder="Digite sua senha" onChange={handleChange} />
-                        <br />
+                        </Data>
 
-                    </Data>
+                        <TwoButtons>
 
-                    <TwoButtons>
+                            <Button className="btn1" type="submit" disabled={reqLoading}> {!reqLoading? "Atualizar" : "Atualizando..."}</Button>
+                            <Button onClick={logout}>Sair</Button>
 
-                        <Button className="btn1" type="submit">Atualizar</Button>
-                        <Button onClick={logout}>Sair</Button>
+                        </TwoButtons>
 
-                    </TwoButtons>
+                    </form>
 
-                </form>
+                ) : (
+                    <Loader />
+                )}
 
             </Box>
 

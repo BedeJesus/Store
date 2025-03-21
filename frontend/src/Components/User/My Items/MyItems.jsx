@@ -11,6 +11,7 @@ export default function MyItems() {
     const [items, setItems] = useState([])
     const [token] = useState(localStorage.getItem('token') || '')
     const { setFlashMessage } = useFlashMessage()
+    const [loading, setLoading] = useState(true)
 
     const [currentPage, setCurrentPage] = useState(1)
     const itemsInPage = 15
@@ -36,6 +37,8 @@ export default function MyItems() {
             .then((response) => {
                 setItems(response.data.items)
             })
+
+        setLoading(false)
     }, [token])
 
 
@@ -95,7 +98,7 @@ export default function MyItems() {
 
             </>
 
-            {items.length > 1 && (
+            {items.length > 1 && !loading && (
 
                 <Filter>
 
@@ -116,7 +119,7 @@ export default function MyItems() {
 
             <ItemCards>
 
-                {items.length > 0 &&
+                {items.length > 0 && !loading &&
                     currentItems.map((item) => (
 
                         <Card
@@ -130,7 +133,7 @@ export default function MyItems() {
                         />
                     ))}
 
-                {items.length === 0 && (
+                {items.length === 0 && !loading && (
                     <h3>Você não tem nenhum item cadastrado</h3>
                 )}
 

@@ -18,7 +18,7 @@ const createOrder = async (product) => {
         {
           amount: {
             currency_code: "BRL",
-            value: "89.99",
+            value: "59.99",
           },
         },
       ],

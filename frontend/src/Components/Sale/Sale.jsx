@@ -3,10 +3,12 @@ import Card from '../Card/Card'
 import api from "../../utils/api";
 import { Container, Items, Input, Filter } from './styles'
 import Pagination from "../Pagination/Pagination";
+import Loader from "../Loader/Loader";
 
 export default function Sale(props) {
 
     const [items, setItems] = useState([])
+    const [loading, setLoading] = useState(true)
 
     const [currentPage, setCurrentPage] = useState(1)
     const itemsInPage = 15
@@ -21,11 +23,12 @@ export default function Sale(props) {
         setCurrentPage(pageNumber)
     }
 
-
     useEffect(() => {
         api.get('/items').then((response) => {
             setItems(response.data.items)
+            setLoading(false)
         })
+        
     }, [])
 
     function Button(item) {
@@ -56,34 +59,40 @@ export default function Sale(props) {
 
             </Filter>
 
+            {!loading ? (
 
-            <Items>
+                <Items>
 
-                {items.length > 0 &&
-                    currentItems.map((item) => (
+                    {items.length > 0 &&
+                        currentItems.map((item) => (
 
-                        <Card 
-                            item={item}
-                            available={item.available}
-                            name={item.title}
-                            image={`${process.env.REACT_APP_API}/images/items/${item.images[0]}`}
-                            price={item.price}
-                            description={item.short_desc}
-                            button={Button(item)}
-                    
-                        />
+                            <Card
+                                item={item}
+                                available={item.available}
+                                name={item.title}
+                                image={`${process.env.REACT_APP_API}/images/items/${item.images[0]}`}
+                                price={item.price}
+                                description={item.short_desc}
+                                button={Button(item)}
+                                key={item._id}
 
-                    ))}
-                    
-                {items.length === 0 && (
-                    <h3>Não há itens cadastrados ou disponiveis para locação</h3>
-                )}
+                            />
 
-            </Items>
+                        ))}
+
+                    {items.length === 0 && (
+                        <h3>Não há itens cadastrados ou disponiveis para locação</h3>
+                    )}
+
+                </Items>
+
+            ) : (
+
+                <Loader/>
+
+            )}
 
         </Container>
 
     )
 }
-
-

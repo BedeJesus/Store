@@ -1,10 +1,10 @@
 import React, { useContext } from "react";
 import { Context } from '../../context/UserContext'
-import { Top, Container, Button, Store, MiddleButtons, Toggle } from './styles'
+import { Top, Container, Button, Store, MiddleButtons, Logo } from './styles'
 import Switch from "react-switch";
 import SubMenu from "./SubMenu/SubMenu";
 import { ThemeContext } from 'styled-components'
-import { Sun, Moon, ShareNetwork } from 'phosphor-react';
+import { Sun, Moon } from 'phosphor-react';
 
 export default function Menu({ toggleTheme }) {
 
@@ -20,7 +20,7 @@ export default function Menu({ toggleTheme }) {
 
                 <SubMenu />
 
-                <Store to='/'>Customer <ShareNetwork size={35}/> </Store> 
+                <Store to='/'>Customer <Logo size={35}/> </Store> 
 
                 {authenticated ? (
                     <>

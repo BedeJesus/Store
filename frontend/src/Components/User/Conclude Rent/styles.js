@@ -24,6 +24,11 @@ export const Image = styled.img`
   border-radius: 10px;
   margin-top: 3em;
   border: 2px solid ${props => props.theme.colors.primary_details};
+
+  @media(max-width : 600px) {
+    width: 20em;
+    height: 20em;
+  }
 `
 
 
