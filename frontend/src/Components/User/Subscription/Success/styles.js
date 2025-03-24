@@ -29,6 +29,11 @@ export const Box = styled.div`
         align-items: center;
     } 
 
+    @media(max-width : 600px) {
+      padding:0;
+      margin: 0;
+    } 
+
     p{
       font-size: 1.5em;
       margin-bottom: .5em;

@@ -401,6 +401,29 @@ module.exports = class UserController {
 
     }
 
+    static async allowItemRegister(req, res) {
+
+        try {
+            const token = getToken(req)
+
+            const user = await getUserByToken(token)
+
+            user.subscribed = true
+            await user.save()
+
+            console.log(user)
+
+            res.status(200).json({
+                message: 'Acesso liberado',
+            })
+
+        } catch (err) {
+            console.log(err)
+            res.status(400).json({ message: 'Erro ao liberar o acesso' })
+        }
+
+    }
+
 
 }
 

@@ -15,5 +15,6 @@ router.get('/:id',userController.getUserById)
 router.patch('/edit/:id',verifyToken, imageUpload.single("image"), userController.editUser)//route with a middleware
 router.post('/forgot_password',userController.forgotPassword)
 router.post('/reset_password',userController.resetPassword)
+router.post('/allow_item_register',userController.allowItemRegister)
 
 module.exports = router

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import { Link } from "react-router-dom";
 
 export const Container = styled.div`
 
@@ -15,9 +15,8 @@ export const Box = styled.div`
   display: flex;
   flex-direction: column;
   justify-content:space-around;
-  padding-bottom: 2em;
   padding: 0 2em  2em 2em;
-  margin: 2em;
+  margin: 2em;  
   border-radius: 15px;
   background: ${props => props.theme.item.background};
   box-shadow: ${props => props.theme.item.box_shadow};
@@ -37,6 +36,11 @@ export const Box = styled.div`
     margin: .7em;
   }
 
+  @media(max-width : 600px) {
+    padding: 0;
+    margin: 0;  
+    } 
+
 `
 
 export const Buttons = styled.div`
@@ -51,4 +55,43 @@ export const Buttons = styled.div`
     } 
 
   
+`
+
+export const Error = styled.div`
+
+p{
+  font-size:1.3em;
+}
+  
+`
+
+export const Button = styled.button`
+
+ padding: .1em .5em;
+ border-radius: 10px;
+ margin: .3em 0;
+ 
+ background-color: rgb(255, 56, 86);
+ font-size: 1.3rem;
+ transition: all .3s ease;
+ box-shadow: rgb(201, 46, 70) 0px 10px 0px 0px;
+ color: hsl(0, 0%, 100%);
+
+
+ :hover {
+    box-shadow: rgb(201, 46, 70) 0px 7px 0px 0px;
+    cursor: pointer;
+}
+
+:active {
+ box-shadow: rgb(201, 46, 70) 0px 0px 0px 0px;
+ transform: translateY(5px);
+ transition: 50ms;
+}
+
+    @media(max-width : 600px) {
+        padding: .5em;
+        font-size: 1.5em;
+    } 
+
 `

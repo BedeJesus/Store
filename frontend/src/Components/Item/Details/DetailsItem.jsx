@@ -59,15 +59,11 @@ export default function DetailsItem() {
         setCurrent(current === 0 ? item.images.length - 1 : current - 1);
     };
 
-    if (!Array.isArray(item.images) || item.images.length <= 0) {
-        return null;
-    }
-
 
     return (
         <Container>
 
-            {!loading ? (
+            {!loading && item ? (
 
                 <>
                     <h1>{item.title}</h1>
