@@ -5,6 +5,7 @@
 🔍 Itens paginados e filtráveis pelo usuario.<br>
 🔛 Utilização de toogle switch para tema claro e escuro.<br>
 🔑 Funcionalidade de "Esqueci minha senha" através do MailTrap.<br>
+🔒 Senhas encriptadas com Bcrypt.<br>
 💳 Integração com PayPal.<br>
 🤏🏽 Aplicação totalmente responsiva.<br>
 🚪 Acesse aqui: https://frontend-theta-weld-48.vercel.app/
