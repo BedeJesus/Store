@@ -105,7 +105,6 @@ module.exports = class ItemController {
     }
 
     ///////////////////////////////
-    //get all user items
 
     static async getAllUserItems(req, res) {
         //get user from token
@@ -121,7 +120,6 @@ module.exports = class ItemController {
     }
 
     ///////////////////////////////
-    //get all user rents
 
     static async getAllUserRent(req, res) {
         // get user
@@ -137,7 +135,6 @@ module.exports = class ItemController {
     }
 
     /////////////////////////////q
-    //get item by id
 
     static async getItemById(req, res) {
         const id = req.params.id
@@ -160,7 +157,6 @@ module.exports = class ItemController {
         })
     }
 
-    //Delete item by id
 
     static async removeItemById(req, res) {
         const id = req.params.id
