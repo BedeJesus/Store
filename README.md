@@ -1,5 +1,5 @@
 <h1>Customer Connection</h1>
-👨‍💻 Aplicação web full-stack onde os usuários podem disponibilizar ferramentas para locação,e também alugar de outros usuários.<br>
+👨‍💻 Aplicação web full-stack onde os usuários podem alugar itens entre si.<br>
 🧑🏽‍🦰 Uma pessoa não pode alugar o proprio item e pode colocar varios itens para locação.<br>
 🪄 Utilização de JWT para autenticação para login e cadastro do usuário.<br>
 🔍 Itens paginados e filtráveis pelo usuario.<br>
